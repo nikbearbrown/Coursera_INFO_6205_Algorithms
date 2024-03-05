@@ -56,19 +56,20 @@ INFO 6205 covers a comprehensive range of topics designed to provide students wi
 
 **Additional Optional Topics Explored in the Course Include:**
 
+Optional Topics do not count towards a course grade but are recommended for those looking for Data Engineering Careers.
+
 - **Optimal Stopping**: Strategies for decision-making under uncertainty.
 - **Explore/Exploit**: Balancing the new against the known in decision-making.
 - **Overfitting and Relaxation**: Methods for avoiding overfitting in machine learning and problem relaxation strategies.
 - **Randomness and Networking**: The role of randomness in algorithms and the basics of network theory.
 - **Game Theory**: Understanding strategic interactions in competitive environments.
 - **Linear Programming**: Applying linear programming to solve various computational problems.
+- **Fundamentals of Large Language Models (LLM)**: Understanding the architecture, training processes, and applications of LLMs like GPT (Generative Pre-trained Transformer) and BERT (Bidirectional Encoder Representations from Transformers).
+- **Ethical Considerations for Algorithms**: Discussing the moral implications of AI and LLMs, including bias, fairness, transparency, and accountability in algorithmic decision-making.
+- **Algorithm Visualization**: Leveraging AI to extract insights from large datasets, predict trends, and create dynamic visualizations.
+- **Reinforcement Learning**: Teaching machines to make decisions by rewarding desired behaviors and outcomes in complex environments.
+- **Generative Models in AI**: Exploring generative adversarial networks (GANs) and their applications in creating art, synthetic data generation, and more.
 
-These topics are essential for developing a strong foundation in algorithms and data structures, with each module designed to build upon the previous ones. Through this curriculum, students will gain the skills necessary to analyze and construct efficient algorithms for a wide range of real-world problems.
-
----
-
-This addition provides a clear roadmap of what students can expect from the course, emphasizing its comprehensive nature and practical applications.
-- Linear programming and its applications
 
 **Methodology:**
 Students will engage with the material through a combination of theoretical exploration and practical application. The course includes extensive use of Python for implementing, simulating, and visualizing algorithms. This hands-on approach, combined with rigorous analysis, aims to equip students with the skills necessary to tackle complex algorithmic challenges.
