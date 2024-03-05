@@ -29,5 +29,3 @@
 - **Video Lecture**: Discussing the limitations of algorithm analysis and potential solutions.
 - **Exercise**: Identify potential pitfalls in algorithm analysis and suggest improvements.
 - **Programming Problem**: Tackle a complex problem where traditional analysis methods fall short and document the approach.
-
-Each module would conclude with a quiz to assess understanding and a capstone project at the end of the course where students apply what they've learned to analyze and optimize a comprehensive software solution. Peer review sessions would encourage collaboration and deeper understanding.
