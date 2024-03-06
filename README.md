@@ -58,7 +58,6 @@ Optional Topics do not count towards a course grade but are recommended for thos
 
 - **Optimal Stopping**: Strategies for decision-making under uncertainty.
 - **Explore/Exploit**: Balancing the new against the known in decision-making.
-- **Overfitting and Relaxation**: Methods for avoiding overfitting in machine learning and problem relaxation strategies.
 - **Randomness and Networking**: The role of randomness in algorithms and the basics of network theory.
 - **Game Theory**: Understanding strategic interactions in competitive environments.
 - **Linear Programming**: Applying linear programming to solve various computational problems.
