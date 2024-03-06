@@ -52,7 +52,7 @@ INFO 6205 covers a comprehensive range of topics designed to provide students wi
 
 
 
-**Additional Optional Topics Explored in the Course Include:**
+**Appendix :**
 
 Optional Topics do not count towards a course grade but are recommended for those looking for Data Engineering Careers.
 
