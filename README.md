@@ -5,7 +5,7 @@
 Welcome to INFO 6205: Program Structure and Algorithms, offered by the College of Engineering at Northeastern University on Coursera. This course is designed to introduce students to the fundamental principles of data structures and algorithms, focusing on their practical application and theoretical underpinnings.
 
 **Course Overview:**
-INFO 6205 dives deep into data structures, starting with dynamic memory allocation, and explores key concepts such as lists, stacks, queues, trees, hash tables, and graphs. It emphasizes understanding the application of abstract data structures and the factors influencing implementation choices. The course also covers recursion, searching, and sorting algorithms in detail, along with data abstraction and encapsulation in code design. Time permitting, external storage structures will be explored.
+INFO 6205 on Coursera integrates dynamic programming, graph algorithms, and greedy strategies into its curriculum, focusing on solving computational problems using Python. The course begins with dynamic memory allocation and covers data structures like lists, trees, and graphs. It then advances into complex problem-solving techniques, including dynamic programming for overlapping subproblems, graph algorithms for network flows, and greedy methods for optimization. With a hands-on approach, including programming assignments and a capstone project, the course prepares students for careers in data engineering, emphasizing both practical skills and theoretical knowledge.
 
 **Learning Objectives:**
 - Understand and apply various computational problem formulation techniques.
