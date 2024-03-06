@@ -1,3 +1,5 @@
+# NP-Completeness
+
 ### Lesson 1: Introduction to NP-Completeness
 #### Video Lectures:
 - Fundamentals of NP, P, and NP-Completeness, exploring the foundational concepts and significance in computational theory.
