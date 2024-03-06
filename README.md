@@ -46,8 +46,9 @@ INFO 6205 covers a comprehensive range of topics designed to provide students wi
 - **Dynamic Programming**: Solving complex problems by breaking them down into simpler subproblems.
 - **Network Flow**: Understanding maximum flow theory and its applications.
 - **Intractability**: Approaching NP-completeness and strategies for dealing with hard problems.
-- **Scheduling and Bayes’ Rule**: Approaches for optimal task arrangement and probabilistic prediction.
-- **Approximation and Randomized Algorithms**: Techniques for finding near-optimal solutions to complex problems and leveraging randomness.
+- **Bayes’ Rule**: Approaches for optimal task arrangement and probabilistic prediction.
+- **Approximation Algorithms**: Techniques for finding near-optimal solutions to complex problems and leveraging randomness.
+- **Randomized Algorithms**: Techniques for finding near-optimal solutions to complex problems and leveraging randomness.
 - **Data Structures**: Diving deep into the use and implementation of heaps, union-find, and more.
 
 
