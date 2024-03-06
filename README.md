@@ -32,7 +32,7 @@ The course structure includes homework assignment, exams, quizzes, and a compreh
 - Advanced data structures, including heaps and union-find
 
 
-**Detailed Curriculum:**
+**Core Curriculum:**
 
 INFO 6205 covers a comprehensive range of topics designed to provide students with a deep understanding of algorithms and data structures. The required curriculum includes:
 
