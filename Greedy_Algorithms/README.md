@@ -1,16 +1,27 @@
 # Greedy Algorithms
 
-### Lesson 1: Greedy Algorithms for Optimization
-- **Video Lectures**: Principles of greedy algorithms, proofs of correctness.
-- **Exercises**: Problems showcasing the use of greedy strategies in different scenarios.
-- **Programming Problem**: Solving optimization problems using greedy techniques.
+#### Lesson 1: Greedy Algorithms for Optimization
+- **Video Lectures**: Principles and proofs.
+- **Exercises**: Greedy strategy scenarios.
+- **Programming Problem**: Solve using greedy techniques.
 
-### Lesson 2: Understanding Dijkstra's Algorithm
-- **Video Lectures**: Detailed walkthrough of Dijkstra's algorithm for shortest paths.
-- **Exercises**: Trace Dijkstra's algorithm on various graph structures.
-- **Programming Problem**: Coding Dijkstra's algorithm from scratch.
+#### Lesson 2: Understanding Dijkstra's Algorithm
+- **Video Lectures**: Algorithm walkthrough.
+- **Exercises**: Tracing Dijkstra's algorithm.
+- **Programming Problem**: Code Dijkstra's algorithm.
 
-### Lesson 3: Interval Scheduling
-- **Video Lectures**: Basics of interval scheduling, greedy algorithms for job selection.
-- **Exercises**: Hand-picked problems to practice interval scheduling concepts.
-- **Programming Problem**: Implementing interval scheduling to maximize job completion.
+#### Lesson 3: Interval Scheduling
+- **Video Lectures**: Interval scheduling basics.
+- **Exercises**: Interval scheduling problems.
+- **Programming Problem**: Implement interval scheduling.
+
+#### Lesson 4: Huffman Coding
+- **Video Lectures**: Huffman coding for data compression.
+- **Exercises**: Construct Huffman trees.
+- **Programming Problem**: Develop a Huffman coding algorithm.
+
+#### Lesson 5: Minimum Spanning Trees
+- **Video Lectures**: Greedy algorithms in network design.
+- **Exercises**: Kruskal's and Prim's algorithms.
+- **Programming Problem**: Implement a minimum spanning tree algorithm.
+
