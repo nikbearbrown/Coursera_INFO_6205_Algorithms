@@ -13,7 +13,7 @@ INFO 6205 on Coursera integrates dynamic programming, graph algorithms, and gree
 - Learn proof and analysis techniques critical for evaluating algorithm correctness and efficiency.
 - Transform algorithms into executable programs using Python.
 - Implement, simulate, and visualize algorithms for a deeper understanding.
-- Apply learned algorithms to solve real-world problems.
+- **Data Structures**: Diving deep into the use and implementation of heaps, union-find, and more.
 
 **Course Content and Structure:**
 The course structure includes homework assignment, exams, quizzes, and a comprehensive research project.  The course examples will all use the python programming language.
@@ -49,7 +49,7 @@ INFO 6205 covers a comprehensive range of topics designed to provide students wi
 - **Bayes’ Rule**: Approaches for optimal task arrangement and probabilistic prediction.
 - **Approximation Algorithms**: Techniques for finding near-optimal solutions to complex problems and leveraging randomness.
 - **Randomized Algorithms**: Techniques for finding near-optimal solutions to complex problems and leveraging randomness.
-- **Data Structures**: Diving deep into the use and implementation of heaps, union-find, and more.
+
 
 
 **Additional Optional Topics Explored in the Course Include:**
