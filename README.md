@@ -31,9 +31,6 @@ The course structure includes homework assignment, exams, quizzes, and a compreh
 - Approximation and randomized algorithms
 - Advanced data structures, including heaps and union-find
 
-To seamlessly incorporate the provided list of topics into the existing course description for INFO 6205: Program Structure and Algorithms at Northeastern University's College of Engineering on Coursera, they should be added as a detailed curriculum segment that showcases the breadth and depth of the course content. This could be positioned towards the end of the course description, right after the "Methodology" section, to give prospective students a clear understanding of what they will learn. Here's how it could be integrated:
-
----
 
 **Detailed Curriculum:**
 
