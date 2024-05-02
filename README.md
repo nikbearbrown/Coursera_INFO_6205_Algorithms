@@ -67,7 +67,6 @@ Optional Topics do not count towards a course grade but are recommended for thos
 - **Reinforcement Learning**: Teaching machines to make decisions by rewarding desired behaviors and outcomes in complex environments.
 - **Generative Models in AI**: Exploring generative adversarial networks (GANs) and their applications in creating art, synthetic data generation, and more.
 
-
 **Methodology:**
 Students will engage with the material through a combination of theoretical exploration and practical application. The course includes extensive use of Python for implementing, simulating, and visualizing algorithms. This hands-on approach, combined with rigorous analysis, aims to equip students with the skills necessary to tackle complex algorithmic challenges.
 
