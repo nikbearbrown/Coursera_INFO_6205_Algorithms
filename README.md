@@ -2,6 +2,7 @@
 
 **Course Description for INFO 6205: Program Structure and Algorithms**
 
+
 Welcome to INFO 6205: Program Structure and Algorithms, offered by the College of Engineering at Northeastern University on Coursera. This course is designed to introduce students to the fundamental principles of data structures and algorithms, focusing on their practical application and theoretical underpinnings.
 
 **Course Overview:**
