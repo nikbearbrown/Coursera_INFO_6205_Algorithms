@@ -14,6 +14,8 @@ Set the distance from \( S \) (the source) to itself as 0 and to all other verti
   - \( C \): ∞
   - \( D \): ∞
   - \( E \): ∞
+ 
+    TRIPLE CHECKED
 
 ### Iteration 1 (One hop)
 Update the distances based on direct edges from \( S \).
@@ -29,6 +31,8 @@ Update the distances based on direct edges from \( S \).
   - \( D \): ∞
   - \( E \): 8
 
+    TRIPLE CHECKED
+    
 ### Iteration 2 (Two hops)
 Update distances using edges from \( A \) and \( E \), which were updated in the previous step.
 
@@ -42,27 +46,31 @@ Update distances using edges from \( A \) and \( E \), which were updated in the
   - \( C \): 12
   - \( D \): 9
   - \( E \): 8
+ 
+      TRIPLE CHECKED
 
 ### Iteration 3 (Three hops)
 Update distances using edges from \( D \) and \( C \), which were updated in the previous iteration.
 
 1. \( D \to C \): Update distance of \( C \) to 8 (9 - 1).
 2. \( D \to A \): Update distance of \( A \) to 5 (8 + 1 - 4, using the path \( S \to E \to D \to A \)).
-
+3. \( S \to B \): Update distance of \( B \) to 10 (10 + 2 - 2, using the path \( S \to A \to C \to B \)).
+   
 - **Distances after 3rd iteration**:
   - \( S \): 0
   - \( A \): 5
-  - \( B \): ∞
+  - \( B \): 10
   - \( C \): 8
   - \( D \): 9
   - \( E \): 8
 
+    TRIPLE CHECKED
+    
 ### Iteration 4 (Four hops)
 Continue updating distances based on edges from \( A \) and \( C \), which were updated in the previous iteration.
 
-1. \( A \to B \): Update distance of \( B \) to 6 (5 + 1).
-2. \( C \to B \): No update needed, as \( B \) already has a distance of 6, which is shorter than 8 + 1 - 2.
-
+3. \( S \to B \): Update distance of \( B \) to 6 (8 + 1 - 1 - 2, using the path \( S \to E \to D \to C \to B \)).
+   
 - **Distances after 4th iteration**:
   - \( S \): 0
   - \( A \): 5
@@ -71,6 +79,8 @@ Continue updating distances based on edges from \( A \) and \( C \), which were 
   - \( D \): 9
   - \( E \): 8
 
+    TRIPLE CHECKED
+    
 ### Iteration 5 (Five hops)
 Check for further updates by exploring paths with up to 5 hops.
 
