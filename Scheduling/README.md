@@ -1,463 +1,595 @@
-# Approximation Algorithms
+# Scheduling: First Things First
 
-## Introduction to Approximation Algorithms
+## Introduction to Scheduling
 
-Approximation algorithms are vital tools for solving optimization
-problems that are computationally challenging, particularly NP-hard
-problems. This section discusses what approximation algorithms are,
-their significance, and the methodology for evaluating their
-effectiveness.
+Scheduling is key in computer science and operations research, focusing
+on efficiently allocating resources over time to complete tasks or jobs.
+It is vital in operating systems, manufacturing, project management, and
+networking. This section covers the definition, importance, and
+applications of scheduling, as well as common scheduling problems.
 
 ### Definition and Importance
 
-An **approximation algorithm** is designed to find near-optimal
-solutions for optimization problems by delivering results within a
-specific factor of the optimal solution, known as the approximation
-ratio $`\alpha`$. For a given problem $`P`$, where $`OPT`$ represents
-the optimal solution value, the algorithm $`A`$ is considered an
-$`\alpha`$-approximation if:
+Scheduling allocates resources like processors, machines, or personnel
+to tasks over time, aiming to optimize criteria such as throughput,
+latency, response time, or resource utilization. It is an optimization
+problem where resources are assigned to tasks to meet constraints and
+optimize an objective function.
+
+For example, in the **single-machine scheduling problem**, a set of jobs
+with given processing times and deadlines must be scheduled on a single
+machine to minimize total completion time or maximum lateness. Given
+$`n`$ jobs with processing times $`p_1, p_2, \ldots, p_n`$ and deadlines
+$`d_1, d_2, \ldots, d_n`$, the goal is to minimize an objective function
+$`f`$ under certain constraints.
+
+Effective scheduling improves resource utilization, minimizes response
+times, meets deadlines, and boosts system efficiency. Efficient
+scheduling algorithms are essential for optimizing various systems,
+leading to cost savings, higher productivity, and better customer
+satisfaction.
+
+### Applications in Computing and Beyond
+
+Scheduling techniques are applied in many fields:
+
+- **Operating Systems:** Managing process or thread execution on CPUs
+  with algorithms like round-robin, shortest job first, and priority
+  scheduling.
+
+- **Manufacturing:** Optimizing production, allocating machines and
+  workers, and minimizing costs with job shop and flow shop scheduling.
+
+- **Networking:** Managing data packet transmission and allocating
+  network resources with packet scheduling in routers and traffic
+  scheduling in wireless networks.
+
+- **Project Management:** Planning resources, scheduling tasks, and
+  tracking progress with methods like the critical path method (CPM) and
+  program evaluation and review technique (PERT).
+
+### Overview of Scheduling Problems
+
+Scheduling problems vary based on resource numbers, task nature, and
+optimization criteria:
+
+- **Single-Machine Scheduling:** Scheduling jobs on a single machine
+  with constraints like processing times and deadlines.
+
+- **Parallel-Machine Scheduling:** Scheduling jobs on multiple identical
+  or different machines to optimize makespan or total completion time.
+
+- **Flow Shop Scheduling:** Jobs pass through a sequence of machines to
+  minimize total completion time or makespan.
+
+- **Job Shop Scheduling:** Scheduling jobs requiring multiple machines
+  with different processing times and sequence-dependent setup times.
+
+- **Resource-Constrained Project Scheduling:** Scheduling tasks with
+  precedence relations under resource constraints and project deadlines.
+
+Many scheduling problems are NP-hard, necessitating efficient heuristic
+or approximation algorithms to find near-optimal solutions in reasonable
+time.
+
+## Theoretical Foundations of Scheduling
+
+Scheduling is a core problem in computer science and operations
+research, crucial in domains like manufacturing, transportation, and
+computing systems. This section covers the classification of scheduling
+problems, optimality criteria, complexity measures, and computability.
+
+### Classification of Scheduling Problems
+
+Scheduling problems are classified based on job characteristics,
+processing environment, and scheduling objectives. This helps in
+understanding different problems and developing appropriate solutions.
+
+**Characteristics of Jobs or Tasks**
+
+Jobs can vary by:
+
+- **Processing times:** Jobs may have deterministic processing times
+  (known in advance) or stochastic processing times (following a
+  probability distribution).
+
+- **Release times and due dates:** Jobs have release times (when they
+  become available) and due dates (when they must be completed). These
+  problems are dynamic as they involve scheduling over time.
+
+- **Precedence constraints:** Some jobs must be completed before others
+  can start, common in job shop or flow shop scheduling problems in
+  manufacturing.
+
+**Processing Environment**
+
+Jobs are scheduled in different environments:
+
+- **Single-machine scheduling:** One machine processes all jobs. The
+  goal is to determine the job order to optimize criteria like makespan
+  or total completion time.
+
+- **Parallel machine scheduling:** Multiple identical machines process
+  jobs. The objective is to assign jobs to machines to minimize criteria
+  like total completion time or maximum lateness.
+
+- **Open-shop scheduling:** Multiple machines are available, and each
+  job must be processed on a specific sequence of machines to optimize a
+  criterion like makespan.
+
+**Scheduling Objectives**
+
+Objectives vary in scheduling problems:
+
+- **Minimization of makespan:** Total time to complete all jobs.
+
+- **Minimization of total completion time:** Sum of all job completion
+  times.
+
+- **Minimization of maximum lateness:** Maximum time by which job
+  completion exceeds its due date.
+
+These classifications help in analyzing and solving scheduling problems
+efficiently.
+
+### Optimality Criteria
+
+Optimality criteria define the desired outcomes in scheduling problems,
+like minimizing makespan, total completion time, or maximum lateness.
+
+Given $`n`$ jobs and $`m`$ machines, the scheduling problem can be
+formulated as:
 
 ``` math
-\text{For maximization problems:} \quad A \geq \frac{1}{\alpha} \times OPT
+\text{Minimize } f(x_1, x_2, \ldots, x_n)
 ```
+subject to:
 ``` math
-\text{For minimization problems:} \quad A \leq \alpha \times OPT
+g(x_1, x_2, \ldots, x_n) \leq b
+```
+where $`x_i`$ represents the assignment of job $`i`$ to a machine, and
+$`f`$ is the objective function.
+
+### Complexity and Computability
+
+Scheduling problem complexity is analyzed using computational complexity
+theory. For instance, consider a problem with $`n`$ jobs and $`m`$
+machines, where each job $`j`$ has a processing time $`p_j`$ and must be
+processed on one machine without preemption.
+
+**Proposition 1:** The number of operations required to find an optimal
+schedule for $`n`$ jobs and $`m`$ machines is $`O(n \cdot m)`$.
+
+**Proof:** To find an optimal schedule, all possible job-to-machine
+assignments must be considered. Since each job can be assigned to any of
+the $`m`$ machines, there are $`m^n`$ combinations. Thus, the operations
+required are $`O(n \cdot m)`$.
+
+Many scheduling problems are NP-hard, meaning no polynomial-time
+algorithm exists unless P=NP.
+
+**Theorem 1:** The flow shop scheduling problem is NP-hard.
+
+**Proof:** Reducing the flow shop scheduling problem to the traveling
+salesman problem (TSP), which is NP-hard, shows the complexity. Each
+city in TSP corresponds to a job, and each distance corresponds to
+processing time on a machine. Since TSP is NP-hard, so is flow shop
+scheduling.
+
+Understanding these foundations helps in tackling scheduling problems
+effectively in various applications.
+
+## Scheduling Algorithms
+
+Scheduling algorithms are essential in operating systems and computer
+science, determining the order in which tasks or processes are executed
+on a computing system. Different scheduling algorithms prioritize tasks
+differently based on various criteria such as waiting time, execution
+time, priority, etc. In this section, we will explore several common
+scheduling algorithms, including First-Come, First-Served (FCFS),
+Shortest Job First (SJF), Priority Scheduling, and Round-Robin
+Scheduling.
+
+### First-Come, First-Served (FCFS)
+
+First-Come, First-Served (FCFS) is one of the simplest scheduling
+algorithms, where tasks are executed in the order they arrive in the
+system. It follows a non-preemptive approach, meaning once a process
+starts executing, it continues until completion without interruption.
+
+Let’s denote $`n`$ as the total number of processes, $`AT_i`$ as the
+arrival time of process $`i`$, $`BT_i`$ as the burst time of process
+$`i`$, and $`CT_i`$ as the completion time of process $`i`$. The
+completion time for each process can be calculated using the formula:
+
+``` math
+CT_i = \sum_{j=1}^{i} BT_j
 ```
 
-Here, $`\alpha`$ quantifies the closeness of the approximation to the
-optimal; a smaller $`\alpha`$ indicates a closer approximation to the
-optimal solution.
+The average waiting time ($`\text{AWT}`$) for all processes can be
+computed as the total waiting time divided by the number of processes
+($`n`$):
 
-These algorithms are crucial when exact solutions are impractical due to
-high computational costs. They are extensively applied across diverse
-domains such as scheduling, routing, and resource management, where they
-enable efficient and effective decision-making under constraints.
+``` math
+\text{AWT} = \frac{\sum_{i=1}^{n} WT_i}{n}
+```
 
-For instance, in complex scheduling tasks, where deriving an optimal
-schedule is NP-hard, approximation algorithms help achieve feasible and
-economically viable solutions swiftly, facilitating practical and
-actionable scheduling and resource allocation in various industrial and
-technological applications.
+where $`WT_i`$ is the waiting time for process $`i`$, calculated as:
 
-### Role of Approximation Algorithms in Solving NP-Hard Problems
+``` math
+WT_i = CT_i - AT_i - BT_i
+```
 
-Approximation algorithms play a crucial role in tackling NP-hard
-problems, which are optimization problems for which no polynomial-time
-algorithm exists to compute an optimal solution, assuming
-$`\text{P} \neq \text{NP}`$. A classic example of the role of
-approximation algorithms in solving NP-hard problems is the **Vertex
-Cover** problem.
-
-#### Vertex Cover Problem
-
-Given an undirected graph $`G = (V, E)`$, a **vertex cover** is a subset
-of vertices $`V'`$ such that each edge in $`E`$ is incident to at least
-one vertex in $`V'`$. The goal is to find the smallest vertex cover in
-$`G`$.
-
-##### Approximation Algorithm: Greedy Vertex Cover
-
-A simple approximation algorithm for the Vertex Cover problem is the
-**Greedy Vertex Cover** algorithm:
+Now, let’s provide the algorithm for the FCFS technique and explain it
+in detail:
 
 <div class="algorithm">
 
 <div class="algorithmic">
 
-$`C \gets \emptyset`$ Add both $`u`$ and $`v`$ to $`C`$ **return** $`C`$
+Sort processes based on arrival time $`AT_i`$ $`CT_1 \gets AT_1 + BT_1`$
+$`CT_i \gets CT_{i-1} + BT_i`$
 
 </div>
 
 </div>
 
-##### Example
+The FCFS algorithm simply iterates through the processes in the order of
+their arrival and calculates the completion time for each process
+sequentially.
 
-Consider the following graph $`G`$:
+### Shortest Job First (SJF)
 
-<figure>
-<img src="images/Greedy_Vertex_Cover_Algorithm.png"
-style="width:60.0%" />
-<figcaption>Greedy Vertex Cover Algorithm</figcaption>
-</figure>
+Shortest Job First (SJF) is a scheduling algorithm that selects the
+process with the shortest burst time to execute next. It can be either
+preemptive or non-preemptive. In the non-preemptive version, once a
+process starts execution, it continues until completion without
+interruption.
 
-The Greedy Vertex Cover algorithm will select vertices $`b`$, $`d`$, and
-$`f`$ as the vertex cover, resulting in an approximation ratio of $`3`$,
-as it selects three vertices while the optimal solution requires only
-one vertex.
-
-### Evaluating Approximation Algorithms
-
-The effectiveness of approximation algorithms is assessed through
-metrics like the approximation ratio, running time, and worst-case
-scenario analysis, which collectively determine an algorithm’s
-practicality and efficiency.
-
-#### Approximation Ratio
-
-The **approximation ratio** for an algorithm $`A`$ solving an
-optimization problem $`P`$ quantifies the deviation of $`A`$’s solution
-from the optimal. For minimization problems, it is expressed as:
+Let’s denote $`n`$ as the total number of processes, $`AT_i`$ as the
+arrival time of process $`i`$, $`BT_i`$ as the burst time of process
+$`i`$, and $`CT_i`$ as the completion time of process $`i`$. The
+completion time for each process can be calculated using the formula:
 
 ``` math
-\text{Approximation Ratio} = \max \left( \frac{\text{Cost of solution by } A}{\text{Optimal cost}} \right)
+CT_i = CT_{i-1} + BT_i
 ```
 
-A desirable approximation algorithm has a ratio close to 1, indicating a
-solution near the optimal.
+where $`CT_0 = 0`$. The average waiting time ($`\text{AWT}`$) for all
+processes can be computed similarly to FCFS.
 
-#### Running Time
-
-The **running time** evaluates how long an algorithm takes to compute an
-approximate solution. This measure is crucial, especially for
-large-scale problems, as it reflects the algorithm’s efficiency.
-
-#### Worst-Case Analysis
-
-This analysis assesses the algorithm’s performance under the most
-challenging conditions by establishing upper bounds on the approximation
-ratio or running time for all potential inputs. It ensures that the
-algorithm performs reliably, even in the least favorable scenarios.
-
-##### Example: TSP Worst-Case Analysis
-
-Consider an approximation algorithm $`A`$ for the Traveling Salesman
-Problem (TSP), where $`OPT`$ is the length of the optimal tour. If
-worst-case analysis shows that:
-
-``` math
-\frac{\text{Length of tour by } A}{OPT} \leq 2
-```
-
-It guarantees that $`A`$’s solution will not exceed twice the optimal
-tour length, regardless of the input. This analysis is vital for
-understanding and validating the reliability of $`A`$ across various
-instances of TSP.
-
-Through these evaluation methods, researchers and practitioners can
-gauge the suitability of approximation algorithms for practical use,
-ensuring they meet the necessary performance and efficiency standards.
-
-## Fundamentals of Approximation Algorithms
-
-Approximation algorithms are essential for finding efficient,
-near-optimal solutions to computationally hard optimization problems.
-This section delves into key aspects such as approximation ratios,
-performance guarantees, and Polynomial Time Approximation Schemes
-(PTAS).
-
-### Approximation Ratio
-
-The **approximation ratio** quantifies how close the solution provided
-by an approximation algorithm $`A`$ is to the optimal solution $`OPT`$.
-It’s defined as:
-
-``` math
-\text{Approximation Ratio} = \frac{\text{Value of Solution by } A}{\text{OPT}}
-```
-
-A ratio of 1 indicates an optimal solution, but typically, this is
-unachievable for NP-hard problems like the Traveling Salesman Problem
-(TSP), where the best-known algorithm achieves a ratio of $`O(\log n)`$.
-
-### Performance Guarantees
-
-Performance guarantees assess the effectiveness of approximation
-algorithms under various scenarios:
-
-#### Worst-Case Guarantees
-
-These guarantees ensure that the approximation ratio is maintained
-across all possible inputs, providing a reliable measure of the
-algorithm’s robustness. For example, a worst-case ratio of $`c`$ means
-the algorithm’s solution is always within $`c`$ times the optimal
-solution, regardless of the input.
-
-#### Average-Case Guarantees
-
-Average-case guarantees evaluate the algorithm’s expected performance
-over a distribution of inputs, offering insights into its efficacy under
-typical conditions. If an algorithm has an average-case ratio of $`c`$,
-it means that, on average, its solutions are within $`c`$ times the
-optimal solution.
-
-#### Probabilistic Guarantees
-
-Probabilistic guarantees offer a success probability for achieving a
-certain approximation ratio. For instance, an algorithm might guarantee
-that with 90% probability, the solution will not exceed $`c`$ times the
-optimal solution.
-
-These various guarantees help in determining the applicability and
-reliability of approximation algorithms across different scenarios and
-problem instances. By understanding and leveraging these
-characteristics, practitioners can choose the most suitable algorithm
-based on the problem constraints and desired confidence levels.
-
-### Polynomial Time Approximation Schemes (PTAS)
-
-A Polynomial Time Approximation Scheme (PTAS) is an approximation
-algorithm that produces solutions with a guaranteed approximation ratio
-and runs in polynomial time with respect to both the input size and a
-user-defined error parameter. PTASs are particularly useful for
-optimization problems where finding an exact solution is computationally
-intractable.
-
-Let’s consider the knapsack problem as an example. Given a set of items,
-each with a weight and a value, and a knapsack with a weight capacity,
-the goal is to select a subset of items to maximize the total value
-without exceeding the knapsack’s capacity. **Algorithm Overview:**
+Now, let’s provide the algorithm for the SJF technique and explain it in
+detail:
 
 <div class="algorithm">
 
 <div class="algorithmic">
 
-Let $`n`$ be the number of items Let $`M = \max_{i=1}^{n} v[i]`$ Let
-$`K = \lceil \frac{nM}{\varepsilon} \rceil`$ Initialize a table
-$`DP[0...n][0...K]`$ with zeros
-$`DP[i][j] = \max(DP[i-1][j], DP[i-1][j-w[i]] + v[i])`$
-$`DP[i][j] = DP[i-1][j]`$ **return** $`\max_{j=0}^{K} DP[n][j]`$
+Sort processes based on burst time $`BT_i`$ $`CT_1 \gets AT_1 + BT_1`$
+$`CT_i \gets CT_{i-1} + BT_i`$
 
 </div>
 
 </div>
 
-The above algorithm is a PTAS for the knapsack problem. It runs in
-polynomial time with respect to the input size $`n`$ and the error
-parameter $`\varepsilon`$, while guaranteeing a solution within a factor
-of $`1 + \varepsilon`$ of the optimal solution.
+The SJF algorithm sorts processes based on their burst time in ascending
+order and then follows the same steps as FCFS to calculate completion
+times.
+
+### Priority Scheduling
+
+Priority Scheduling is a scheduling algorithm where each process is
+assigned a priority, and the process with the highest priority is
+selected for execution first. It can be either preemptive or
+non-preemptive.
+
+Let’s denote $`n`$ as the total number of processes, $`AT_i`$ as the
+arrival time of process $`i`$, $`BT_i`$ as the burst time of process
+$`i`$, and $`CT_i`$ as the completion time of process $`i`$. The
+completion time for each process can be calculated similarly to FCFS.
+
+Now, let’s provide the algorithm for the Priority Scheduling technique
+and explain it in detail:
+
+<div class="algorithm">
+
+<div class="algorithmic">
+
+Assign priority to each process Sort processes based on priority
+$`CT_1 \gets AT_1 + BT_1`$ $`CT_i \gets CT_{i-1} + BT_i`$
+
+</div>
+
+</div>
+
+The Priority Scheduling algorithm assigns priorities to processes and
+then sorts them based on their priority. It then calculates completion
+times similarly to FCFS.
+
+### Round-Robin Scheduling
+
+Round-Robin Scheduling is a preemptive scheduling algorithm where each
+process is assigned a fixed time quantum, and processes are executed in
+a circular queue. If a process does not complete within its time
+quantum, it is preempted and placed at the end of the queue to wait for
+its turn again.
+
+Let’s denote $`n`$ as the total number of processes, $`AT_i`$ as the
+arrival time of process $`i`$, $`BT_i`$ as the burst time of process
+$`i`$, $`CT_i`$ as the completion time of process $`i`$, and $`TQ`$ as
+the time quantum.
+
+The completion time for each process can be calculated using the
+formula:
+
+``` math
+CT_i = \min(CT_{i-1} + TQ, AT_i + BT_i)
+```
+
+where $`CT_0 = 0`$. The average waiting time ($`\text{AWT}`$) for all
+processes can be computed similarly to FCFS.
+
+Now, let’s provide the algorithm for the Round-Robin Scheduling
+technique and explain it in detail:
+
+<div class="algorithm">
+
+<div class="algorithmic">
+
+Set $`CT_1 \gets \min(AT_1 + BT_1, TQ)`$
+$`CT_i \gets \min(CT_{i-1} + TQ, AT_i + BT_i)`$
+
+</div>
+
+</div>
+
+The Round-Robin Scheduling algorithm assigns a fixed time quantum to
+each process and processes them in a circular queue, calculating
+completion times accordingly.
+
+## Advanced Scheduling Techniques
+
+Scheduling techniques are essential in computer science and operating
+systems for efficiently managing resources and executing tasks. In this
+section, we delve into advanced scheduling techniques, including
+preemptive vs non-preemptive scheduling, multiprocessor scheduling, and
+real-time scheduling.
+
+### Preemptive vs Non-Preemptive Scheduling
+
+Preemptive and non-preemptive scheduling are two fundamental approaches
+to task scheduling in operating systems. Preemptive scheduling allows
+the scheduler to interrupt a running task to allocate CPU time to
+another task with higher priority, while non-preemptive scheduling does
+not allow such interruptions.
+
+#### Preemptive Scheduling Algorithm
+
+Preemptive scheduling algorithms prioritize tasks based on their
+priority levels, executing higher-priority tasks before lower-priority
+ones. One such algorithm is the Shortest Remaining Time First (SRTF)
+algorithm, which selects the task with the shortest remaining processing
+time whenever a new task arrives or a running task completes.
+
+<div class="algorithm">
+
+<div class="algorithmic">
+
+$`current\_time \gets 0`$ $`next\_task \gets`$ task with shortest
+remaining time $`execute(next\_task)`$
+$`current\_time \gets current\_time + next\_task.duration`$
+
+</div>
+
+</div>
+
+#### Non-Preemptive Scheduling Algorithm
+
+Non-preemptive scheduling algorithms execute tasks until completion
+without interruption. One such algorithm is the Shortest Job First (SJF)
+algorithm, which selects the task with the shortest processing time
+among all waiting tasks.
+
+<div class="algorithm">
+
+<div class="algorithmic">
+
+$`current\_time \gets 0`$ $`next\_task \gets`$ task with shortest
+processing time $`execute(next\_task)`$
+$`current\_time \gets current\_time + next\_task.duration`$
+
+</div>
+
+</div>
+
+#### Comparison of Preemptive vs Non-Preemptive Scheduling
+
+Preemptive and non-preemptive scheduling are two contrasting approaches
+to task scheduling, each with its advantages and disadvantages.
+
+**Preemptive Scheduling:**
+
+- **Responsiveness:** Preemptive scheduling offers better responsiveness
+  as higher-priority tasks can be executed immediately when they become
+  runnable. This is particularly beneficial in time-critical systems
+  where tasks need to respond quickly to external events.
+
+- **Dynamic Priority Adjustment:** Preemptive scheduling allows for
+  dynamic adjustment of task priorities based on changing system
+  conditions. Tasks with higher priority can preempt lower-priority
+  tasks, ensuring that critical tasks are executed promptly.
+
+- **Overhead:** However, preemptive scheduling introduces overhead due
+  to frequent context switches. When a higher-priority task preempts a
+  lower-priority task, the processor must save the state of the
+  preempted task and restore the state of the preempting task, leading
+  to increased overhead.
+
+**Non-Preemptive Scheduling:**
+
+- **Predictability:** Non-preemptive scheduling offers better
+  predictability as tasks are executed until completion without
+  interruption. This can simplify task management and analysis,
+  especially in real-time systems where deterministic behavior is
+  crucial.
+
+- **Reduced Overhead:** Non-preemptive scheduling reduces overhead
+  compared to preemptive scheduling since there are no context switches
+  during task execution. This can lead to improved system efficiency,
+  especially on systems with limited resources.
+
+- **Response Time Variability:** However, non-preemptive scheduling may
+  result in longer response times for high-priority tasks if they are
+  blocked by lower-priority tasks. Tasks with higher priority must wait
+  for lower-priority tasks to complete before they can be executed,
+  leading to increased variability in response times.
+
+**Choosing Between Preemptive and Non-Preemptive Scheduling:** The
+choice between preemptive and non-preemptive scheduling depends on the
+specific requirements of the system and the characteristics of the tasks
+being scheduled. In time-critical systems where responsiveness is
+paramount, preemptive scheduling may be preferred despite the overhead.
+In contrast, for systems where predictability and determinism are more
+important, non-preemptive scheduling may be a better choice to ensure
+consistent behavior.
+
+In practice, hybrid approaches that combine preemptive and
+non-preemptive scheduling techniques may be used to balance
+responsiveness and predictability, depending on the system’s
+requirements and constraints.
+
+### Multiprocessor Scheduling
+
+Multiprocessor scheduling involves efficiently allocating tasks to
+multiple processors for parallel execution, aiming to maximize
+throughput and minimize resource contention.
+
+#### Multiprocessor Scheduling Algorithm
+
+One approach to multiprocessor scheduling is the Work-Conserving
+algorithm, which ensures that each processor remains busy as much as
+possible by assigning tasks dynamically based on their computational
+requirements.
+
+<div class="algorithm">
+
+<div class="algorithmic">
+
+$`task \gets`$ select task with highest priority $`processor \gets`$
+select idle processor $`assign(task, processor)`$
+
+</div>
+
+</div>
+
+### Real-Time Scheduling
+
+Real-time scheduling is crucial for systems where tasks must meet strict
+deadlines to ensure proper operation, such as in embedded systems and
+multimedia applications.
+
+#### Real-Time Scheduling Algorithm
+
+The Rate-Monotonic Scheduling (RMS) algorithm assigns priorities to
+tasks based on their periods, with shorter periods assigned higher
+priorities. This ensures that tasks with tighter deadlines are executed
+before those with looser deadlines.
+
+<div class="algorithm">
+
+<div class="algorithmic">
+
+$`current\_time \gets 0`$ $`next\_task \gets`$ task with highest
+priority $`execute(next\_task)`$
+$`current\_time \gets current\_time + next\_task.period`$
+
+</div>
+
+</div>
+
+## Scheduling in Operating Systems
+
+Operating systems employ various scheduling techniques to manage and
+optimize the allocation of resources such as CPU time, memory, and I/O
+devices. Process scheduling involves determining the order in which
+processes are executed by the CPU. Thread scheduling focuses on managing
+the execution of individual threads within a process. Additionally, I/O
+scheduling aims to optimize the order in which I/O requests are serviced
+by devices such as disks and network interfaces.
+
+### Process Scheduling
+
+Process scheduling is a fundamental aspect of operating system design,
+as it directly impacts system performance and responsiveness. The goal
+of process scheduling is to maximize system throughput, minimize
+response time, and ensure fair allocation of resources among competing
+processes.
+
+One of the most commonly used process scheduling algorithms is the
+**Round Robin (RR)** scheduling algorithm. RR is a preemptive scheduling
+algorithm that assigns a fixed time quantum to each process in the ready
+queue. When a process’s time quantum expires, it is preempted and moved
+to the end of the queue, allowing the next process to execute.
+
+Let $`T_i`$ represent the total execution time of process $`i`$, and
+$`t_i`$ represent the time quantum assigned to process $`i`$ in RR
+scheduling. The average waiting time ($`W_{\text{avg}}`$) for all
+processes in the queue can be calculated using the following formula:
+
+``` math
+W_{\text{avg}} = \frac{\sum_{i=1}^{n} (W_i)}{n}
+```
+
+Where $`W_i`$ represents the waiting time for process $`i`$, which can
+be calculated as:
+
+``` math
+W_i = (n - 1) \times t_i
+```
+
+The RR scheduling algorithm ensures fairness by providing each process
+with an equal share of CPU time, regardless of its priority or execution
+characteristics.
+
+<div class="algorithm">
+
+<div class="algorithmic">
+
+$`queue \gets empty`$ $`time \gets 0`$ $`process \gets processes.pop()`$
+$`execute(process, quantum)`$ $`time \gets time + quantum`$
+$`queue.push(process)`$
+
+</div>
+
+</div>
 
 **Python Code Implementation:**
 
-        def ptas_knapsack(W, w, v, epsilon):
-        n = len(w)
-        M = max(v)
-        K = int((n * M) / epsilon) + 1
-        DP = [[0] * (K + 1) for _ in range(n + 1)]
+    def round_robin(processes, quantum):
+        queue = []
+        time = 0
+        while processes:
+            process = processes.pop(0)
+            execute(process, quantum)
+            time += quantum
+            if not process.finished:
+                queue.append(process)
+        return
 
-        for i in range(1, n + 1):
-            for j in range(1, K + 1):
-                if w[i - 1] <= j:
-                    DP[i][j] = max(DP[i - 1][j], DP[i - 1][j - w[i - 1]] + v[i - 1])
-                else:
-                    DP[i][j] = DP[i - 1][j]
+### Thread Scheduling
 
-        return max(DP[n])
-
-    # Example usage:
-    # W = 10
-    # w = [6, 3, 2, 5, 4]
-    # v = [30, 14, 16, 9, 8]
-    # epsilon = 0.1
-    # print(ptas_knapsack(W, w, v, epsilon))
-
-### Polynomial Time Approximation Schemes (PTAS) and Fully Polynomial Time Approximation Schemes (FPTAS)
-
-A Fully Polynomial Time Approximation Scheme (FPTAS) is similar to a
-PTAS but also runs in polynomial time with respect to the numerical
-values of the input parameters. This means that both the input size and
-the values of the input parameters are considered when analyzing the
-algorithm’s runtime.
-
-Let’s continue with the knapsack problem example and modify the previous
-algorithm to create an FPTAS.
+Thread scheduling focuses on managing the execution of individual
+threads within a process. One popular thread scheduling algorithm is the
+**Multilevel Feedback Queue (MLFQ)** algorithm. MLFQ maintains multiple
+queues with different priority levels, where threads are scheduled based
+on their priority and recent execution history.
 
 <div class="algorithm">
 
 <div class="algorithmic">
 
-Let $`n`$ be the number of items Let $`M = \max_{i=1}^{n} v[i]`$ Let
-$`K = \lceil \frac{nM}{\varepsilon} \rceil`$ Let $`v'[]`$ be an array
-where $`v'[i] = \lfloor \frac{v[i]n}{M} \rfloor`$ **return**
-<span class="smallcaps">PTAS-Knapsack</span>($`W, w[], v'[], \varepsilon`$)
-
-</div>
-
-</div>
-
-The above algorithm is an FPTAS for the knapsack problem. It modifies
-the values of the items’ values to ensure that they are bounded by a
-polynomial function of the input size $`n`$. This ensures that the
-algorithm runs in polynomial time with respect to both the input size
-and the numerical values of the input parameters, while still
-guaranteeing a solution within a factor of $`1 + \varepsilon`$ of the
-optimal solution.
-
-    def PTAS_Knapsack(W, w, v, epsilon):
-        n = len(w)
-        M = max(v)
-        K = int((n * M) / epsilon)
-        DP = [[0] * (K + 1) for _ in range(n + 1)]
-        for i in range(1, n + 1):
-            for j in range(1, K + 1):
-                if w[i - 1] <= j:
-                    DP[i][j] = max(DP[i - 1][j], DP[i - 1][j - w[i - 1]] + v[i - 1])
-                else:
-                    DP[i][j] = DP[i - 1][j]
-        return max(DP[n])
-
-    W = 10
-    w = [2, 3, 4, 5]
-    v = [3, 4, 5, 6]
-    epsilon = 0.1
-    print(PTAS_Knapsack(W, w, v, epsilon))  # Output: 9
-
-The provided Python code implements the PTAS-Knapsack algorithm for
-solving the knapsack problem. It takes the knapsack capacity $`W`$, the
-weights $`w`$ and values $`v`$ of the items, and the error parameter
-$`\varepsilon`$ as input and returns the maximum value achievable within
-a factor of $`1 + \varepsilon`$ of the optimal solution.
-
-## Design Techniques for Approximation Algorithms
-
-Designing approximation algorithms involves developing algorithms that
-efficiently find near-optimal solutions for optimization problems that
-are computationally hard to solve exactly. An approximation algorithm
-for an optimization problem seeks to find a solution that is close to
-the optimal solution, where the quality of the approximation is
-quantified by a performance guarantee. Mathematically, let $`A`$ be an
-approximation algorithm for a minimization problem $`P`$. If $`OPT`$ is
-the optimal solution value for $`P`$, and $`ALG`$ is the solution value
-produced by $`A`$, then the approximation ratio of $`A`$ is defined as:
-
-``` math
-\text{Approximation Ratio} = \frac{ALG}{OPT}
-```
-
-The goal is to design approximation algorithms with provably good
-approximation ratios while maintaining efficient runtime complexity.
-
-### Greedy Algorithms
-
-Greedy algorithms are a fundamental technique for designing
-approximation algorithms. They make locally optimal choices at each step
-with the hope of finding a globally optimal solution. The key
-characteristic of greedy algorithms is that they make decisions based
-solely on the current state without considering future consequences.
-
-Here is the generic template for a greedy algorithm:
-
-<div class="algorithm">
-
-<div class="algorithmic">
-
-Initialize an empty solution $`S`$ Choose the best possible element
-$`e`$ to add to $`S`$ Add $`e`$ to $`S`$ **return** $`S`$
-
-</div>
-
-</div>
-
-**Python Code**
-
-        def greedy_algorithm(input_data):
-        solution = []
-        while stopping_criterion_not_met:
-            best_element = choose_best_element_to_add(input_data)
-            solution.append(best_element)
-        return solution
-
-### Dynamic Programming
-
-Dynamic Programming (DP) is another powerful technique for designing
-approximation algorithms. It solves optimization problems by breaking
-them down into simpler subproblems and solving each subproblem only
-once, storing the solution to each subproblem to avoid redundant
-computations.
-
-Here is the generic template for a dynamic programming algorithm:
-
-<div class="algorithm">
-
-<div class="algorithmic">
-
-Initialize a table $`DP`$ to store solutions to subproblems Initialize
-base cases in $`DP`$ Compute $`DP[i][j]`$ based on previously computed
-values in $`DP`$ **return** $`DP[n][m]`$
-
-</div>
-
-</div>
-
-**Python Code**
-
-        def dynamic_programming(input_data):
-        DP = initialize_table()
-        initialize_base_cases(DP)
-        for i in range(1, n+1):
-            for j in range(1, m+1):
-                DP[i][j] = compute_DP_value(DP, i, j)
-        return DP[n][m]
-
-### Linear Programming and Rounding
-
-Linear Programming (LP) and Rounding techniques are commonly used in
-approximation algorithms, particularly for optimization problems that
-can be formulated as linear programs. LP relaxation is used to relax
-integer constraints, allowing for fractional solutions. Rounding
-techniques then convert fractional solutions into integral solutions
-while preserving the quality of the solution.
-
-The rounding technique involves solving a linear program (LP) relaxation
-of the original integer programming problem to obtain a fractional
-solution. Then, a rounding scheme is applied to round the fractional
-solution to an integral solution while ensuring that the quality of the
-solution is preserved. Here’s a general outline of the rounding
-technique:
-
-<div class="algorithm">
-
-<div class="algorithmic">
-
-Solve the linear program relaxation to obtain fractional solution $`X`$
-Apply rounding scheme to $`X`$ to obtain integral solution $`S`$
-**return** $`S`$
-
-</div>
-
-</div>
-
-        def rounding(LP_solution):
-        # Solve LP relaxation to obtain fractional solution
-        fractional_solution = solve_LP_relaxation(LP_solution)
-        # Apply rounding scheme to obtain integral solution
-        integral_solution = apply_rounding_scheme(fractional_solution)
-        return integral_solution
-
-## List Scheduling Algorithms
-
-### Introduction to Scheduling Problems
-
-Scheduling problems involve allocating limited resources to tasks over
-time to optimize certain objectives. In the context of list scheduling
-algorithms, we consider a set of tasks $`T`$ that need to be scheduled
-on a set of machines $`M`$. Each task $`t_i`$ has a processing time
-$`p_i`$ and a deadline $`d_i`$. The goal is to assign each task to a
-machine such that all tasks are completed by their deadlines, and
-certain optimization criteria such as minimizing the maximum lateness or
-minimizing the total completion time are satisfied.
-
-### List Scheduling Approximation
-
-List scheduling is a class of approximation algorithms used for
-scheduling tasks on machines. In list scheduling, tasks are ordered
-based on certain criteria (e.g., processing time, deadline) and assigned
-to machines in the order specified by the list. List scheduling
-algorithms are often used in real-time and embedded systems where quick
-decisions need to be made without full knowledge of future events.
-
-#### Algorithm Description
-
-The List Scheduling Approximation algorithm works as follows:
-
-<div class="algorithm">
-
-<div class="algorithmic">
-
-Initialize an empty schedule $`S`$
-
-Sort the tasks in non-increasing order of processing time
-
-Assign each task $`t_i`$ to the machine with the earliest available time
+$`queues \gets initialize\_queues()`$ $`thread \gets queue[i].pop()`$
+$`execute(thread)`$ $`queues.adjust\_priority(thread)`$
 
 </div>
 
@@ -465,184 +597,299 @@ Assign each task $`t_i`$ to the machine with the earliest available time
 
 **Python Code Implementation:**
 
-        def list_scheduling(tasks):
-        # Sort tasks in non-increasing order of processing time
-        tasks.sort(key=lambda x: x[1], reverse=True)
+    def MLFQ(threads):
+        queues = initialize_queues()
+        while not all_empty(queues):
+            for queue in queues:
+                if queue:
+                    thread = queue.pop(0)
+                    execute(thread)
+                    if not thread.finished:
+                        queues.adjust_priority(thread)
+        return
+
+### I/O Scheduling
+
+I/O scheduling is concerned with optimizing the order in which I/O
+requests are serviced by devices such as disks and network interfaces.
+One commonly used I/O scheduling algorithm is the **Shortest Seek Time
+First (SSTF)** algorithm. SSTF selects the I/O request that is closest
+to the current disk head position, minimizing the seek time required to
+access data.
+
+<div class="algorithm">
+
+<div class="algorithmic">
+
+$`sorted\_requests \gets sort\_by\_distance(requests, head\_position)`$
+$`execute(request)`$
+
+</div>
+
+</div>
+
+**Python Code Implementation:**
+
+    def SSTF(requests, head_position):
+        sorted_requests = sort_by_distance(requests, head_position)
+        for request in sorted_requests:
+            execute(request)
+        return
+
+## Scheduling in Production and Manufacturing
+
+Scheduling is key in production and manufacturing, determining task
+sequences on machines to enhance efficiency, reduce production time, and
+optimize resources. Here, we explore Job Shop Scheduling, Flow Shop
+Scheduling, and Project Scheduling.
+
+### Job Shop Scheduling
+
+Job Shop Scheduling schedules jobs with multiple operations on specific
+machines in a set order, common in settings like automobile assembly
+lines and semiconductor plants.
+
+A popular algorithm for Job Shop Scheduling is **Johnson’s Rule**, which
+minimizes total completion time by sequencing operations optimally. It
+identifies the critical path, the sequence that determines overall
+completion time, and schedules accordingly.
+
+**Algorithm: Johnson’s Rule**
+
+1.  For each job, compute the total processing time as the sum of
+    processing times for all operations.
+
+2.  Initialize two queues: one for machines with the smallest processing
+    time first (Queue 1) and the other for machines with the largest
+    processing time first (Queue 2).
+
+3.  While both queues are not empty:
+
+    - Choose the operation with the smallest processing time from Queue
+      1 and schedule it next.
+
+    - Choose the operation with the smallest processing time from Queue
+      2 and schedule it next.
+
+Let’s illustrate Johnson’s Rule with an example:
+
+<div class="algorithm">
+
+<div class="algorithmic">
+
+Compute total processing time for each job Initialize Queues 1 and 2
+Schedule operation with smallest processing time from Queue 1 Schedule
+operation with smallest processing time from Queue 2
+
+</div>
+
+</div>
+
+### Flow Shop Scheduling
+
+Flow Shop Scheduling involves scheduling a set of jobs that need to be
+processed on a series of machines in the same order, where each job
+consists of multiple operations and each operation must be processed on
+a specific machine in a predefined order. This problem arises in
+manufacturing settings where the sequence of operations is fixed, such
+as in assembly lines.
+
+One of the most common algorithms used for Flow Shop Scheduling is the
+**Johnson’s Algorithm**. This algorithm extends Johnson’s Rule to the
+flow shop setting by scheduling jobs on two machines in a way that
+minimizes the total completion time.
+
+**Algorithm: Johnson’s Algorithm**
+
+1.  For each job, compute the total processing time as the sum of
+    processing times for all operations.
+
+2.  Initialize two queues: one for machines with the smallest processing
+    time first (Queue 1) and the other for machines with the largest
+    processing time first (Queue 2).
+
+3.  While both queues are not empty:
+
+    - Choose the operation with the smallest processing time from Queue
+      1 and schedule it next.
+
+    - Choose the operation with the smallest processing time from Queue
+      2 and schedule it next.
+
+### Project Scheduling
+
+Project Scheduling involves scheduling a set of activities or tasks that
+need to be completed within a specified time frame, taking into account
+dependencies between tasks and resource constraints. This problem arises
+in project management, construction projects, and software development.
+
+One of the most common algorithms used for Project Scheduling is the
+**Critical Path Method (CPM)**. CPM aims to determine the longest path
+of dependent activities, known as the critical path, and the total
+duration of the project. By identifying the critical path, project
+managers can allocate resources efficiently and ensure timely project
+completion.
+
+**Algorithm: Critical Path Method (CPM)**
+
+1.  Construct a network diagram representing all tasks and their
+    dependencies.
+
+2.  Compute the earliest start time (ES) and earliest finish time (EF)
+    for each task.
+
+3.  Compute the latest start time (LS) and latest finish time (LF) for
+    each task.
+
+4.  Calculate the slack time for each task (slack = LF - EF).
+
+5.  Identify the critical path, which consists of tasks with zero slack
+    time.
+
+6.  Determine the total duration of the project as the sum of durations
+    along the critical path.
+
+## Scheduling in Distributed Systems
+
+Scheduling in distributed systems allocates tasks to resources
+efficiently, optimizing performance and resource use. This section
+covers load balancing, task allocation, and cloud computing scheduling.
+
+### Load Balancing
+
+Load balancing evenly distributes workloads across resources to optimize
+utilization, prevent overload, and enhance performance. It involves
+distributing tasks or requests among resources to minimize response
+time, maximize throughput, and ensure fairness.
+
+#### Need for Load Balancing
+
+In distributed systems, workloads are dynamic and unpredictable, with
+varying demand and resource availability. Effective load balancing
+prevents some resources from being overwhelmed while others are
+underutilized, thus maintaining a balanced workload across the system.
+
+#### Least Loaded Algorithm
+
+The Least Loaded Algorithm assigns incoming tasks to the resource with
+the least load, where load can be measured in terms of CPU utilization,
+memory usage, or other relevant metrics. Mathematically, the algorithm
+can be described as follows:
+
+Let $`R`$ be the set of resources, and $`L(r)`$ be the load on resource
+$`r \in R`$. When a new task $`T`$ arrives, the algorithm selects the
+resource $`r^*`$ such that:
+
+``` math
+r^* = \text{argmin}_{r \in R} L(r)
+```
+
+The task $`T`$ is then assigned to the resource $`r^*`$.
+
+<div class="algorithm">
+
+<div class="algorithmic">
+
+$`r^* \gets \text{argmin}_{r \in R} L(r)`$ Assign task $`T`$ to resource
+$`r^*`$
+
+</div>
+
+</div>
+
+**Python Code Implementation:**
+
+    def least_loaded(resources, task):
+        least_loaded_resource = min(resources, key=lambda r: r.load)
+        least_loaded_resource.assign_task(task)
+
+The Least Loaded Algorithm selects the resource with the minimum load
+and assigns the incoming task to that resource. This helps in achieving
+load balancing across distributed systems efficiently.
+
+### Task Allocation
+
+Task allocation is a critical aspect of distributed systems where tasks
+need to be assigned to resources in a way that optimizes system
+performance, resource utilization, and overall efficiency. In this
+subsection, we will delve deeper into the concept of task allocation and
+explore additional task allocation algorithms.
+
+Task allocation algorithms aim to assign tasks to resources based on
+various factors such as task characteristics, resource capabilities, and
+system constraints. These algorithms help optimize resource utilization,
+minimize task completion time, and ensure fairness in task distribution.
+
+#### Need for Task Allocation
+
+In distributed systems, tasks may have different requirements and
+constraints, and resources may vary in terms of capacity, performance,
+and availability. Effective task allocation is essential to ensure that
+tasks are executed on appropriate resources to meet performance
+objectives, resource constraints, and service-level agreements.
+
+#### Task Allocation Algorithm
+
+One common approach to task allocation is the Max-Min Algorithm, which
+aims to maximize the minimum resource allocation for each task.
+
+<div class="algorithm">
+
+<div class="algorithmic">
+
+Sort tasks in descending order of resource requirements Sort resources
+in ascending order of available capacity Allocate $`t`$ to the resource
+with the most available capacity
+
+</div>
+
+</div>
+
+**Python Code Implementation:**
+
+    def max_min(tasks, resources):
+        tasks.sort(key=lambda t: t.requirements, reverse=True)
+        resources.sort(key=lambda r: r.available_capacity)
         
-        # Initialize an empty schedule
-        schedule = [[] for _ in range(len(tasks))]
-        
-        # Assign each task to the machine with the earliest available time
         for task in tasks:
-            min_machine_index = 0
-            min_end_time = float('inf')
-            for i, machine_schedule in enumerate(schedule):
-                if not machine_schedule:
-                    min_machine_index = i
-                    break
-                end_time = machine_schedule[-1][1]
-                if end_time < min_end_time:
-                    min_end_time = end_time
-                    min_machine_index = i
-            schedule[min_machine_index].append(task)
-        
-        return schedule
+            resource = max(resources, key=lambda r: r.available_capacity)
+            resource.assign_task(task)
 
-    # Example usage:
-    # tasks = [('Task1', 5), ('Task2', 3), ('Task3', 7), ('Task4', 2)]
-    # schedule = list_scheduling(tasks)
-    # print(schedule)
+The Max-Min Algorithm optimizes task allocation by maximizing the
+minimum resource allocation for each task, thereby improving system
+performance and resource utilization.
 
-Let $`T_i`$ denote the set of tasks assigned to machine $`i`$. Then, the
-completion time $`C_i`$ for machine $`i`$ is given by:
+### Cloud Computing Scheduling
 
-``` math
-C_i = \sum_{t_j \in T_i} p_j
-```
+Cloud computing scheduling involves efficiently allocating tasks to
+virtual machines (VMs) or containers in cloud environments to meet
+service-level objectives and minimize costs. In this subsection, we will
+delve deeper into the concept of cloud computing scheduling and explore
+additional scheduling algorithms.
 
-#### Performance Analysis
+#### Need for Cloud Computing Scheduling
 
-The performance of the List Scheduling Approximation algorithm can be
-analyzed in terms of its approximation ratio. Let $`C_{\text{opt}}`$
-denote the completion time of an optimal schedule and $`C_{\text{LSA}}`$
-denote the completion time of the schedule produced by the List
-Scheduling Approximation algorithm. The approximation ratio is defined
-as:
+Cloud computing environments typically host a large number of VMs or
+containers, each running various tasks or services. Efficiently
+allocating tasks to these resources is essential to maximize resource
+utilization, ensure performance scalability, and optimize
+cost-effectiveness. Cloud computing scheduling helps address these
+challenges by dynamically assigning tasks to resources based on workload
+characteristics, resource availability, and system requirements.
 
-``` math
-\text{Approximation Ratio} = \frac{C_{\text{LSA}}}{C_{\text{opt}}}
-```
+#### Cloud Computing Scheduling Algorithm
 
-In general, the List Scheduling Approximation algorithm has an
-approximation ratio of $`2 - \frac{1}{m}`$, where $`m`$ is the number of
-machines.
-
-#### Practical Applications
-
-List scheduling approximation algorithms have practical applications in
-various domains, including:
-
-- **Processor Scheduling:** In computer systems, list scheduling
-  algorithms are used to allocate processor time to different tasks or
-  processes to maximize resource utilization and minimize response time.
-
-- **Manufacturing:** In manufacturing systems, list scheduling
-  algorithms are used to schedule production tasks on machines to
-  minimize idle time and maximize throughput.
-
-- **Traffic Management:** In transportation systems, list scheduling
-  algorithms are used to schedule traffic signals or allocate road space
-  to vehicles to minimize congestion and delays.
-
-## Local Search Algorithms
-
-Local search algorithms are a class of optimization algorithms that
-iteratively improve a candidate solution by making small changes to it.
-These algorithms explore the solution space locally, often starting from
-an initial solution and moving to neighboring solutions that are better
-according to some objective function. Local search algorithms are
-commonly used in optimization problems where finding the globally
-optimal solution is computationally intractable.
-
-### Concept and Implementation
-
-Local search algorithms operate on a search space, typically represented
-as a set of candidate solutions. Let $`S`$ denote the search space, and
-$`f : S \rightarrow \mathbb{R}`$ denote the objective function that
-assigns a real value to each solution in $`S`$, representing its quality
-or fitness.
-
-The general procedure of a local search algorithm can be described as
-follows:
+One widely used scheduling algorithm in cloud computing is the First Fit
+Decreasing (FFD) algorithm, which sorts tasks in descending order of
+resource requirements and allocates them to the first VM or container
+that has sufficient capacity.
 
 <div class="algorithm">
 
 <div class="algorithmic">
 
-Initialize: Choose an initial solution $`s_0`$ from $`S`$. Set the
-current solution to $`s_0`$. Generate a neighboring solution $`s'`$ of
-the current solution $`s`$. Set $`s`$ to $`s'`$. **return** $`s`$ as the
-best solution found.
-
-</div>
-
-</div>
-
-In this algorithm, $`s'`$ is a neighboring solution of $`s`$, typically
-obtained by applying a local move or modification to $`s`$. The
-termination condition could be a maximum number of iterations, a
-threshold on improvement, or other criteria.
-
-**Python Code Implementation:**
-
-    import random
-
-    def local_search(initial_solution, generate_neighbor, evaluate_solution, termination_condition):
-        current_solution = initial_solution
-        
-        while not termination_condition():
-            neighbor_solution = generate_neighbor(current_solution)
-            if evaluate_solution(neighbor_solution) > evaluate_solution(current_solution):
-                current_solution = neighbor_solution
-                
-        return current_solution
-
-    # Example usage:
-    # Initial solution
-    initial_solution = ...
-    # Function to generate a neighboring solution
-    def generate_neighbor(solution):
-        ...
-    # Function to evaluate a solution
-    def evaluate_solution(solution):
-        ...
-    # Termination condition
-    def termination_condition():
-        ...
-
-    # Run local search algorithm
-    best_solution = local_search(initial_solution, generate_neighbor, evaluate_solution, termination_condition)
-
-Local search algorithms do not guarantee finding the globally optimal
-solution but aim to find a locally optimal solution efficiently. The
-effectiveness of these algorithms depends on the choice of neighborhood
-structure, initial solution, and termination condition.
-
-### Application in Optimization Problems
-
-Local search algorithms are widely used in various optimization
-problems, especially those where finding the globally optimal solution
-is impractical due to the problem’s complexity. Two notable examples are
-the Traveling Salesman Problem (TSP) and Facility Location Problems.
-
-#### Traveling Salesman Problem (TSP)
-
-The Traveling Salesman Problem (TSP) is a classic optimization problem
-where the goal is to find the shortest possible route that visits each
-city exactly once and returns to the original city. Mathematically,
-given a set of $`n`$ cities and the distances between them represented
-by a distance matrix $`D`$, the objective is to minimize the total
-distance traveled.
-
-**Algorithm:** One local search algorithm for TSP is the 2-opt
-algorithm. It starts with an initial tour and iteratively improves it by
-swapping pairs of edges to reduce the total distance.
-
-**Explanation:** The 2-opt algorithm iteratively evaluates all possible
-pairs of edges and checks if swapping them would decrease the total
-distance. If a shorter tour is found, the edges are swapped, and the
-process continues until no further improvement is possible.
-
-<div class="algorithm">
-
-<div class="algorithmic">
-
-Initialize: Choose an initial tour $`T`$ of cities. Set the current tour
-to $`T`$. Find the pair of edges $`e_1 = (u,v)`$ and $`e_2 = (x,y)`$
-such that removing $`e_1`$ and $`e_2`$ and reconnecting $`u`$ to $`x`$
-and $`v`$ to $`y`$ produces a shorter tour. Update the tour by removing
-$`e_1`$ and $`e_2`$ and reconnecting $`u`$ to $`x`$ and $`v`$ to $`y`$.
-**return** $`T`$ as the best tour found.
+Sort tasks in descending order of resource requirements Allocate $`t`$
+to $`v`$ Break
 
 </div>
 
@@ -650,895 +897,811 @@ $`e_1`$ and $`e_2`$ and reconnecting $`u`$ to $`x`$ and $`v`$ to $`y`$.
 
 **Python Code Implementation:**
 
-        import random
-
-    def two_opt(initial_tour, calculate_distance, termination_condition):
-        current_tour = initial_tour
-        best_tour = current_tour
-        best_distance = calculate_distance(best_tour)
-
-        while not termination_condition():
-            improved = False
-            for i in range(1, len(current_tour) - 2):
-                for j in range(i + 1, len(current_tour)):
-                    if j - i == 1:
-                        continue  # No point in reversing if i and j are adjacent
-                    new_tour = current_tour[:]
-                    new_tour[i:j] = reversed(new_tour[i:j])
-                    new_distance = calculate_distance(new_tour)
-                    if new_distance < best_distance:
-                        best_tour = new_tour
-                        best_distance = new_distance
-                        improved = True
-                        break
-                if improved:
+    def ffd(tasks, vms):
+        tasks.sort(key=lambda t: t.requirements, reverse=True)
+        
+        for task in tasks:
+            for vm in vms:
+                if task.fits(vm):
+                    vm.assign_task(task)
                     break
-            if not improved:
-                break
 
-        return best_tour
+The FFD algorithm efficiently allocates tasks to VMs in cloud
+environments, helping optimize resource utilization and meet
+service-level objectives effectively.
 
-    # Example usage:
-    # Initial tour (list of cities)
-    initial_tour = [1, 2, 3, 4, 5]
-    # Function to calculate the distance of a tour
-    def calculate_distance(tour):
-        # Code to calculate the total distance of the tour
-        return total_distance
-    # Termination condition
-    def termination_condition():
-        # Code to determine whether to terminate the algorithm
-        return termination_condition_met
+## Scheduling in Networks
 
-    # Run 2-opt algorithm
-    best_tour = two_opt(initial_tour, calculate_distance, termination_condition)
+Scheduling in networks plays a critical role in optimizing the
+allocation of resources and ensuring efficient communication. This
+section explores various aspects of scheduling techniques in network
+systems, including packet scheduling in network routers, bandwidth
+allocation, and quality of service (QoS) management.
 
-In this algorithm, the termination condition could be a maximum number
-of iterations or a threshold on improvement. The effectiveness of the
-2-opt algorithm depends on the initial tour and the choice of pairs of
-edges to evaluate.
+### Packet Scheduling in Network Routers
 
-#### Facility Location Problems
+Packet scheduling in network routers is a fundamental aspect of traffic
+management, where incoming packets are scheduled for transmission based
+on certain criteria. This ensures fair distribution of resources and
+minimizes congestion in the network.
 
-Facility Location Problems involve deciding the optimal locations for
-facilities to serve a set of demand points while minimizing the overall
-cost. These problems are common in supply chain management, network
-design, and facility planning.
+Packet scheduling algorithms aim to allocate resources efficiently while
+meeting certain performance criteria such as delay, throughput, and
+fairness. One widely used packet scheduling algorithm is Weighted Fair
+Queuing (WFQ).
 
-**Algorithm:** A local search algorithm for facility location problems
-involves iteratively relocating facilities to reduce the total cost,
-often based on distances or other relevant metrics.
+#### Mathematical Discussion
 
-**Explanation:** The algorithm starts with an initial placement of
-facilities and iteratively evaluates nearby locations to see if
-relocating any facility would reduce the total cost. If a better
-location is found, the facility is moved, and the process continues
-until no further improvement is possible.
+Let $`N`$ be the number of flows in the network, and let $`w_i`$ denote
+the weight assigned to flow $`i`$, where $`1 \leq i \leq N`$. The weight
+represents the relative priority or importance of each flow. Let $`R_i`$
+be the rate allocated to flow $`i`$, representing the amount of
+bandwidth assigned to the flow.
+
+The WFQ algorithm assigns a virtual finish time $`F_i`$ to each packet
+in flow $`i`$, calculated as:
+
+``` math
+F_i = \text{Arrival time} + \frac{\text{Packet size}}{R_i}
+```
+
+The packets are then enqueued in a priority queue based on their virtual
+finish times, and transmitted in the order of increasing virtual finish
+times.
+
+#### Algorithmic Example: Weighted Fair Queuing (WFQ)
 
 <div class="algorithm">
 
 <div class="algorithmic">
 
-Initialize: Choose an initial placement of facilities $`F`$ and assign
-customers to the nearest facility. Set the current placement of
-facilities to $`F`$. Find a facility $`f`$ and a neighboring location
-$`f'`$ such that relocating $`f`$ to $`f'`$ reduces the total cost.
-Relocate facility $`f`$ to $`f'`$. **return** $`F`$ as the best
-placement of facilities found.
+Initialize virtual time for each flow Initialize empty priority queue
+Assign virtual finish time for each packet based on its arrival time and
+service rate Enqueue packets into priority queue based on virtual finish
+time Dequeue and transmit packets in order of increasing virtual finish
+time
 
 </div>
 
 </div>
 
-**Python Code Implementation:**
+### Bandwidth Allocation
 
-    import random
+Bandwidth allocation involves dividing the available bandwidth among
+competing users or applications in a network. This ensures that each
+user receives a fair share of the available resources while maximizing
+overall network efficiency.
 
-    def local_search_facility_location(initial_placement, calculate_cost, find_neighboring_location, termination_condition):
-        current_placement = initial_placement
-        best_placement = current_placement
-        best_cost = calculate_cost(best_placement)
+#### Mathematical Discussion
 
-        while not termination_condition():
-            improved = False
-            for facility in current_placement:
-                neighboring_location = find_neighboring_location(current_placement, facility)
-                new_placement = current_placement.copy()
-                new_placement[facility] = neighboring_location
-                new_cost = calculate_cost(new_placement)
-                if new_cost < best_cost:
-                    best_placement = new_placement
-                    best_cost = new_cost
-                    improved = True
-                    break
-            if not improved:
-                break
+In bandwidth allocation, the goal is to distribute the available
+bandwidth among $`N`$ users or applications in a fair and efficient
+manner. Let $`X_i`$ denote the bandwidth allocated to user $`i`$, where
+$`1 \leq i \leq N`$. The total available bandwidth is denoted by $`B`$.
 
-        return best_placement
+One common approach to bandwidth allocation is Max-Min Fairness. In this
+approach, the bandwidth allocation vector $`\mathbf{X}`$ is iteratively
+adjusted until convergence. At each iteration, the deficit for each user
+is calculated based on the current allocation. The deficit represents
+the difference between the user’s allocated bandwidth and its fair
+share. Bandwidth is then allocated to each user proportional to its
+deficit until convergence is achieved.
 
-    # Example usage:
-    # Initial placement of facilities (dictionary mapping facilities to locations)
-    initial_placement = {'facility1': 'location1', 'facility2': 'location2', ...}
-    # Function to calculate the cost of a placement
-    def calculate_cost(placement):
-        # Code to calculate the total cost of the placement
-        return total_cost
-    # Function to find a neighboring location for a facility
-    def find_neighboring_location(placement, facility):
-        # Code to find a neighboring location for the given facility
-        return neighboring_location
-    # Termination condition
-    def termination_condition():
-        # Code to determine whether to terminate the algorithm
-        return termination_condition_met
+#### Algorithmic Example: Max-Min Fairness
 
-    # Run local search algorithm for facility location
-    best_placement = local_search_facility_location(initial_placement, calculate_cost, find_neighboring_location, termination_condition)
+<div class="algorithm">
 
-In this algorithm, the termination condition could be a maximum number
-of iterations or a threshold on improvement. The effectiveness of the
-local search algorithm depends on the initial placement of facilities,
-the choice of neighboring locations to evaluate, and the cost function
-used to evaluate the total cost.
+<div class="algorithmic">
 
-## Probabilistic and Metaheuristic Approaches
+Initialize bandwidth allocation vector $`\mathbf{X}`$ with equal shares
+Calculate the deficit for each user based on current allocation Allocate
+bandwidth to each user proportional to its deficit until convergence
 
-### Overview
+</div>
 
-Probabilistic and metaheuristic approaches are powerful tools in
-optimization, utilizing random processes and nature-inspired mechanisms
-to navigate complex solution spaces effectively. These approaches are
-particularly useful for problems where traditional algorithms fail to
-find optimal solutions efficiently.
+</div>
 
-**Probabilistic Approaches:** These methods, such as simulated
-annealing, use stochastic processes to generate and evaluate candidate
-solutions, often incorporating mechanisms to escape local optima and
-explore the solution space broadly.
+### Quality of Service (QoS) Management
 
-**Metaheuristic Approaches:** These are high-level frameworks that guide
-the search process and can be adapted to various optimization problems.
-Examples include genetic algorithms, particle swarm optimization, and
-ant colony optimization, which draw inspiration from biological
-processes and social behaviors.
+Quality of Service (QoS) management involves prioritizing certain types
+of traffic or users to meet specific performance requirements, such as
+latency, throughput, and reliability. This ensures that critical
+applications receive the necessary resources to function optimally.
 
-### Simulated Annealing
+#### Mathematical Discussion
 
-Simulated annealing is a versatile probabilistic technique used for
-approximating the global optimum of a given function. It is particularly
-effective in finding near-optimal solutions to combinatorial problems
-like the Traveling Salesman Problem (TSP) and job scheduling.
+In QoS management, different traffic classes are assigned different
+priority levels based on their QoS requirements. Let $`T_i`$ denote the
+traffic class of flow $`i`$, where $`1 \leq i \leq N`$. Each traffic
+class is associated with a set of performance parameters, such as
+latency bounds, packet loss rates, and throughput requirements.
 
-#### Algorithm Mechanics
+One approach to QoS management is the Token Bucket Algorithm. In this
+algorithm, a token bucket is used to control the rate at which packets
+are transmitted. Each packet is allowed to be transmitted only if there
+are sufficient tokens in the bucket. If tokens are depleted, packets are
+either dropped or queued for later transmission.
 
-1.  **Initialization:** Start with an initial solution and a high
-    temperature.
+#### Algorithmic Example: Token Bucket Algorithm
 
-2.  **Iteration:** Generate a neighboring solution and decide its
-    acceptance based on the change in the objective function and the
-    current temperature.
+<div class="algorithm">
 
-3.  **Acceptance:** Accept better solutions directly and worse solutions
-    with a probability that decreases with temperature.
+<div class="algorithmic">
 
-4.  **Cooling:** Gradually reduce the temperature according to a
-    predefined schedule.
+Initialize token bucket with tokens and token replenishment rate
+Transmit packet Consume tokens Drop packet
 
-5.  **Termination:** Conclude when the temperature is low or no
-    improvement is observed.
+</div>
 
-#### Applications and Effectiveness
+</div>
 
-Simulated annealing has been successfully applied to various domains:
+## Mathematical and Heuristic Methods in Scheduling
 
-**Traveling Salesman Problem:** - **Overview:** Seek the shortest route
-visiting each city once. - **Application:** Adjust city orders to
-minimize travel distance, with temperature controlling exploration
-extent.
+Scheduling problems involve allocating limited resources over time to
+perform a set of tasks, subject to various constraints and objectives.
+Mathematical and heuristic methods are commonly used to solve scheduling
+problems efficiently and effectively. In this section, we explore
+different approaches, including Linear Programming, Heuristic
+Algorithms, and Evolutionary Algorithms.
 
-**Job Scheduling:** - **Overview:** Distribute tasks across resources to
-minimize total time. - **Application:** Explore task assignments to
-optimize resource use and process flow.
+### Linear Programming Approaches
 
-The effectiveness of simulated annealing depends on the cooling schedule
-and the specific characteristics of the problem at hand. Its ability to
-avoid being trapped in local minima makes it an excellent choice for
-problems where the landscape of possible solutions is rugged or complex.
+Linear Programming (LP) provides a mathematical framework for optimizing
+linear objective functions subject to linear constraints. In the context
+of scheduling, LP approaches formulate the scheduling problem as a
+linear optimization problem and solve it using LP techniques.
 
-**Conclusion:**
+- **Job Scheduling with Minimization of Total Completion Time:** In this
+  approach, the objective is to minimize the total completion time of
+  all jobs subject to various constraints such as job dependencies and
+  resource availability. Mathematically, this can be formulated as
+  follows:
+  ``` math
+  \begin{aligned}
+          & \text{Minimize} \quad \sum_{i=1}^{n} C_i \\
+          & \text{Subject to} \\
+          & C_i = \text{start time of job } i \\
+          & C_i + p_i \leq C_j \quad \forall (i, j) \in \text{precedence constraints} \\
+          & C_i + p_i \leq d_i \quad \forall i \in \text{jobs} \\
+          & C_i \geq 0 \quad \forall i \in \text{jobs}
+      
+  \end{aligned}
+  ```
+  where $`C_i`$ represents the completion time of job $`i`$, $`p_i`$ is
+  the processing time of job $`i`$, and $`d_i`$ is the due date of job
+  $`i`$. The first constraint ensures that each job starts after its
+  predecessor completes, the second constraint enforces the due date
+  constraint, and the last constraint ensures non-negative start times.
 
-Both probabilistic and metaheuristic approaches offer robust frameworks
-for tackling optimization problems that are otherwise intractable using
-conventional methods. By effectively balancing exploration and
-exploitation, these methods can navigate vast and complex solution
-spaces to find satisfactory solutions efficiently.
+- **Job Scheduling with Minimization of Total Weighted Tardiness:** This
+  approach aims to minimize the total weighted tardiness of jobs, where
+  tardiness is the amount of time a job finishes after its due date,
+  weighted by a given weight for each job. Mathematically, this can be
+  formulated as follows:
+  ``` math
+  \begin{aligned}
+          & \text{Minimize} \quad \sum_{i=1}^{n} w_i \cdot \max(0, C_i - d_i) \\
+          & \text{Subject to} \\
+          & C_i = \text{start time of job } i \\
+          & C_i + p_i \leq C_j \quad \forall (i, j) \in \text{precedence constraints} \\
+          & C_i + p_i \leq d_i \quad \forall i \in \text{jobs} \\
+          & C_i \geq 0 \quad \forall i \in \text{jobs}
+      
+  \end{aligned}
+  ```
+  where $`w_i`$ is the weight of job $`i`$, and all other constraints
+  are similar to the previous formulation.
 
-### Hopfield Networks
+Let’s illustrate the Job Scheduling with Minimization of Total
+Completion Time using the following algorithmic example:
 
-Hopfield networks are recurrent neural networks used for associative
-memory and optimization tasks. Introduced by John Hopfield in 1982,
-these networks consist of interconnected neurons with feedback
-connections that enable them to store and retrieve patterns.
+<div class="algorithm">
 
-#### Introduction to Hopfield Nets
+<div class="algorithmic">
 
-A Hopfield network consists of $`N`$ binary neurons represented by
-$`x_i`$, each of which can take on values of 0 or 1. The state of neuron
-$`x_i`$ at time $`t`$ is denoted by $`x_i(t)`$. The network dynamics are
-governed by the following update rule:
+Formulate the LP problem as described above. Solve the LP problem using
+an LP solver (e.g., simplex method). Extract the optimal solution to
+obtain the start times of each job.
 
+</div>
+
+</div>
+
+### Heuristic Algorithms
+
+Heuristic algorithms provide approximate solutions to scheduling
+problems in a reasonable amount of time. These algorithms do not
+guarantee optimality but often produce high-quality solutions
+efficiently.
+
+- **Earliest Due Date (EDD) Algorithm:** The EDD algorithm schedules
+  jobs based on their due dates, with the earliest due date job
+  scheduled first. Mathematically, the EDD rule can be expressed as:
+  ``` math
+  \text{Priority}(i) = d_i
+  ```
+  where $`d_i`$ is the due date of job $`i`$.
+
+- **Shortest Processing Time (SPT) Algorithm:** The SPT algorithm
+  schedules jobs based on their processing times, with the shortest
+  processing time job scheduled first. Mathematically, the SPT rule can
+  be expressed as:
+  ``` math
+  \text{Priority}(i) = p_i
+  ```
+  where $`p_i`$ is the processing time of job $`i`$.
+
+Let’s demonstrate the Earliest Due Date (EDD) Algorithm using the
+following algorithmic example:
+
+<div class="algorithm">
+
+<div class="algorithmic">
+
+Schedule job $`i`$ at the earliest available time slot.
+
+</div>
+
+</div>
+
+### Evolutionary Algorithms and Machine Learning
+
+Evolutionary algorithms (EAs) are population-based optimization
+techniques inspired by the process of natural selection. These
+algorithms iteratively evolve a population of candidate solutions to
+search for optimal or near-optimal solutions to a given problem. In the
+context of scheduling, EAs are used to explore the solution space
+efficiently and find high-quality schedules.
+
+- **Genetic Algorithm (GA):** GA is one of the most well-known EAs. It
+  operates on a population of potential solutions, where each solution
+  is represented as a chromosome. The chromosome encodes a candidate
+  solution to the scheduling problem, typically representing a
+  permutation of job orders or a binary encoding of job allocations. GA
+  iteratively applies genetic operators such as selection, crossover,
+  and mutation to evolve better solutions over generations.
+
+- **Particle Swarm Optimization (PSO):** PSO is another popular EA based
+  on the social behavior of particles in a swarm. In PSO, each potential
+  solution is represented as a particle moving in the search space. The
+  position of each particle corresponds to a candidate solution, and the
+  velocity of each particle determines how it explores the search space.
+  PSO iteratively updates the position and velocity of particles based
+  on their own best-known position and the global best-known position in
+  the search space.
+
+Let’s provide more detailed algorithmic examples for both GA and PSO in
+the context of scheduling:
+
+#### Genetic Algorithm (GA)
+
+In the context of scheduling, a chromosome in GA represents a
+permutation of job orders. The objective is to find the best permutation
+that minimizes a scheduling criterion such as total completion time or
+total weighted tardiness.
+
+<div class="algorithm">
+
+<div class="algorithmic">
+
+Initialize population of chromosomes randomly. Evaluate fitness of each
+chromosome. Select parents for reproduction based on fitness. Apply
+crossover and mutation operators to create offspring. Replace old
+population with new population of offspring. Best chromosome found.
+
+</div>
+
+</div>
+
+#### Particle Swarm Optimization (PSO)
+
+In PSO, each particle represents a potential solution, and its position
+corresponds to a candidate schedule. The objective is to find the best
+position (schedule) that minimizes a scheduling criterion.
+
+<div class="algorithm">
+
+<div class="algorithmic">
+
+Initialize particles with random positions and velocities. Update
+personal best-known position for each particle. Update global best-known
+position for the swarm. Update particle positions and velocities. Best
+position found.
+
+</div>
+
+</div>
+
+Both GA and PSO can be customized and extended to handle various
+scheduling criteria and constraints. They offer the advantage of
+exploring the solution space effectively and finding high-quality
+schedules, although they may not guarantee optimality.
+
+Evolutionary algorithms are relevant to machine learning in scheduling
+as they can adaptively learn from past schedules and improve scheduling
+policies over time, leading to more efficient and effective scheduling
+solutions.
+
+## Challenges and Future Directions
+
+Scheduling is essential across various domains, but as systems grow more
+complex, new challenges and opportunities arise. This section discusses
+key challenges and future directions in scheduling research.
+
+### Scalability Issues
+
+Scalability is a critical concern in scheduling algorithms, especially
+as systems grow larger and more complex. The computational complexity of
+scheduling problems often grows exponentially with the size of the
+problem.
+
+Consider a scheduling problem with $`n`$ tasks and $`m`$ resources. Let
+$`T = \{1, 2, ..., n\}`$ be the set of tasks and
+$`R = \{1, 2, ..., m\}`$ the set of resources. Each task $`i \in T`$
+requires $`r_{ij}`$ of each resource $`j \in R`$. We introduce binary
+decision variables $`x_{ijt}`$, where $`x_{ijt} = 1`$ if task $`i`$ is
+assigned to resource $`j`$ at time $`t`$, and $`x_{ijt} = 0`$ otherwise.
+
+The goal is to minimize or maximize an objective function subject to
+constraints. For example, to minimize makespan:
 ``` math
-x_i(t+1) = \begin{cases} 
-1 & \text{if } \sum_{j=1}^{N} w_{ij}x_j(t) \geq \theta_i \\
-0 & \text{otherwise}
-\end{cases}
+\text{Minimize } f(x_{ijt})
+```
+subject to:
+``` math
+\sum_{j \in R} x_{ijt} \leq C_{ij} \quad \forall i \in T, \forall t
 ```
 
-where $`w_{ij}`$ represents the connection weight between neurons
-$`x_i`$ and $`x_j`$, and $`\theta_i`$ is the threshold of neuron
-$`x_i`$.
+Many scheduling problems are NP-hard, making them computationally
+intractable for large instances. Heuristic or approximation algorithms,
+such as greedy algorithms and metaheuristic techniques, provide
+near-optimal solutions efficiently.
 
-#### Use in Optimization Problems
+### Scheduling under Uncertainty
 
-Hopfield networks can be used to solve various optimization problems,
-including:
+Scheduling under uncertainty involves making decisions with incomplete
+information, such as variable task durations and resource availability.
+This can be modeled using stochastic optimization techniques,
+probabilistic models, and decision theory.
 
-- **Traveling Salesman Problem (TSP):** Hopfield networks can store TSP
-  instances as patterns and converge to stable states corresponding to
-  optimal or near-optimal tours.
+For example, consider a scheduling problem with uncertain task durations
+modeled as stochastic optimization. Using dynamic programming, we can
+find a schedule that minimizes expected completion time or maximizes
+resource utilization while accounting for uncertainty.
 
-- **Graph Coloring:** By encoding graph coloring instances as patterns,
-  Hopfield networks can find valid vertex colorings that minimize
-  conflicts.
+### Emerging Applications and Technologies
 
-**Python Implementation**
+Scheduling techniques are being applied to new domains and technologies,
+driving research and development:
 
-Here’s a Python implementation of the Hopfield network algorithm for
-solving the TSP:
+- **Smart Manufacturing**: Optimizing production processes in
+  interconnected systems to improve efficiency and reduce downtime.
 
-    import numpy as np
+- **Internet of Things (IoT)**: Coordinating resources and tasks in IoT
+  networks with limited capabilities.
 
-    class HopfieldNetwork:
-        def __init__(self, num_neurons):
-            self.num_neurons = num_neurons
-            self.weights = np.zeros((num_neurons, num_neurons))
-        
-        def train(self, patterns):
-            for pattern in patterns:
-                self.weights += np.outer(pattern, pattern)
-            np.fill_diagonal(self.weights, 0)
-        
-        def predict(self, input_pattern, num_iterations=100):
-            for _ in range(num_iterations):
-                activations = np.dot(input_pattern, self.weights)
-                input_pattern = np.where(activations >= 0, 1, 0)
-            return input_pattern
+- **Blockchain Technology**: Scheduling transactions and smart contracts
+  in decentralized networks.
 
-    # Example usage:
-    tsp_instance = np.array([[0, 1, 0], [1, 0, 1], [0, 1, 0]])
-    hopfield_net = HopfieldNetwork(num_neurons=3)
-    hopfield_net.train([tsp_instance])
-    print("Predicted optimal TSP tour:", hopfield_net.predict(tsp_instance))
+- **Edge Computing**: Optimizing task scheduling and resource allocation
+  closer to end-users to reduce latency.
+
+- **Autonomous Systems**: Planning and scheduling tasks for autonomous
+  vehicles, drones, and robots in dynamic environments.
+
+These applications present unique challenges and opportunities, driving
+the development of new algorithms and optimization methods tailored to
+specific domains and technologies.
 
 ## Case Studies
 
-In the context of Approximation algorithms, we often encounter
-optimization problems that are NP-hard, meaning they are computationally
-intractable to solve exactly in polynomial time. However, despite their
-intractability, we can still develop algorithms that provide
-near-optimal solutions within a reasonable amount of time. These
-algorithms are known as approximation algorithms.
+Scheduling techniques are essential in various domains, including
+large-scale data centers, smart grids, and autonomous systems. This
+section explores scheduling challenges, algorithms, and applications in
+these contexts.
 
-### Approximating the Vertex Cover Problem
+### Scheduling in Large-Scale Data Centers
 
-The Vertex Cover Problem is a classic optimization problem in graph
-theory. Given an undirected graph $`G = (V, E)`$, a vertex cover is a
-subset $`V' \subseteq V`$ such that every edge in $`E`$ is incident to
-at least one vertex in $`V'`$. The goal is to find the minimum-sized
-vertex cover.
+Large-scale data centers host numerous applications and services, making
+efficient scheduling crucial for optimizing resource utilization,
+minimizing latency, and maximizing throughput.
 
-Approximation algorithms provide efficient solutions to NP-hard
-problems, such as the Vertex Cover Problem, by finding solutions that
-are guaranteed to be within a certain factor of the optimal solution. A
-common approximation algorithm for the Vertex Cover Problem is the
-greedy algorithm.
+#### Mathematically Detailed Discussion
 
-The greedy algorithm for the Vertex Cover Problem iteratively selects
-vertices that cover the maximum number of uncovered edges until all
-edges are covered.
+In data centers, tasks arrive dynamically and must be assigned to
+available resources such as servers or virtual machines (VMs). The
+scheduling problem can be formulated as an optimization task to minimize
+total completion time or maximize resource utilization while meeting
+constraints like deadlines or service-level agreements.
 
-<div class="algorithm">
+``` math
+\text{Minimize} \sum_{i=1}^{n} C_i
+```
+subject to:
+``` math
+C_i \leq D_i \quad \forall i \in \{1, 2, \ldots, n\}
+```
+where $`C_i`$ is the completion time of task $`i`$ and $`D_i`$ is its
+deadline.
 
-<div class="algorithmic">
-
-Let $`C`$ be the set of selected vertices (initially empty). Let $`E'`$
-be the set of uncovered edges (initially all edges in $`E`$). Select a
-vertex $`v`$ that covers the maximum number of uncovered edges in
-$`E'`$. Add $`v`$ to $`C`$. Remove all edges incident to $`v`$ from
-$`E'`$. **return** $`C`$ as the vertex cover.
-
-</div>
-
-</div>
-
-**Python Code Implementation:**
-
-       def greedy_vertex_cover(graph):
-        vertex_cover = set()  # Set of selected vertices
-        uncovered_edges = set(graph.edges())  # Set of uncovered edges
-
-        while uncovered_edges:  # While there are uncovered edges
-            max_cover_vertex = None
-            max_cover_count = 0
-
-            for vertex in graph.nodes():
-                cover_count = sum(1 for edge in graph.edges(vertex) if edge in uncovered_edges)
-                if cover_count > max_cover_count:
-                    max_cover_vertex = vertex
-                    max_cover_count = cover_count
-
-            if max_cover_vertex is not None:
-                vertex_cover.add(max_cover_vertex)
-                # Remove edges incident to the selected vertex from the set of uncovered edges
-                uncovered_edges -= set(graph.edges(max_cover_vertex))
-
-        return vertex_cover
-
-    # Example usage:
-    # Suppose you have a graph 'G' representing your problem
-    # You would call the function like this:
-    # vertex_cover = greedy_vertex_cover(G) 
-
-### Approximating the Set Cover Problem
-
-The Set Cover Problem is another classic optimization problem. Given a
-universe $`U`$ and a collection of subsets $`S_1, S_2, \ldots, S_n`$ of
-$`U`$, the goal is to find the minimum-sized subset of $`S`$ whose union
-covers all elements of $`U`$.
-
-Similar to the Vertex Cover Problem, the Set Cover Problem is NP-hard.
-Approximation algorithms, such as the greedy algorithm, provide
-efficient solutions with performance guarantees.
-
-The greedy algorithm for the Set Cover Problem selects the subset that
-covers the maximum number of uncovered elements at each iteration.
+One commonly used algorithm for scheduling tasks in large-scale data
+centers is the **Minimum Completion Time (MCT)** algorithm. The MCT
+algorithm assigns each task to the resource that minimizes its
+completion time, considering factors such as processing power, network
+bandwidth, and data locality. The algorithm can be described as follows:
 
 <div class="algorithm">
 
 <div class="algorithmic">
 
-Let $`C`$ be the set of selected subsets (initially empty). Let $`U'`$
-be the set of uncovered elements (initially all elements in $`U`$).
-Select a subset $`S`$ that covers the maximum number of uncovered
-elements in $`U'`$. Add $`S`$ to $`C`$. Remove all elements covered by
-$`S`$ from $`U'`$. **return** $`C`$ as the solution.
+Sort tasks in non-decreasing order of processing time Assign $`T`$ to
+the resource that minimizes its completion time
 
 </div>
 
 </div>
 
-**Python Code Implementation:**
-
-    def greedy_set_cover(universe, subsets):
-        selected_subsets = []  # C: set of selected subsets
-        uncovered_elements = set(universe)  # U': set of uncovered elements
-
-        while uncovered_elements:  # While U' is not empty
-            max_covered = set()
-            max_subset = None
-
-            for subset in subsets:
-                covered = subset.intersection(uncovered_elements)
-                if len(covered) > len(max_covered):
-                    max_covered = covered
-                    max_subset = subset
-
-            if max_subset is None:
-                break  # No subset covers any uncovered element
-
-            selected_subsets.append(max_subset)  # Add the subset to C
-            uncovered_elements -= max_subset  # Remove covered elements from U'
-
-        return selected_subsets
-
-    # Example usage:
-    universe = {1, 2, 3, 4, 5}
-    subsets = [{1, 2, 3}, {2, 3, 4}, {4, 5}]
-
-    solution = greedy_set_cover(universe, subsets)
-    print("Selected subsets:", solution)
-
-### Applications in Network Design
-
-Network design involves the optimization of network resources to achieve
-certain objectives, such as minimizing cost, maximizing throughput, or
-minimizing latency. In the context of approximation algorithms, network
-design problems often involve finding optimal or near-optimal solutions
-to NP-hard problems.
-
-Approximation algorithms play a crucial role in network design by
-providing efficient solutions to complex optimization problems. These
-algorithms are used in various network design applications, such as
-routing, facility location, and capacity planning.
-
-Some examples of approximation algorithms used in network design
-include:
-
-- **Approximate Shortest Path Algorithms**: These algorithms find
-  near-optimal paths in a network, considering factors such as distance,
-  congestion, and reliability.
-
-- **Approximate Facility Location Algorithms**: These algorithms
-  determine the optimal locations for facilities, such as warehouses or
-  data centers, to minimize the cost of serving customers or users.
-
-- **Approximate Capacity Planning Algorithms**: These algorithms
-  allocate network resources, such as bandwidth or processing capacity,
-  to meet demand while minimizing cost or maximizing throughput.
-
-## Challenges in Approximation Algorithms
-
-Approximation algorithms provide near-optimal solutions to complex
-optimization problems but face significant challenges in terms of design
-and analysis.
-
-### Limits of Approximability
-
-The inherent difficulty of approximating certain NP-hard problems within
-a specific factor is a fundamental challenge. Examples include:
-
-- **Vertex Cover**: Known to be hard to approximate better than a factor
-  of $`2`$ unless P = NP.
-
-- **Set Cover**: Difficult to approximate within a factor better than
-  $`O(\log n)`$, with $`n`$ being the number of elements.
-
-- **Traveling Salesman Problem (TSP)**: Hard to approximate within a
-  factor better than $`2`$, assuming P $`\neq`$ NP.
-
-### Hardness of Approximation
-
-Proving performance guarantees or demonstrating the non-existence of
-efficient approximation algorithms within certain factors is inherently
-difficult. The PCP theorem, for instance, indicates severe limitations
-on the approximability of many NP-hard problems unless P = NP.
-
-### Open Problems and Research Directions
-
-Key unresolved issues and potential research directions include:
-
-- **Unique Games Conjecture (UGC)**: Its resolution could clarify the
-  approximability boundaries for a broad range of problems.
-
-- **NP vs. PSPACE**: Deepening understanding of the relationship between
-  these complexity classes could further illuminate the limits of
-  algorithmic solvability.
-
-#### Research Opportunities
-
-- **Developing Better Algorithms**: Continuously improving approximation
-  ratios for classical optimization problems.
-
-- **Exploring New Techniques**: Leveraging advances in mathematical
-  programming and probabilistic methods to enhance algorithmic
-  approaches.
-
-- **Inapproximability Studies**: Focusing on rigorous proofs to
-  establish the hardness of approximation for more problems, enhancing
-  our understanding of computational complexity.
-
-Understanding and overcoming these challenges remains a central focus in
-the study of computational complexity, driving the development of new
-approximation strategies and deepening our understanding of algorithmic
-limitations.
-
-## Practical Implementations
-
-Approximation algorithms are crucial in fields like computer science,
-operations research, and engineering, especially when exact solutions
-are computationally infeasible. They find applications in network
-design, resource allocation, and clustering and classification tasks,
-optimizing performance while minimizing costs.
-
-### Implementing Approximation Algorithms
-
-Implementing these algorithms involves several key steps:
-
-1.  **Problem Analysis:** Understand the problem, including its
-    constraints and requirements.
-
-2.  **Algorithm Selection:** Choose or design an appropriate algorithm
-    based on factors like time complexity and practical applicability.
-
-3.  **Algorithmic Design:** Plan the algorithm’s components, define data
-    structures, and identify optimization strategies.
-
-4.  **Coding:** Translate the design into code using languages like
-    Python, C++, or Java, ensuring readability and efficiency.
-
-5.  **Testing:** Conduct thorough testing to ensure the algorithm’s
-    correctness and robustness across various scenarios.
-
-6.  **Optimization:** Apply optimization techniques to enhance
-    performance, considering time and space complexity improvements.
-
-### Tools and Software for Algorithm Development
-
-Various tools support the development and implementation of
-approximation algorithms, including:
-
-- **Python:** Widely used for its extensive libraries and ease of use.
-
-- **MATLAB:** Ideal for prototyping and visualization.
-
-- **GNU Octave:** An open-source alternative to MATLAB.
-
-- **NetworkX:** Useful for network problems.
-
-- **SciPy:** Offers modules for scientific computing.
-
-These tools and the systematic approach to implementation allow
-developers to effectively tackle complex optimization problems using
-approximation algorithms.
-
-### Case Studies of Real-World Applications
-
-#### Network Design
-
-**Real-World Application:** Designing Communication Networks  
-**Problem Description:** Given a set of communication nodes and their
-pairwise communication requirements, the goal is to design a
-communication network that minimizes the total cost while satisfying the
-communication demands.  
-**Algorithm:** The *Minimum Spanning Tree (MST)* algorithm is commonly
-used as an approximation algorithm for designing communication networks.
-The algorithm constructs a spanning tree with the minimum total edge
-weight, ensuring connectivity between all nodes at minimal cost.
-
-<div class="algorithm">
-
-<div class="algorithmic">
-
-$`T \gets \emptyset`$ Select the cheapest edge $`(u, v)`$ Add $`(u, v)`$
-to $`T`$ **return** $`T`$
-
-</div>
-
-</div>
-
-**Python Code Implementation:**
-
-    def MST(graph):
-        T = set()  # Initialize empty tree
-        visited = set()  # Set to keep track of visited vertices
-        
-        while len(T) < len(graph) - 1:  # Until T forms a spanning tree
-            min_cost = float('inf')  # Initialize minimum cost to infinity
-            min_edge = None  # Initialize minimum cost edge to None
-            
-            for u in graph:
-                for v, cost in graph[u].items():
-                    if v not in visited and cost < min_cost:
-                        min_cost = cost
-                        min_edge = (u, v)
-            
-            u, v = min_edge
-            T.add((u, v))  # Add minimum cost edge to T
-            visited.add(v)  # Mark v as visited
-        
-        return T
-
-    # Example usage:
-    graph = {
-        'A': {'B': 2, 'C': 3},
-        'B': {'A': 2, 'C': 1},
-        'C': {'A': 3, 'B': 1}
-    }
-
-    print("Minimum Spanning Tree:", MST(graph))
-
-#### Resource Allocation
-
-**Real-World Application:** Job Scheduling  
-**Problem Description:** Given a set of jobs with processing times and
-deadlines, the goal is to schedule the jobs on available machines to
-minimize the total completion time or maximize resource utilization.  
-**Algorithm:** The *Greedy Scheduling Algorithm* is an approximation
-algorithm commonly used for job scheduling. It schedules jobs in a
-greedy manner based on certain criteria, such as processing time or
-deadline, to achieve near-optimal solutions.
-
-<div class="algorithm">
-
-<div class="algorithmic">
-
-Sort $`jobs`$ based on a selected criterion Initialize an empty schedule
-$`S`$ Assign $`j`$ to the machine with the earliest available time
-**return** $`S`$
-
-</div>
-
-</div>
-
-**Python Code Implementation:**
-
-    def greedy_scheduling(jobs):
-        # Sort jobs based on a selected criterion
-        sorted_jobs = sorted(jobs, key=lambda x: x.criterion)
-        
-        # Initialize an empty schedule
-        schedule = []
-        
-        # Iterate through sorted jobs
-        for job in sorted_jobs:
-            # Assign job to the machine with the earliest available time
-            machine = min(schedule, key=lambda x: x.available_time)
-            machine.assign_job(job)
-        
-        return schedule
-
-#### Clustering and Classification
-
-**Real-World Application:** Document Clustering  
-**Problem Description:** Given a collection of documents, the goal is to
-cluster similar documents together based on their content or features.  
-**Algorithm:** The *k-means Algorithm* is commonly used as an
-approximation algorithm for document clustering. It partitions the
-documents into $`k`$ clusters by iteratively updating the cluster
-centroids to minimize the within-cluster sum of squared distances.
-
-<div class="algorithm">
-
-<div class="algorithmic">
-
-Initialize $`k`$ centroids randomly Assign each document to the nearest
-centroid Update centroids as the mean of documents in each cluster
-**return** Clusters
-
-</div>
-
-</div>
-
-**Python Code Implementation:**
-
-    import numpy as np
-
-    def kMeans(documents, k):
-        # Initialize centroids randomly
-        centroids = np.random.rand(k, len(documents[0]))
-
-        while True:
-            # Assign each document to the nearest centroid
-            clusters = [[] for _ in range(k)]
-            for document in documents:
-                distances = [np.linalg.norm(document - centroid) for centroid in centroids]
-                nearest_centroid_idx = np.argmin(distances)
-                clusters[nearest_centroid_idx].append(document)
-
-            # Update centroids as the mean of documents in each cluster
-            new_centroids = [np.mean(cluster, axis=0) for cluster in clusters]
-
-            # Check for convergence
-            if np.array_equal(centroids, new_centroids):
-                break
-
-            centroids = new_centroids
-
-        return clusters
-
-    # Example usage:
-    # documents is a list of document vectors
-    documents = [[1, 2, 3], [4, 5, 6], [7, 8, 9], ...]
-    # k is the number of clusters
-    k = 3
-    clusters = kMeans(documents, k)
-    print(clusters)
+#### Algorithmic Example
+
+Here’s a Python implementation of the MCT algorithm for scheduling tasks
+in a large-scale data center:
+
+    def mct_algorithm(tasks, resources):
+        tasks.sort(key=lambda x: x.processing_time)
+        for task in tasks:
+            min_completion_time = float('inf')
+            selected_resource = None
+            for resource in resources:
+                completion_time = calculate_completion_time(task, resource)
+                if completion_time < min_completion_time:
+                    min_completion_time = completion_time
+                    selected_resource = resource
+            assign_task_to_resource(task, selected_resource)
+
+### Dynamic Scheduling in Smart Grids
+
+Smart grids use advanced communication and control technologies to
+manage electricity generation, distribution, and consumption
+efficiently. Dynamic scheduling optimizes energy usage, reduces costs,
+and maintains grid stability.
+
+#### Mathematically Detailed Discussion
+
+Dynamic scheduling in smart grids involves real-time allocation of
+resources like power generators, storage systems, and demand-side
+resources to meet electricity demand while adhering to operational
+constraints and market dynamics.
+
+``` math
+\text{Minimize} \sum_{t=1}^{T} (C_t \cdot E_t + P_t)
+```
+subject to:
+``` math
+\sum_{i=1}^{n} G_i(t) \geq D(t) \quad \forall t
+```
+where $`C_t`$ is the cost of energy at time $`t`$, $`E_t`$ is the energy
+consumption, $`P_t`$ is the penalty for not meeting demand, $`G_i(t)`$
+is the power generated by source $`i`$ at time $`t`$, and $`D(t)`$ is
+the demand at time $`t`$.
+
+**Model Predictive Control (MPC)** is a technique used for dynamic
+scheduling in smart grids. MPC formulates the scheduling problem as a
+dynamic optimization task and solves it iteratively based on predictions
+of future behavior, adjusting resource allocations in response to
+changing conditions like fluctuating demand or renewable energy
+availability.
+
+#### Algorithmic Example
+
+Here’s a simplified Python implementation of the Model Predictive
+Control (MPC) algorithm for dynamic scheduling in a smart grid:
+
+    def mpc_algorithm():
+        initialize_system_state()
+        for t in range(total_time_steps):
+            predict_future_state()
+            optimize_resource_allocation()
+            update_system_state()
+
+### Adaptive Scheduling in Autonomous Systems
+
+Autonomous systems like unmanned aerial vehicles (UAVs) and self-driving
+cars use adaptive scheduling to make real-time decisions and coordinate
+actions efficiently.
+
+#### Mathematically Detailed Discussion
+
+Adaptive scheduling in autonomous systems involves dynamically
+allocating tasks or resources based on changing environmental
+conditions, system states, and mission objectives. The problem often
+involves uncertainty and requires robust algorithms capable of adapting
+to unforeseen events.
+
+**Reinforcement Learning (RL)** is a common approach for adaptive
+scheduling in autonomous systems. RL formulates the scheduling problem
+as a Markov Decision Process (MDP) and learns optimal scheduling
+policies through trial and error interactions with the environment. The
+algorithm explores different strategies and updates its policy based on
+observed rewards and penalties.
+
+``` math
+\pi^* = \arg\max_\pi \mathbb{E}\left[\sum_{t=0}^{T} \gamma^t R(s_t, a_t) \mid \pi\right]
+```
+where $`\pi^*`$ is the optimal policy, $`R(s_t, a_t)`$ is the reward
+received at time $`t`$ for taking action $`a_t`$ in state $`s_t`$, and
+$`\gamma`$ is the discount factor.
+
+#### Algorithmic Example
+
+Here’s a simple Python implementation of a Reinforcement Learning (RL)
+algorithm for adaptive scheduling in an autonomous system:
+
+    def reinforcement_learning():
+        initialize_q_table()
+        for episode in range(total_episodes):
+            observe_environment()
+            while not is_terminal_state():
+                choose_action_based_on_policy()
+                take_action()
+                update_q_table()
 
 ## Conclusion
 
-Approximation algorithms are vital for solving NP-hard and NP-complete
-optimization problems where exact solutions are impractical. These
-algorithms provide near-optimal solutions efficiently, balancing
-solution quality with computational demands, making them crucial across
-various applications.
+We explored various scheduling techniques, highlighting their
+significance in algorithms and potential future research directions.
 
-### Summary of Key Points
+### The Evolution of Scheduling Theory and Practice
 
-- Approximation algorithms address computationally challenging problems
-  by delivering near-optimal solutions in a feasible timeframe.
+Scheduling theory has significantly evolved, driven by advances in
+computer science, optimization, and operations research. Initially
+focused on job shop scheduling, it now spans diverse domains such as
+project scheduling, cloud computing, and manufacturing. Early heuristic
+algorithms have given way to sophisticated methods using mathematical
+programming and combinatorial optimization. Today’s advancements in AI,
+machine learning, and IoT are driving the development of adaptive and
+predictive scheduling algorithms that dynamically optimize decisions in
+real-time.
 
-- They enhance the practical understanding of computational complexity
-  by exploring the limits of problem approximability and establishing
-  performance benchmarks.
+### Implications for Future Research and Applications
 
-- Versatile across many domains, these algorithms tackle complex issues
-  from routing and scheduling to packing and covering.
+The future of scheduling research is promising, with opportunities to
+advance the field and address real-world challenges:
 
-### The Future of Approximation Algorithms
+- **Intelligent Scheduling Algorithms:** Future research will focus on
+  AI and machine learning to develop algorithms that enhance
+  decision-making and optimize scheduling objectives.
 
-The future of approximation algorithms in computational complexity is
-promising, driven by ongoing advancements and research:
+- **Uncertainty and Risk Management:** Incorporating mechanisms to
+  handle uncertainty and risk will enable robust scheduling in dynamic
+  environments.
 
-1.  **Technique Refinement:** Continuous improvements in approximation
-    methods aim to boost both solution quality and computational
-    efficiency.
+- **Scalability and Efficiency:** There’s a need for scalable algorithms
+  that can manage large problem instances and optimize in real-time.
 
-2.  **Machine Learning Integration:** Applying machine learning can
-    further enhance the capabilities of approximation algorithms,
-    especially in optimizing data-intensive problems.
+Scheduling algorithms have broad applications across various domains:
 
-3.  **Scalability and Parallelization:** Developing scalable and
-    parallelizable algorithms is key to solving large-scale optimization
-    problems more effectively.
+- **Manufacturing:** Optimize production schedules, minimize setup
+  times, and maximize resource utilization.
 
-4.  **Theoretical Advances:** Deepening theoretical knowledge helps
-    refine performance guarantees and broaden our understanding of
-    problem approximability.
+- **Transportation and Logistics:** Optimize routes, schedule
+  maintenance, and coordinate deliveries.
 
-As computational technology evolves, approximation algorithms will
-continue to play a critical role in addressing increasingly complex
-optimization challenges and advancing the field of computational
-complexity.
+- **Healthcare:** Optimize patient appointments, allocate resources, and
+  manage facilities efficiently.
+
+These examples underscore the importance of scheduling algorithms in
+improving resource allocation and operational efficiency across diverse
+fields.
 
 ## Exercises and Problems
 
-In this section, we present a variety of exercises and problems to
-reinforce the concepts of Approximation Algorithm Techniques. We start
-with conceptual questions to test understanding, followed by practical
-coding challenges to apply these techniques.
+In this section, we present a variety of exercises and problems related
+to scheduling algorithm techniques. These exercises aim to reinforce the
+concepts covered in the chapter and provide opportunities for students
+to apply their knowledge in practical scenarios. The section is divided
+into two subsections: Conceptual Questions to Test Understanding and
+Practical Scenarios for Algorithm Design.
 
 ### Conceptual Questions to Test Understanding
 
-These conceptual questions are designed to evaluate the reader’s
-understanding of Approximation Algorithm Techniques:
+This subsection contains a series of conceptual questions designed to
+test the reader’s understanding of scheduling algorithm techniques.
+These questions cover key concepts, properties, and theoretical aspects
+of various scheduling algorithms.
 
-- What is the difference between approximation algorithms and exact
-  algorithms?
+- Explain the difference between preemptive and non-preemptive
+  scheduling algorithms.
 
-- Explain the concept of approximation ratio.
+- Describe the criteria used to evaluate the performance of scheduling
+  algorithms.
 
-- Discuss the greedy algorithm approach in approximation algorithms.
+- Discuss the advantages and disadvantages of First-Come, First-Served
+  (FCFS) scheduling.
 
-- How do you analyze the performance of an approximation algorithm?
+- Compare and contrast Shortest Job First (SJF) and Shortest Remaining
+  Time (SRT) scheduling algorithms.
 
-- Provide examples of problems where approximation algorithms are
-  commonly used.
+- Explain how Round Robin (RR) scheduling works and discuss its time
+  quantum parameter.
 
-### Practical Coding Challenges to Apply Approximation Techniques
+### Practical Scenarios for Algorithm Design
 
-In this subsection, we present practical coding challenges along with
-algorithmic and Python code solutions to apply approximation techniques:
+In this subsection, we present practical scenarios related to scheduling
+algorithm techniques. These scenarios involve real-world problems that
+require the design and implementation of scheduling algorithms to
+optimize resource allocation and improve system performance.
 
-- **Vertex Cover Problem**:
+- **Scenario 1: CPU Scheduling**
+
+  You are tasked with implementing a CPU scheduling algorithm for a
+  multi-tasking operating system. Design an algorithm that minimizes
+  average waiting time and ensures fairness among processes.
 
   <div class="algorithm">
 
   <div class="algorithmic">
 
-  $`C \gets \emptyset`$ $`E' \gets E`$ Select an arbitrary edge
-  $`(u,v) \in E'`$ $`C \gets C \cup \{u, v\}`$ Remove all edges incident
-  to $`u`$ or $`v`$ from $`E'`$ **return** $`C`$
+  Sort processes by burst time in ascending order Initialize total_time
+  = 0, total_waiting_time = 0 total_time += process.burst_time
+  total_waiting_time += total_time - process.arrival_time -
+  process.burst_time average_waiting_time = total_waiting_time /
+  number_of_processes **return** average_waiting_time
 
   </div>
 
   </div>
 
   ``` python
-  def approximate_vertex_cover(G):
-          C = set()
-          E_prime = G.edges()
-          while E_prime:
-              u, v = E_prime.pop()
-              C.add(u)
-              C.add(v)
-              E_prime = [e for e in E_prime if u not in e and v not in e]
-          return C
+  def sjf_scheduling(processes):
+          processes.sort(key=lambda x: x.burst_time)
+          total_time = 0
+          total_waiting_time = 0
+          for process in processes:
+              total_time += process.burst_time
+              total_waiting_time += total_time - process.arrival_time - process.burst_time
+          average_waiting_time = total_waiting_time / len(processes)
+          return average_waiting_time
   ```
 
-- **Knapsack Problem**:
+- **Scenario 2: Real-Time Task Scheduling**
+
+  Your task is to develop a real-time task scheduling algorithm for an
+  embedded system. The system has multiple tasks with different
+  execution times and deadlines. Design an algorithm that meets all task
+  deadlines while maximizing system throughput.
 
   <div class="algorithm">
 
   <div class="algorithmic">
 
-  Sort items by decreasing value-to-weight ratio $`S \gets \emptyset`$
-  $`w_{\text{total}} \gets 0`$ Add item $`i`$ to $`S`$
-  $`w_{\text{total}} \gets w_{\text{total}} + w[i]`$ **return** $`S`$
+  Sort tasks by their periods in ascending order Assign priorities to
+  tasks based on their periods (shorter periods have higher priorities)
+  Execute tasks in order of priority, preempting lower-priority tasks if
+  necessary
 
   </div>
 
   </div>
 
   ``` python
-  def approximate_knapsack(w, v, W):
-          n = len(w)
-          ratio = [(v[i] / w[i], i) for i in range(n)]
-          ratio.sort(reverse=True)
-          S = set()
-          w_total = 0
-          for _, i in ratio:
-              if w_total + w[i] <= W:
-                  S.add(i)
-                  w_total += w[i]
-          return S
+  def rate_monotonic_scheduling(tasks):
+          tasks.sort(key=lambda x: x.period)
+          for task in tasks:
+              execute_task(task)
   ```
 
-These coding challenges provide hands-on experience with implementing
-and applying approximation algorithms in Python. By solving these
-problems, students can gain a deeper understanding of how approximation
-techniques work in practice.
+- **Scenario 3: Disk Scheduling**
+
+  Develop a disk scheduling algorithm for a hard disk drive to optimize
+  disk access time. The algorithm should minimize disk head movement and
+  ensure fair access to disk requests.
+
+  <div class="algorithm">
+
+  <div class="algorithmic">
+
+  Sort disk requests by cylinder number Initialize head direction to
+  right Traverse requests in sorted order, servicing requests until the
+  end Change head direction when reaching the last request Continue
+  traversing in the opposite direction until all requests are serviced
+
+  </div>
+
+  </div>
+
+  ``` python
+  def scan_disk_scheduling(requests):
+          requests.sort()
+          head_direction = 'right'
+          while requests:
+              if head_direction == 'right':
+                  for request in requests:
+                      service_request(request)
+                  head_direction = 'left'
+              else:
+                  for request in reversed(requests):
+                      service_request(request)
+                  head_direction = 'right'
+  ```
 
 ## Further Reading and Resources
 
-In this section, we provide additional resources for those interested in
-learning more about intractability algorithm techniques. We cover key
-textbooks and papers, online tutorials and lectures, as well as
-communities and forums for computational complexity.
+When diving deeper into scheduling algorithm techniques, it’s essential
+to explore various resources to gain a comprehensive understanding.
+Below are some valuable resources categorized into foundational texts
+and influential papers, online courses and tutorials, and software and
+tools for scheduling analysis.
 
-### Key Textbooks and Papers on Approximation Algorithms
+### Foundational Texts and Influential Papers
 
-Approximation algorithms play a crucial role in dealing with NP-hard
-problems where finding exact solutions is computationally infeasible.
-Here are some essential resources for learning about approximation
-algorithms and computational complexity:
+Understanding the foundational principles and key research papers is
+crucial for mastering scheduling algorithm techniques. Here’s a curated
+list of influential texts and papers:
 
-- **Approximation Algorithms by Vijay V. Vazirani**: This comprehensive
-  textbook covers the theory and techniques of approximation algorithms.
-  It provides insights into the design and analysis of approximation
-  algorithms for a wide range of optimization problems.
+- **Foundational Texts**:
 
-- **The Design of Approximation Algorithms by David P. Williamson and
-  David B. Shmoys**: This book offers a detailed examination of various
-  approximation techniques and their applications. It includes advanced
-  topics such as primal-dual methods and semidefinite programming.
+  - "Introduction to Algorithms" by Thomas H. Cormen, Charles E.
+    Leiserson, Ronald L. Rivest, and Clifford Stein.
 
-- **Computational Complexity: A Modern Approach by Sanjeev Arora and
-  Boaz Barak**: While not specifically focused on approximation
-  algorithms, this textbook provides a thorough introduction to
-  computational complexity theory. It covers topics such as
-  NP-completeness, randomized algorithms, and PCP theorem.
+  - "Scheduling: Theory, Algorithms, and Systems" by Michael Pinedo.
 
-For those interested in delving deeper into computational complexity in
-the context of intractability, the following research papers are highly
-recommended:
+  - "Operating System Concepts" by Abraham Silberschatz, Peter Baer
+    Galvin, and Greg Gagne.
 
-- **On the Complexity of the Parity Argument and Other Inefficiency**:
-  This seminal paper by Richard M. Karp introduces the concept of
-  NP-completeness and establishes the importance of polynomial-time
-  algorithms.
+- **Influential Papers**:
 
-- **Computational Complexity: A Conceptual Perspective by Oded
-  Goldreich**: This survey paper provides a conceptual overview of
-  computational complexity theory, covering fundamental concepts such as
-  P vs NP, NP-completeness, and hardness of approximation.
+  - "Optimal Control of Discrete-Event Systems" by N. N. Ulanov, M. I.
+    Kudenko, and G. V. Tsarev.
 
-### Online Tutorials and Lectures
+  - "Analysis of Multilevel Feedback Queues" by W. A. Halang and G. B.
+    Halang.
 
-Online tutorials and lectures offer a convenient way to learn about
-approximation algorithms and computational complexity from experts in
-the field. Here are some recommended resources:
+  - "Real-Time Scheduling Theory: A Historical Perspective" by C. L. Liu
+    and J. W. Layland.
 
-- **Coursera - Approximation Algorithms Part 1 and Part 2**: This
-  two-part course series by Tim Roughgarden covers the fundamentals of
-  approximation algorithms, including greedy algorithms, local search,
-  and approximation schemes.
+### Online Courses and Tutorials
 
-- **MIT OpenCourseWare - Introduction to Algorithms**: This online
-  course, based on the textbook by Thomas H. Cormen et al., covers
-  various topics in algorithms and computational complexity, including
-  approximation algorithms.
+Online courses and tutorials offer interactive learning experiences and
+in-depth explanations of scheduling algorithms. Here are some
+recommended resources:
 
-### Communities and Forums for Computational Complexity
+- **Coursera**:
 
-Engaging with communities and forums is an excellent way to stay updated
-on the latest research and developments in computational complexity.
-Here are some communities and forums worth exploring:
+  - "Operating Systems" by University of London.
 
-- **Theoretical Computer Science Stack Exchange (TCS SE)**: TCS SE is a
-  question-and-answer forum for theoretical computer science
-  enthusiasts. It covers topics such as algorithms, complexity theory,
-  and cryptography.
+  - "Discrete Optimization" by The University of Melbourne.
 
-- **Association for Computing Machinery (ACM)**: ACM hosts conferences,
-  workshops, and publications on various aspects of computer science,
-  including computational complexity.
+- **edX**:
+
+  - "Algorithm Design and Analysis" by University of Pennsylvania.
+
+  - "Real-Time Systems" by Karlsruhe Institute of Technology.
+
+- **YouTube Tutorials**:
+
+  - "Introduction to Scheduling Algorithms" by MyCodeSchool.
+
+  - "Real-Time Operating Systems Concepts" by Gate Lectures by
+    Ravindrababu Ravula.
+
+### Software and Tools for Scheduling Analysis
+
+Utilizing specialized software and tools can streamline scheduling
+analysis tasks and aid in implementing and testing scheduling
+algorithms. Here are some popular options:
+
+- **SimPy**: SimPy is a discrete-event simulation library for Python. It
+  provides components for modeling and simulating various scheduling
+  scenarios.
+
+- **GanttProject**: GanttProject is an open-source project scheduling
+  and management tool. It allows users to create Gantt charts to
+  visualize and manage scheduling tasks.
+
+- **MATLAB**: MATLAB offers robust tools for numerical computing and
+  simulation. It includes functions and toolboxes for modeling and
+  analyzing scheduling algorithms.
+
+- **SimEvents**: SimEvents is a discrete-event simulation toolset in
+  MATLAB that extends Simulink for modeling and analyzing event-driven
+  systems, including scheduling processes.
