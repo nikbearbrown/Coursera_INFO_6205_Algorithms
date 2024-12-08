@@ -24,3 +24,5 @@
 - **Video Lectures**: Real-world use cases, performance tuning.
 - **Exercises**: Optimize data retrieval for given scenarios.
 - **Programming Problem**: Apply sorting and caching techniques to optimize a dataset.
+
+  
