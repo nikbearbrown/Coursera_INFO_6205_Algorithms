@@ -6,6 +6,7 @@
 Course ChatBot Grace https://chatgpt.com/g/g-MFbqFw55p-grace-6205-the-info-6205-algorithms-tutor
 
 
+
 Welcome to INFO 6205: Program Structure and Algorithms, offered by the College of Engineering at Northeastern University on Coursera. This course is designed to introduce students to the fundamental principles of data structures and algorithms, focusing on their practical application and theoretical underpinnings.
 
 **Course Overview:**
