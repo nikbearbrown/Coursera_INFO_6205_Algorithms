@@ -30,3 +30,26 @@
 *.exe
 *.out
 *.app
+
+# ── Course video pipeline (2026-08-28) ─────────────────────────────────
+# Transcript corpus — never commit
+YouTube/Squintist/
+YouTube/UC*/
+YouTube/youtube-transcripts/
+# Heavy build artifacts inside any reel folder — text ships, media never
+YouTube/*/mp3/
+YouTube/*/media/
+YouTube/*/manim/
+YouTube/*/clips/
+YouTube/*/frame-check/
+YouTube/*/_qc/
+YouTube/*/_manim_tmp/
+YouTube/*/__pycache__/
+YouTube/**/*.mp4
+YouTube/**/*.mp3
+YouTube/**/*.wav
+YouTube/**/*.mov
+YouTube/**/*.png
+YouTube/**/*.jpg
+YouTube/**/*.gif
+DELIVERY_6205
