@@ -1,0 +1,346 @@
+{
+  "$schema": "../../../../brutalist-art/skills/make/sketch-explainer/templates/beat_sheet.schema.json",
+  "metadata": {
+    "slug": "stable-matching-gale-shapley",
+    "title": "Gale–Shapley Stable Matching",
+    "series": "INFO 6205 — Algorithms and Data Structures",
+    "chapter_number": 7,
+    "source": "Coursera_INFO_6205_Algorithms/Stable_Matching_and_the_Gale-Shapley_Algorithm and INFO_6205_Algorithms_and_Data_Structures_Book/INFO_6205_Algorithms.md:8427-8938",
+    "engine": "kokoro",
+    "voice": "am_onyx",
+    "voice_kokoro": "am_onyx",
+    "palette": "eggshell-okabe-ito",
+    "style": "light",
+    "aspect_ratio": "16:9",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "voice_id": "am_onyx",
+    "accent_color": "#009E73",
+    "forbidden_color": "#FFFFFF",
+    "text_font": "EB Garamond",
+    "total_estimated_duration_seconds": 150,
+    "build": {
+      "at": "2026-08-28T22:01:38",
+      "cut": "master",
+      "filled": 12,
+      "of": 12,
+      "slates": [],
+      "skin_warnings": []
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "B00",
+      "beat_type": "INTRO",
+      "scene_index": 0,
+      "render": "remotion",
+      "narration_text": "",
+      "tts_normalized_text": "",
+      "estimated_duration_s": 8,
+      "actual_duration_s": 8,
+      "new_visual_element": "ROLE HOOK · BrutalistHesitantWriter; silent mystery question, zero static card.",
+      "approval_status": "approved",
+      "audio_file": null,
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "BrutalistHesitantWriter",
+          "props": {
+            "text": "Everyone is matched.\nSo why can this pairing\nstill fall apart?",
+            "face": "serif",
+            "fontSize": 82,
+            "lineSpacing": 1.18,
+            "align": "left",
+            "ink": "#000000",
+            "accent": "#D55E00",
+            "bg": "#FAF9F5",
+            "seed": "6205"
+          },
+          "rendered": {
+            "out": "media/B00.mp4",
+            "at": "2026-08-28T21:56:30"
+          }
+        }
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B00.mp4",
+        "filled_by": "remotion:BrutalistHesitantWriter",
+        "at": "2026-08-28T22:01:38"
+      }
+    },
+    {
+      "beat_id": "B01",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 1,
+      "render": "manim",
+      "narration_text": "Start with A paired to X and B paired to Y. Every seat is filled, yet A prefers Y, and Y prefers A. That unmatched pair would defect together, so complete does not mean stable.",
+      "tts_normalized_text": "Start with A paired to X and B paired to Y. Every seat is filled, yet A prefers Y, and Y prefers A. That unmatched pair would defect together, so complete does not mean stable.",
+      "estimated_duration_s": 14,
+      "new_visual_element": "ROLE INSTANCE 1 · Complete matching animates; explicit A–Y blocking pair appears with preference ranks.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B01.mp3",
+      "actual_duration_s": 10.37,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B01.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T22:01:38"
+      }
+    },
+    {
+      "beat_id": "B02",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 2,
+      "render": "manim",
+      "narration_text": "Change just Y’s ranking so Y prefers B. The same drawn matching now has no mutual defection between A and Y. Stability depends on both preference lists, not on crossed or uncrossed lines.",
+      "tts_normalized_text": "Change just Y's ranking so Y prefers B. The same drawn matching now has no mutual defection between A and Y. Stability depends on both preference lists, not on crossed or uncrossed lines.",
+      "estimated_duration_s": 13,
+      "new_visual_element": "ROLE INSTANCE 2 · Same subject persists while Y's ranking transforms and blocking status flips explicitly.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B02.mp3",
+      "actual_duration_s": 11.75,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B02.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T22:01:38"
+      }
+    },
+    {
+      "beat_id": "B03",
+      "beat_type": "HOLD",
+      "scene_index": 3,
+      "render": "manim",
+      "narration_text": "Now three students propose. S one and S three both choose C one first. C one currently holds S one. Before the next step, predict whether that engagement is permanent.",
+      "tts_normalized_text": "Now three students propose. S one and S three both choose C one first. C one currently holds S one. Before the next step, predict whether that engagement is permanent.",
+      "estimated_duration_s": 12,
+      "new_visual_element": "ROLE PREDICT · Live proposal state holds; question writes on in hai-simple treatment.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B03.mp3",
+      "actual_duration_s": 10.05,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B03.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T22:01:38"
+      }
+    },
+    {
+      "beat_id": "B04",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 4,
+      "render": "manim",
+      "narration_text": "It is only tentative. C one compares the new proposal, keeps S one, and rejects S three. S three moves down exactly one place to C three; rejected choices never return.",
+      "tts_normalized_text": "It is only tentative. C one compares the new proposal, keeps S one, and rejects S three. S three moves down exactly one place to C three; rejected choices never return.",
+      "estimated_duration_s": 13,
+      "new_visual_element": "ROLE TRACE 1 / TRANSFORM · Proposals, rejection, and pointer movement animate on split stage.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B04.mp3",
+      "actual_duration_s": 11.18,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B04.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T22:01:38"
+      }
+    },
+    {
+      "beat_id": "B05",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 5,
+      "render": "manim",
+      "narration_text": "Run a second preference profile. C one first holds S one, then trades upward to S two. S one becomes free and proposes next to C two. Every rejection advances one pointer.",
+      "tts_normalized_text": "Run a second preference profile. C one first holds S one, then trades upward to S two. S one becomes free and proposes next to C two. Every rejection advances one pointer.",
+      "estimated_duration_s": 13,
+      "new_visual_element": "ROLE INSTANCE 3 / TRACE 2 · Receiver trade-up and displaced proposer pointer run completely.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B05.mp3",
+      "actual_duration_s": 11.26,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B05.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T22:01:38"
+      }
+    },
+    {
+      "beat_id": "B06",
+      "beat_type": "ZOOM",
+      "scene_index": 6,
+      "render": "manim",
+      "narration_text": "Those traces reveal the license: progress is monotone. Proposers move only downward through finite lists; receivers keep only their best offer so far. No decision moves backward.",
+      "tts_normalized_text": "Those traces reveal the license: progress is monotone. Proposers move only downward through finite lists; receivers keep only their best offer so far. No decision moves backward.",
+      "estimated_duration_s": 12,
+      "new_visual_element": "ROLE ABSTRACTION · Characteristics named only after traces; pointers and receiver ranks keep operating on split stage.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B06.mp3",
+      "actual_duration_s": 11.01,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B06.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T22:01:38"
+      }
+    },
+    {
+      "beat_id": "B07",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 7,
+      "render": "manim",
+      "narration_text": "Suppose the final matching had a blocking pair, A and Y. A must have proposed to Y before reaching a worse partner. Y rejected A only for someone Y preferred, and never traded downward. So Y cannot prefer A at the end—a contradiction.",
+      "tts_normalized_text": "Suppose the final matching had a blocking pair, A and Y. A must have proposed to Y before reaching a worse partner. Y rejected A only for someone Y preferred, and never traded downward. So Y cannot prefer A at the end, a contradiction.",
+      "estimated_duration_s": 16,
+      "new_visual_element": "ROLE TRANSFORM / PROOF · Blocking-pair hypothesis rewinds to proposal, then receiver rank moves upward and invalidates it.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B07.mp3",
+      "actual_duration_s": 13.95,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B07.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T22:01:38"
+      }
+    },
+    {
+      "beat_id": "B08",
+      "beat_type": "ZOOM",
+      "scene_index": 8,
+      "render": "manim",
+      "narration_text": "Return to the opening mismatch. Deferred acceptance cannot leave A and Y both wanting to defect. If A prefers Y, Y must already hold someone Y ranks above A. The hidden blocking pair is gone.",
+      "tts_normalized_text": "Return to the opening mismatch. Deferred acceptance cannot leave A and Y both wanting to defect. If A prefers Y, Y must already hold someone Y ranks above A. The hidden blocking pair is gone.",
+      "estimated_duration_s": 14,
+      "new_visual_element": "ROLE PAYOFF · Same hook objects return and the A–Y candidate pair is rejected by explicit ranks.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B08.mp3",
+      "actual_duration_s": 11.41,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B08.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T22:01:38"
+      }
+    },
+    {
+      "beat_id": "BVDT",
+      "beat_type": "CUT",
+      "scene_index": 9,
+      "render": "remotion",
+      "narration_text": "The verdict: engagements are deferred, not promises. One side moves down; the other trades up. Those two monotone directions force termination and rule out every blocking pair.",
+      "tts_normalized_text": "The verdict: engagements are deferred, not promises. One side moves down; the other trades up. Those two monotone directions force termination and rule out every blocking pair.",
+      "estimated_duration_s": 12,
+      "new_visual_element": "ROLE VERDICT · ClaudeVerdictArtifact recap from the film's own proposals and ranks.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-BVDT.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeVerdictArtifact",
+          "props": {
+            "artifactTitle": "Verdict",
+            "artifactHeading": "Deferred acceptance",
+            "artifactLines": [
+              "Complete ≠ stable: A and Y can form a blocking pair",
+              "Proposers move down finite preference lists",
+              "Receivers trade up and never trade down",
+              "Therefore every rejection is permanent—and no blocking pair survives"
+            ]
+          },
+          "rendered": {
+            "out": "media/BVDT.mp4",
+            "at": "2026-08-28T21:56:30"
+          }
+        }
+      },
+      "actual_duration_s": 10.6,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BVDT.mp4",
+        "filled_by": "remotion:ClaudeVerdictArtifact",
+        "at": "2026-08-28T22:01:38"
+      }
+    },
+    {
+      "beat_id": "BHTF",
+      "beat_type": "CUT",
+      "scene_index": 10,
+      "render": "remotion",
+      "narration_text": "Your turn. Test the module’s proposed matching for a blocking pair, then trace deferred acceptance and explain every rejection. The full trace-partner prompt is in the description.",
+      "tts_normalized_text": "Your turn. Test the module's proposed matching for a blocking pair, then trace deferred acceptance and explain every rejection. The full trace partner prompt is in the description.",
+      "estimated_duration_s": 13,
+      "new_visual_element": "ROLE BOUNDARY / YOUR TURN · ClaudeComposerAsk with course-book blocking-pair exercise and running text.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-BHTF.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "command": "Your turn.",
+            "topic": "Trace Gale–Shapley with me.",
+            "segment": "INFO 6205 · Stable Matching",
+            "greeting": "Claude, be my trace partner.",
+            "runningText": "Test the proposed matching for a blocking pair, then make me predict HOLD, TRADE UP, or REJECT.",
+            "output": [
+              "Check both sides of every unmatched pair",
+              "Keep proposal pointers visible",
+              "Challenge my stability explanation"
+            ],
+            "folderLabel": "INFO 6205",
+            "modelLabel": "Claude"
+          },
+          "rendered": {
+            "out": "media/BHTF.mp4",
+            "at": "2026-08-28T21:56:30"
+          }
+        }
+      },
+      "actual_duration_s": 10.26,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BHTF.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-08-28T22:01:38"
+      }
+    },
+    {
+      "beat_id": "BOUT",
+      "beat_type": "CUT",
+      "scene_index": 11,
+      "render": "remotion",
+      "narration_text": "Stable does not mean everyone gets first choice; it means no unmatched pair would leave together. Thanks for watching Gale–Shapley Stable Matching.",
+      "tts_normalized_text": "Stable does not mean everyone gets first choice; it means no unmatched pair would leave together. Thanks for watching Gale Shapley Stable Matching.",
+      "estimated_duration_s": 11,
+      "new_visual_element": "ROLE OUTRO · ClaudeTitleOutro title reread and handle.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-BOUT.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeTitleOutro",
+          "props": {
+            "title": "Gale–Shapley Stable Matching",
+            "subtitle": "No blocking pair survives",
+            "handle": "INFO 6205 · Algorithms and Data Structures"
+          },
+          "rendered": {
+            "out": "media/BOUT.mp4",
+            "at": "2026-08-28T21:56:30"
+          }
+        }
+      },
+      "actual_duration_s": 8.53,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BOUT.mp4",
+        "filled_by": "remotion:ClaudeTitleOutro",
+        "at": "2026-08-28T22:01:38"
+      }
+    }
+  ]
+}
