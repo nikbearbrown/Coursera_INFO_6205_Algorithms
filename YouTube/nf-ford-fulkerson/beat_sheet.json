@@ -1,0 +1,346 @@
+{
+  "$schema": "../../../../brutalist-art/skills/make/sketch-explainer/templates/beat_sheet.schema.json",
+  "metadata": {
+    "slug": "nf-ford-fulkerson",
+    "title": "Ford–Fulkerson: The Edge That Undoes a Mistake",
+    "series": "INFO 6205 — Algorithms and Data Structures",
+    "chapter_number": 8,
+    "source": "Coursera_INFO_6205_Algorithms/Network_Flow",
+    "engine": "kokoro",
+    "voice": "am_onyx",
+    "voice_kokoro": "am_onyx",
+    "palette": "eggshell-okabe-ito",
+    "style": "light",
+    "aspect_ratio": "16:9",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "voice_id": "am_onyx",
+    "accent_color": "#009E73",
+    "forbidden_color": "#FFFFFF",
+    "text_font": "EB Garamond",
+    "total_estimated_duration_seconds": 150,
+    "build": {
+      "at": "2026-08-28T22:14:28",
+      "cut": "master",
+      "filled": 12,
+      "of": 12,
+      "slates": [],
+      "skin_warnings": []
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "B00",
+      "beat_type": "INTRO",
+      "scene_index": 0,
+      "render": "remotion",
+      "narration_text": "",
+      "tts_normalized_text": "",
+      "estimated_duration_s": 8,
+      "actual_duration_s": 8,
+      "new_visual_element": "ROLE HOOK · BrutalistHesitantWriter; silent mystery question, zero static card.",
+      "approval_status": "approved",
+      "audio_file": null,
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "BrutalistHesitantWriter",
+          "props": {
+            "text": "A legal path sends flow.\nSo why can it trap us\none unit too soon?",
+            "face": "serif",
+            "fontSize": 82,
+            "lineSpacing": 1.18,
+            "align": "left",
+            "ink": "#000000",
+            "accent": "#D55E00",
+            "bg": "#FAF9F5",
+            "seed": "6205"
+          },
+          "rendered": {
+            "out": "media/B00.mp4",
+            "at": ""
+          }
+        }
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B00.mp4",
+        "filled_by": "media",
+        "at": "2026-08-28T22:14:28"
+      }
+    },
+    {
+      "beat_id": "B01",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 1,
+      "render": "manim",
+      "narration_text": "This network can carry two units from s to t. But choose s–a–b–t first, and its bottleneck sends one. Every visible forward route now looks blocked.",
+      "tts_normalized_text": "This network can carry two units from s to t. But choose s a b t first, and its bottleneck sends one. Every visible forward route now looks blocked.",
+      "estimated_duration_s": 12,
+      "new_visual_element": "ROLE INSTANCE 1 · Bad middle augmenting path runs completely on split stage.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B01.mp3",
+      "actual_duration_s": 9.13,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B01.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T22:14:28"
+      }
+    },
+    {
+      "beat_id": "B02",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 2,
+      "render": "manim",
+      "narration_text": "Reset. Send one along s–a–t, then one along s–b–t. The same capacities deliver two. So legal augmenting paths are not equally helpful in the moment.",
+      "tts_normalized_text": "Reset. Send one along s a t, then one along s b t. The same capacities deliver two. So legal augmenting paths are not equally helpful in the moment.",
+      "estimated_duration_s": 12,
+      "new_visual_element": "ROLE INSTANCE 2 · Two outer paths run fully; total reaches two.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B02.mp3",
+      "actual_duration_s": 9.45,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B02.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T22:14:28"
+      }
+    },
+    {
+      "beat_id": "B03",
+      "beat_type": "HOLD",
+      "scene_index": 3,
+      "render": "manim",
+      "narration_text": "Return to the bad first path. Before we quit at flow one, predict what edge the residual graph must add if the earlier choice is allowed to change.",
+      "tts_normalized_text": "Return to the bad first path. Before we quit at flow one, predict what edge the residual graph must add if the earlier choice is allowed to change.",
+      "estimated_duration_s": 11,
+      "new_visual_element": "ROLE PREDICT · Bad state holds; question writes on with highlighter wash.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B03.mp3",
+      "actual_duration_s": 8.21,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B03.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T22:14:28"
+      }
+    },
+    {
+      "beat_id": "B04",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 4,
+      "render": "manim",
+      "narration_text": "The used edge a–b creates a backward residual edge b–a with capacity one. That edge does not send negative cargo; it cancels one unit of an earlier commitment.",
+      "tts_normalized_text": "The used edge a b creates a backward residual edge b a with capacity one. That edge does not send negative cargo; it cancels one unit of an earlier commitment.",
+      "estimated_duration_s": 12,
+      "new_visual_element": "ROLE TRACE 1 / TRANSFORM · Reverse residual edge emerges from used middle edge.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B04.mp3",
+      "actual_duration_s": 10.18,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B04.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T22:14:28"
+      }
+    },
+    {
+      "beat_id": "B05",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 5,
+      "render": "manim",
+      "narration_text": "Now the residual path s–b–a–t uses that backward edge. Augmenting once removes flow from a–b and reroutes it onto the two outer paths. Total flow becomes two.",
+      "tts_normalized_text": "Now the residual path s b a t uses that backward edge. Augmenting once removes flow from a b and reroutes it onto the two outer paths. Total flow becomes two.",
+      "estimated_duration_s": 13,
+      "new_visual_element": "ROLE TRACE 2 / TRANSFORM · Repair path cancels middle flow and reroutes to outer edges.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B05.mp3",
+      "actual_duration_s": 9.96,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B05.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T22:14:28"
+      }
+    },
+    {
+      "beat_id": "B06",
+      "beat_type": "ZOOM",
+      "scene_index": 6,
+      "render": "manim",
+      "narration_text": "The license is reversibility through residual edges. Forward capacity records what we may still add; backward capacity records what we may undo. Integrality makes each augmentation visible in whole units here.",
+      "tts_normalized_text": "The license is reversibility through residual edges. Forward capacity records what we may still add; backward capacity records what we may undo. Integrality makes each augmentation visible in whole units here.",
+      "estimated_duration_s": 13,
+      "new_visual_element": "ROLE ABSTRACTION · Characteristics reversibility and integrality named after two instances and traces.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B06.mp3",
+      "actual_duration_s": 12.48,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B06.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T22:14:28"
+      }
+    },
+    {
+      "beat_id": "B07",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 7,
+      "render": "manim",
+      "narration_text": "Each augmentation preserves capacity limits and flow conservation. If no residual s-to-t path remains, the vertices still reachable from s define a cut with every crossing edge full, so the flow equals that cut’s capacity and cannot be improved.",
+      "tts_normalized_text": "Each augmentation preserves capacity limits and flow conservation. If no residual s to t path remains, the vertices still reachable from s define a cut with every crossing edge full, so the flow equals that cut's capacity and cannot be improved.",
+      "estimated_duration_s": 16,
+      "new_visual_element": "ROLE PROOF · Reachable set and saturated cut animate on live final graph.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B07.mp3",
+      "actual_duration_s": 15.04,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B07.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T22:14:28"
+      }
+    },
+    {
+      "beat_id": "B08",
+      "beat_type": "ZOOM",
+      "scene_index": 8,
+      "render": "manim",
+      "narration_text": "Back at the opening trap, greedy path choice was never promised to be locally wise. Ford–Fulkerson survives because residual edges can repair it before the no-path stopping test.",
+      "tts_normalized_text": "Back at the opening trap, greedy path choice was never promised to be locally wise. Ford Fulkerson survives because residual edges can repair it before the no path stopping test.",
+      "estimated_duration_s": 12,
+      "new_visual_element": "ROLE PAYOFF · Same hook network returns; bad path transforms into repaired flow.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B08.mp3",
+      "actual_duration_s": 10.56,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B08.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T22:14:28"
+      }
+    },
+    {
+      "beat_id": "BVDT",
+      "beat_type": "CUT",
+      "scene_index": 9,
+      "render": "remotion",
+      "narration_text": "The verdict: an augmenting path is a reversible commitment. Forward edges add room; backward edges return room. Stop only when the residual graph has no source-to-sink path.",
+      "tts_normalized_text": "The verdict: an augmenting path is a reversible commitment. Forward edges add room; backward edges return room. Stop only when the residual graph has no source to sink path.",
+      "estimated_duration_s": 12,
+      "new_visual_element": "ROLE VERDICT · ClaudeVerdictArtifact recap.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-BVDT.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeVerdictArtifact",
+          "props": {
+            "artifactTitle": "Verdict",
+            "artifactHeading": "Residual edges repair choices",
+            "artifactLines": [
+              "A legal path can be locally unhelpful",
+              "Forward residual edges add flow",
+              "Backward residual edges cancel earlier flow",
+              "No residual s→t path certifies the maximum"
+            ]
+          },
+          "rendered": {
+            "out": "media/BVDT.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 10.58,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BVDT.mp4",
+        "filled_by": "media",
+        "at": "2026-08-28T22:14:28"
+      }
+    },
+    {
+      "beat_id": "BHTF",
+      "beat_type": "CUT",
+      "scene_index": 10,
+      "render": "remotion",
+      "narration_text": "Your turn. Trace the bad path, construct every residual edge, then find the repair path and explain why the final no-path condition certifies maximum flow.",
+      "tts_normalized_text": "Your turn. Trace the bad path, construct every residual edge, then find the repair path and explain why the final no path condition certifies maximum flow.",
+      "estimated_duration_s": 12,
+      "new_visual_element": "ROLE BOUNDARY / YOUR TURN · ClaudeComposerAsk with trace-partner prompt.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-BHTF.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "command": "Your turn.",
+            "topic": "Repair a greedy max-flow path.",
+            "segment": "INFO 6205 · Network Flow",
+            "greeting": "Claude, be my trace partner.",
+            "runningText": "Make me build the residual graph, predict the backward edge, and certify the final cut.",
+            "output": [
+              "Track flow / capacity on every edge",
+              "Predict each residual edge",
+              "Explain why no path means maximum"
+            ],
+            "folderLabel": "INFO 6205",
+            "modelLabel": "Claude"
+          },
+          "rendered": {
+            "out": "media/BHTF.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 9.64,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BHTF.mp4",
+        "filled_by": "media",
+        "at": "2026-08-28T22:14:28"
+      }
+    },
+    {
+      "beat_id": "BOUT",
+      "beat_type": "CUT",
+      "scene_index": 11,
+      "render": "remotion",
+      "narration_text": "Ford–Fulkerson is not safe because every path is smart; it is safe because residual paths can undo mistakes. Thanks for watching.",
+      "tts_normalized_text": "Ford Fulkerson is not safe because every path is smart; it is safe because residual paths can undo mistakes. Thanks for watching.",
+      "estimated_duration_s": 10,
+      "new_visual_element": "ROLE OUTRO · ClaudeTitleOutro.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-BOUT.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeTitleOutro",
+          "props": {
+            "title": "Ford–Fulkerson",
+            "subtitle": "The edge that undoes a mistake",
+            "handle": "INFO 6205 · Algorithms and Data Structures"
+          },
+          "rendered": {
+            "out": "media/BOUT.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 8.26,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BOUT.mp4",
+        "filled_by": "media",
+        "at": "2026-08-28T22:14:28"
+      }
+    }
+  ]
+}
