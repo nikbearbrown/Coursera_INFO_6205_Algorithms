@@ -1,0 +1,347 @@
+{
+  "$schema": "../../../../brutalist-art/skills/make/sketch-explainer/templates/beat_sheet.schema.json",
+  "metadata": {
+    "slug": "greedy-interval-scheduling",
+    "title": "Greedy Interval Scheduling: Finish First",
+    "series": "INFO 6205 — Algorithms and Data Structures",
+    "chapter_number": 5,
+    "source": "Coursera_INFO_6205_Algorithms/Greedy_Algorithms/Greedy_Algorithms.md",
+    "engine": "kokoro",
+    "voice": "am_onyx",
+    "voice_kokoro": "am_onyx",
+    "palette": "eggshell-okabe-ito",
+    "style": "light",
+    "aspect_ratio": "16:9",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "voice_id": "am_onyx",
+    "accent_color": "#009E73",
+    "forbidden_color": "#FFFFFF",
+    "text_font": "EB Garamond",
+    "total_estimated_duration_seconds": 170,
+    "build": {
+      "at": "2026-08-28T21:48:54",
+      "cut": "master",
+      "filled": 12,
+      "of": 12,
+      "slates": [],
+      "skin_warnings": []
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "B00",
+      "beat_type": "INTRO",
+      "scene_index": 0,
+      "render": "remotion",
+      "narration_text": "",
+      "tts_normalized_text": "",
+      "estimated_duration_s": 8,
+      "actual_duration_s": 8,
+      "new_visual_element": "ROLE HOOK · BrutalistHesitantWriter; silent mystery question, zero static card.",
+      "approval_status": "approved",
+      "audio_file": null,
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "BrutalistHesitantWriter",
+          "props": {
+            "text": "Pick the most meetings?\nStart earliest?\n…which meeting first?",
+            "face": "serif",
+            "fontSize": 82,
+            "lineSpacing": 1.18,
+            "align": "left",
+            "ink": "#000000",
+            "accent": "#D55E00",
+            "bg": "#FAF9F5",
+            "seed": "6205"
+          },
+          "rendered": {
+            "out": "media/B00.mp4",
+            "at": ""
+          }
+        }
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B00.mp4",
+        "filled_by": "media",
+        "at": "2026-08-28T21:48:54"
+      }
+    },
+    {
+      "beat_id": "B01",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 1,
+      "render": "manim",
+      "narration_text": "Try the meeting that starts earliest. It spans one to nine, so every later candidate collides. One meeting survives. Starting early sounded productive; it consumed the entire day.",
+      "tts_normalized_text": "Try the meeting that starts earliest. It spans one to nine, so every later candidate collides. One meeting survives. Starting early sounded productive; it consumed the entire day.",
+      "estimated_duration_s": 13,
+      "new_visual_element": "ROLE INSTANCE 1 · Earliest-start adversary runs on a timeline.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B01.mp3",
+      "actual_duration_s": 10.41,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B01.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T21:48:54"
+      }
+    },
+    {
+      "beat_id": "B02",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 2,
+      "render": "manim",
+      "narration_text": "Maybe choose the shortest meeting. On this second day, the tiny middle meeting blocks two compatible meetings on either side. Shortest keeps one. The pair keeps two.",
+      "tts_normalized_text": "Maybe choose the shortest meeting. On this second day, the tiny middle meeting blocks two compatible meetings on either side. Shortest keeps one. The pair keeps two.",
+      "estimated_duration_s": 12,
+      "new_visual_element": "ROLE INSTANCE 2 · Shortest-duration adversary runs on a second timeline.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B02.mp3",
+      "actual_duration_s": 9.09,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B02.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T21:48:54"
+      }
+    },
+    {
+      "beat_id": "B03",
+      "beat_type": "HOLD",
+      "scene_index": 3,
+      "render": "manim",
+      "narration_text": "Back to the first day. Four short meetings finish at three, five, seven, and nine. The long meeting starts first. Before anything moves, choose the first interval you would keep.",
+      "tts_normalized_text": "Back to the first day. Four short meetings finish at three, five, seven, and nine. The long meeting starts first. Before anything moves, choose the first interval you would keep.",
+      "estimated_duration_s": 13,
+      "new_visual_element": "ROLE PREDICT · Held commitment before selection; question uses hai-simple treatment over the live timeline.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B03.mp3",
+      "actual_duration_s": 9.51,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B03.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T21:48:54"
+      }
+    },
+    {
+      "beat_id": "B04",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 4,
+      "render": "manim",
+      "narration_text": "Now sort by finish time. Keep one to three. Reject the long overlap. Then keep three to five, five to seven, and seven to nine. Four meetings survive because each choice leaves the widest possible suffix.",
+      "tts_normalized_text": "Now sort by finish time. Keep one to three. Reject the long overlap. Then keep three to five, five to seven, and seven to nine. Four meetings survive because each choice leaves the widest possible suffix.",
+      "estimated_duration_s": 15,
+      "new_visual_element": "ROLE TRANSFORM / TRACE · Same interval objects reorder, then mark KEEP or REJECT explicitly.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B04.mp3",
+      "actual_duration_s": 11.88,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B04.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T21:48:54"
+      }
+    },
+    {
+      "beat_id": "B05",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 5,
+      "render": "manim",
+      "narration_text": "Change every start time but preserve those finish choices. The same scan still keeps the four compatible intervals. The exact lengths did not license the choice; the remaining timeline did.",
+      "tts_normalized_text": "Change every start time but preserve those finish choices. The same scan still keeps the four compatible intervals. The exact lengths did not license the choice; the remaining timeline did.",
+      "estimated_duration_s": 13,
+      "new_visual_element": "ROLE INSTANCE 3 · Parametrized trace morphs starts while finish order remains decisive.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B05.mp3",
+      "actual_duration_s": 10.99,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B05.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T21:48:54"
+      }
+    },
+    {
+      "beat_id": "B06",
+      "beat_type": "ZOOM",
+      "scene_index": 6,
+      "render": "manim",
+      "narration_text": "That structure finally deserves its name: the greedy-choice property. Among compatible intervals, earliest finish leaves at least as much future room as any other first choice.",
+      "tts_normalized_text": "That structure finally deserves its name: the greedy choice property. Among compatible intervals, earliest finish leaves at least as much future room as any other first choice.",
+      "estimated_duration_s": 11,
+      "new_visual_element": "ROLE ABSTRACTION · Characteristic named after three instances; split stage shows subject and remaining-room measure.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B06.mp3",
+      "actual_duration_s": 10.01,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B06.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T21:48:54"
+      }
+    },
+    {
+      "beat_id": "B07",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 7,
+      "render": "manim",
+      "narration_text": "Take any optimal schedule whose first interval is different. Swap that first interval for the earliest finisher. It ends no later, so every later interval still fits. The count cannot fall.",
+      "tts_normalized_text": "Take any optimal schedule whose first interval is different. Swap that first interval for the earliest finisher. It ends no later, so every later interval still fits. The count cannot fall.",
+      "estimated_duration_s": 13,
+      "new_visual_element": "ROLE TRANSFORM / PROOF · Literal exchange; later intervals remain fixed and count badge stays equal.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B07.mp3",
+      "actual_duration_s": 10.82,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B07.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T21:48:54"
+      }
+    },
+    {
+      "beat_id": "B08",
+      "beat_type": "ZOOM",
+      "scene_index": 8,
+      "render": "manim",
+      "narration_text": "The opening puzzle is settled: earliest start kept one; earliest finish kept four. The algorithm is sort once, then scan once. Sorting dominates, so the runtime is O of n log n.",
+      "tts_normalized_text": "The opening puzzle is settled: earliest start kept one; earliest finish kept four. The algorithm is sort once, then scan once. Sorting dominates, so the runtime is O of n log n.",
+      "estimated_duration_s": 13,
+      "new_visual_element": "ROLE PAYOFF · Same hook intervals return; operation bars count sort plus scan before complexity label.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B08.mp3",
+      "actual_duration_s": 10.39,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B08.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T21:48:54"
+      }
+    },
+    {
+      "beat_id": "BVDT",
+      "beat_type": "CUT",
+      "scene_index": 9,
+      "render": "remotion",
+      "narration_text": "The verdict: a local rule is not greedy magic. Earliest finish works because an exchange preserves every later choice; earliest start and shortest duration have no such guarantee.",
+      "tts_normalized_text": "The verdict: a local rule is not greedy magic. Earliest finish works because an exchange preserves every later choice; earliest start and shortest duration have no such guarantee.",
+      "estimated_duration_s": 12,
+      "new_visual_element": "ROLE VERDICT · ClaudeVerdictArtifact recap from the film's own intervals.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-BVDT.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeVerdictArtifact",
+          "props": {
+            "artifactTitle": "Verdict",
+            "artifactHeading": "Finish first",
+            "artifactLines": [
+              "Earliest start → 1 meeting on the adversary day",
+              "Shortest duration → 1 when a compatible pair gives 2",
+              "Earliest finish → 4 by preserving the widest remaining suffix",
+              "Exchange proof: swap the first interval; every later interval still fits"
+            ]
+          },
+          "rendered": {
+            "out": "media/BVDT.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 10.56,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BVDT.mp4",
+        "filled_by": "media",
+        "at": "2026-08-28T21:48:54"
+      }
+    },
+    {
+      "beat_id": "BHTF",
+      "beat_type": "CUT",
+      "scene_index": 10,
+      "render": "remotion",
+      "narration_text": "Your turn. For intervals zero to six, one to four, three to five, five to seven, five to nine, and eight to ten, predict every keep or reject before the scan. The full trace-partner prompt is in the description.",
+      "tts_normalized_text": "Your turn. For intervals zero to six, one to four, three to five, five to seven, five to nine, and eight to ten, predict every keep or reject before the scan. The full trace partner prompt is in the description.",
+      "estimated_duration_s": 15,
+      "new_visual_element": "ROLE BOUNDARY / YOUR TURN · ClaudeComposerAsk; authored exercise because the scout-card quiz file is absent.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-BHTF.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Your turn.",
+            "topic": "INTERVAL SCHEDULING · HANDOFF",
+            "segment": "GREEDY ALGORITHMS",
+            "command": "Trace earliest-finish scheduling with me. Stop before every interval and make me predict KEEP or REJECT.",
+            "runningText": "Intervals: [0,6] · [1,4] · [3,5] · [5,7] · [5,9] · [8,10]",
+            "output": [
+              "Maintain the current finish boundary",
+              "Build counterexamples for earliest start and shortest duration",
+              "Explain the exchange argument in your own words"
+            ],
+            "folderLabel": "@NikBearBrown",
+            "modelLabel": "Opus 4.7",
+            "effortLabel": "High"
+          },
+          "rendered": {
+            "out": "media/BHTF.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 11.8,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BHTF.mp4",
+        "filled_by": "media",
+        "at": "2026-08-28T21:48:54"
+      }
+    },
+    {
+      "beat_id": "BOUT",
+      "beat_type": "CUT",
+      "scene_index": 11,
+      "render": "remotion",
+      "narration_text": "Earliest finish wins because it leaves the most future room. Thanks for watching Greedy Interval Scheduling.",
+      "tts_normalized_text": "Earliest finish wins because it leaves the most future room. Thanks for watching Greedy Interval Scheduling.",
+      "estimated_duration_s": 8,
+      "new_visual_element": "ROLE OUTRO · ClaudeTitleOutro title re-read.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-BOUT.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeTitleOutro",
+          "props": {
+            "title": "Greedy Interval Scheduling: Finish First",
+            "handle": "@NikBearBrown",
+            "subline": ""
+          },
+          "rendered": {
+            "out": "media/BOUT.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 6.29,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BOUT.mp4",
+        "filled_by": "media",
+        "at": "2026-08-28T21:48:54"
+      }
+    }
+  ]
+}
