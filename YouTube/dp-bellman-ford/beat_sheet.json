@@ -1,0 +1,456 @@
+{
+  "$schema": "../../../../brutalist-art/skills/make/sketch-explainer/templates/beat_sheet.schema.json",
+  "metadata": {
+    "slug": "dp-bellman-ford",
+    "title": "Bellman-Ford: The Road That Pays You",
+    "series": "INFO 6205 — Algorithms and Data Structures",
+    "chapter_number": 6,
+    "source": "Coursera_INFO_6205_Algorithms/Dynamic_Programming/Bellman_Ford.md; Dynamic_Programming/Quiz_Questions.md",
+    "engine": "kokoro",
+    "voice": "am_onyx",
+    "voice_kokoro": "am_onyx",
+    "palette": "eggshell-okabe-ito",
+    "style": "light",
+    "aspect_ratio": "16:9",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "voice_id": "am_onyx",
+    "accent_color": "#009E73",
+    "forbidden_color": "#FFFFFF",
+    "text_font": "EB Garamond",
+    "total_estimated_duration_seconds": 380,
+    "build": {
+      "at": "2026-08-28T21:20:47",
+      "cut": "master",
+      "filled": 17,
+      "of": 17,
+      "slates": [],
+      "skin_warnings": []
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "B00",
+      "beat_type": "INTRO",
+      "render": "remotion",
+      "narration_text": "",
+      "tts_normalized_text": "",
+      "estimated_duration_s": 8.0,
+      "actual_duration_s": 8.0,
+      "new_visual_element": "ROLE COLD OPEN · ClaudeComposerAsk — the ask typed in the Claude interface: explain Bellman-Ford, and why Dijkstra's shortcut fails. Silent.",
+      "approval_status": "approved",
+      "audio_file": null,
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Namaste, Liam",
+            "topic": "BELLMAN-FORD · INFO 6205 ALGORITHMS",
+            "segment": "DYNAMIC PROGRAMMING",
+            "command": "Explain the Bellman-Ford algorithm — and why Dijkstra's shortcut can get shortest paths wrong.",
+            "runningText": "reading Dynamic_Programming/Bellman_Ford.md…",
+            "output": [
+              "A road that PAYS voids the greedy license — Dijkstra locks the wrong answer",
+              "Bellman-Ford: one hop-budget layer per round — each solved exactly once",
+              "The spare round is a negative-cycle detector"
+            ],
+            "folderLabel": "@NikBearBrown",
+            "modelLabel": "Opus 4.7",
+            "effortLabel": "High"
+          },
+          "rendered": {
+            "out": "media/B00.mp4",
+            "at": ""
+          }
+        }
+      },
+      "scene_index": 0,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B00.mp4",
+        "filled_by": "media",
+        "at": "2026-08-28T21:20:47"
+      }
+    },
+    {
+      "beat_id": "B0H",
+      "beat_type": "INTRO",
+      "scene_index": 1,
+      "render": "manim",
+      "narration_text": "Shortest path, S to A. Before anything moves — commit to a number.",
+      "tts_normalized_text": "Shortest path, S to A. Before anything moves — commit to a number.",
+      "estimated_duration_s": 12,
+      "new_visual_element": "ROLE HOOK (beat 2) · BrutalistHesitantWriter types the naive answer, deletes \"obviously\", ends on the question.",
+      "shot": {
+        "type": "REMOTION",
+        "remotion": {
+          "pattern": "BrutalistHesitantWriter",
+          "props": {
+            "text": "Shortest path, S to A?\n10 — obviously\n…right?",
+            "face": "serif",
+            "fontSize": 88,
+            "lineSpacing": 1.18,
+            "align": "left",
+            "ink": "#000000",
+            "accent": "#D55E00",
+            "bg": "#FAF9F5",
+            "seed": "6205"
+          },
+          "rendered": {
+            "out": "media/B0H.mp4",
+            "at": "2026-08-28T12:00:00"
+          }
+        }
+      },
+      "approval_status": "approved",
+      "actual_duration_s": 12.0,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B0H.mp4",
+        "filled_by": "remotion:BrutalistHesitantWriter",
+        "at": "2026-08-28T21:20:47"
+      },
+      "audio_file": "mp3/beat-B0H.mp3"
+    },
+    {
+      "beat_id": "B01",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 2,
+      "render": "manim",
+      "narration_text": "Here's a graph. Six places, eight roads, and one question: shortest route from S to A. There's a road that goes straight there. Ten. Any sensible algorithm grabs it, locks it, moves on. Dijkstra — the fast one, the famous one — does exactly that. Locked. Ten. And it is wrong. Not broken — misapplied. Dijkstra comes with a license printed on the box: every road must cost something. This graph has a road that pays. The license is void, and the algorithm has no way to notice.",
+      "tts_normalized_text": "Here's a graph. Six places, eight roads, and one question: shortest route from S to A. There's a road that goes straight there. Ten. Any sensible algorithm grabs it, locks it, moves on. Dijkstra — the fast one, the famous one — does exactly that. Locked. Ten. And it is wrong. Not broken — misapplied. Dijkstra comes with a license printed on the box: every road must cost something. This graph has a road that pays. The license is void, and the algorithm has no way to notice.",
+      "new_visual_element": "ROLE INSTANCE 1 · Graph runs the greedy failure; non-negative license is stamped VOID by −4.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B01.mp3",
+      "actual_duration_s": 22.93,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B01.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T21:20:47"
+      }
+    },
+    {
+      "beat_id": "B02",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 3,
+      "render": "manim",
+      "narration_text": "So here's an algorithm that asks a more careful question. Not ‘how far is A?’ — but ‘how far is A if I'm allowed at most one hop? At most two?’ Round one answers every one-hop question: A ten, E eight. Round two, every two-hop question: D nine, C twelve. Each answer is final the moment it's written — for its question.",
+      "tts_normalized_text": "So here's an algorithm that asks a more careful question. Not how far is A, but how far is A if I'm allowed at most one hop? At most two? Round one answers every one-hop question: A ten, E eight. Round two, every two-hop question: D nine, C twelve. Each answer is final the moment it's written — for its question.",
+      "new_visual_element": "ROLE INSTANCE 2 / TRACE 1 · Layered distance table writes rounds 0–2 once.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B02.mp3",
+      "actual_duration_s": 16.64,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B02.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T21:20:47"
+      }
+    },
+    {
+      "beat_id": "B03",
+      "beat_type": "HOLD",
+      "scene_index": 4,
+      "render": "manim",
+      "narration_text": "Round three. Look at D — nine. And that edge from D to A weighs minus four. A's guess says ten. Before I run it: what happens to A? Commit to an answer. Nine minus four. Five. The confident ten just lost to a detour through a road that pays you.",
+      "tts_normalized_text": "Round three. Look at D — nine. And that edge from D to A weighs minus four. A's guess says ten. Before I run it: what happens to A? Commit to an answer. Nine minus four. Five. The confident ten just lost to a detour through a road that pays you.",
+      "new_visual_element": "ROLE PREDICT · Hold before morphing A: 10 → 5; question and arithmetic stay visible.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B03.mp3",
+      "actual_duration_s": 13.23,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B03.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T21:20:47"
+      }
+    },
+    {
+      "beat_id": "B04",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 5,
+      "render": "manim",
+      "narration_text": "And the corrections cascade. C rides the new path down to eight. B: twelve becomes ten becomes six becomes — round five — five. Watch what's happening: each round, the truth reaches one hop further.",
+      "tts_normalized_text": "And the corrections cascade. C rides the new path down to eight. B: twelve becomes ten becomes six becomes — round five — five. Watch what's happening: each round, the truth reaches one hop further.",
+      "new_visual_element": "ROLE TRANSFORM · Same cells morph through rounds 3–5; final vector is 0,5,5,8,9,8.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B04.mp3",
+      "actual_duration_s": 11.2,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B04.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T21:20:47"
+      }
+    },
+    {
+      "beat_id": "B05",
+      "beat_type": "ZOOM",
+      "scene_index": 6,
+      "render": "manim",
+      "narration_text": "It looks like the algorithm keeps changing its mind. It never does. Lay the rounds out as their own rows and watch: every cell is written once and never touched again. ‘Distance to A’ was six different questions — at most zero hops, one, two — each solved exactly once from the row above. That discipline has a name: dynamic programming. Not saving answers for later — solving each subproblem once, and never, ever re-solving it. The table that seemed to flicker? Six rows sharing one line of storage. And notice what made the whole scheme legal — two things this problem has that not every problem does. The questions come in an order: smaller hop-budgets before bigger ones. And answers are permanent: letting yourself take more hops can never change what the best three-hop route was. No ordering, no DP. No permanence, nothing safe to store. Five vertices minus one rounds, and no shortest path needs more. The edge-by-edge step finally deserves its name: relaxation.",
+      "tts_normalized_text": "It looks like the algorithm keeps changing its mind. It never does. Lay the rounds out as their own rows and watch: every cell is written once and never touched again. Distance to A was six different questions — at most zero hops, one, two — each solved exactly once from the row above. That discipline has a name: dynamic programming. Not saving answers for later — solving each subproblem once, and never, ever re-solving it. The table that seemed to flicker? Six rows sharing one line of storage. And notice what made the whole scheme legal — two things this problem has that not every problem does. The questions come in an order: smaller hop-budgets before bigger ones. And answers are permanent: letting yourself take more hops can never change what the best three-hop route was. No ordering, no D P. No permanence, nothing safe to store. Five vertices minus one rounds, and no shortest path needs more. The edge-by-edge step finally deserves its name: relaxation.",
+      "new_visual_element": "ROLE ABSTRACTION · Full immutable d_k(v) grid collapses to rolling storage; names ORDERING and PERMANENCE.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B05.mp3",
+      "actual_duration_s": 49.13,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B05.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T21:20:47"
+      }
+    },
+    {
+      "beat_id": "B06",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 7,
+      "render": "manim",
+      "narration_text": "Each new row asks every node: keep the answer from the row above, or take a neighbor's row-above answer plus one road.",
+      "tts_normalized_text": "Each new row asks every node: keep the answer from the row above, or take a neighbor's row-above answer plus one road.",
+      "new_visual_element": "ROLE ABSTRACTION · The Bellman-Ford layered recurrence lands as persistent MathTex.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B06.mp3",
+      "actual_duration_s": 6.91,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B06.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T21:20:47"
+      }
+    },
+    {
+      "beat_id": "B06A",
+      "beat_type": "HOLD",
+      "scene_index": 8,
+      "render": "manim",
+      "narration_text": "The left side is the best distance to v with at most k edges. The right side compares keeping yesterday's answer with arriving along one final edge. The equals sign says those choices must give exactly the new value.",
+      "tts_normalized_text": "The left side is the best distance to v with at most k edges. The right side compares keeping yesterday's answer with arriving along one final edge. The equals sign says those choices must give exactly the new value.",
+      "new_visual_element": "ROLE TANGENT zone 2 · LHS/RHS sentences and equals-as-claim beside persistent equation.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B06A.mp3",
+      "actual_duration_s": 12.2,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B06A.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T21:20:47"
+      }
+    },
+    {
+      "beat_id": "B06B",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 9,
+      "render": "manim",
+      "narration_text": "Here k is the hop-budget index, v is the destination, u is a predecessor, w is a fixed edge weight, and min is the operator choosing the smaller candidate.",
+      "tts_normalized_text": "Here k is the hop-budget index, v is the destination, u is a predecessor, w is a fixed edge weight, and min is the operator choosing the smaller candidate.",
+      "new_visual_element": "ROLE TANGENT zone 3 · Glossary has Symbol, Role, Meaning, Domain columns.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B06B.mp3",
+      "actual_duration_s": 9.56,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B06B.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T21:20:47"
+      }
+    },
+    {
+      "beat_id": "B06C",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 10,
+      "render": "manim",
+      "narration_text": "For A at round three, keep ten, or arrive from D: nine plus minus four equals five. The minimum is five, so that layer's answer is final.",
+      "tts_normalized_text": "For A at round three, keep ten, or arrive from D: nine plus minus four equals five. The minimum is five, so that layer's answer is final.",
+      "new_visual_element": "ROLE TANGENT zone 4 · Worked example min(10, 9−4)=5 with consequence.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B06C.mp3",
+      "actual_duration_s": 8.62,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B06C.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T21:20:47"
+      }
+    },
+    {
+      "beat_id": "B06D",
+      "beat_type": "HOLD",
+      "scene_index": 11,
+      "render": "manim",
+      "narration_text": "The recurrence commits us to two things: every dependency comes from a smaller layer, and a finished layer never changes. One layer at a time, each layer final. Now back to the graph.",
+      "tts_normalized_text": "The recurrence commits us to two things: every dependency comes from a smaller layer, and a finished layer never changes. One layer at a time, each layer final. Now back to the graph.",
+      "new_visual_element": "ROLE TANGENT zones 5 + re-entry · Ordering and permanence restated; equation persists.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B06D.mp3",
+      "actual_duration_s": 10.56,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B06D.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T21:20:47"
+      }
+    },
+    {
+      "beat_id": "B07",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 12,
+      "render": "manim",
+      "narration_text": "One catch — and it is the whole reason the round count matters. A route that never repeats a node can use at most five edges — six nodes, five hops. And our invariant says: after five rounds, every route like that is already priced. Now make B to A minus one. The lap A, C, B, back to A costs two, minus two, minus one: minus one per lap. Round six finds a shorter path. But how? Any longer route must revisit some node. Cut that loop out, and what remains is a no-repeat route — already priced. So the only thing the lap could have added is its own total. If the route got cheaper, that total is negative. A negative cycle — and shortest stops meaning anything, because every extra lap pays. The sixth round isn't waste. It's the proof, running as a smoke detector.",
+      "tts_normalized_text": "One catch — and it is the whole reason the round count matters. A route that never repeats a node can use at most five edges — six nodes, five hops. And our invariant says: after five rounds, every route like that is already priced. Now make B to A minus one. The lap A, C, B, back to A costs two, minus two, minus one: minus one per lap. Round six finds a shorter path. But how? Any longer route must revisit some node. Cut that loop out, and what remains is a no-repeat route — already priced. So the only thing the lap could have added is its own total. If the route got cheaper, that total is negative. A negative cycle — and shortest stops meaning anything, because every extra lap pays. The sixth round isn't waste. It's the proof, running as a smoke detector.",
+      "new_visual_element": "ROLE INSTANCE 3 / TRACE 2 · D→A changes −4→−9; round six changes again; cycle labeled NEGATIVE.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B07.mp3",
+      "actual_duration_s": 38.95,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B07.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T21:20:47"
+      }
+    },
+    {
+      "beat_id": "B08",
+      "beat_type": "ZOOM",
+      "scene_index": 13,
+      "render": "manim",
+      "narration_text": "So: S to A. Not the road that says ten. Eight, plus one, minus four. Five. The greedy answer wasn't unlucky — the graph broke the rule Dijkstra's correctness depends on. That's the real first question for any algorithm — not ‘what are the steps?’ but ‘what must be true of my problem for those steps to be legal?’ Dijkstra asks for non-negative roads. Bellman-Ford asks only for ordered questions and answers that stay answered.",
+      "tts_normalized_text": "So: S to A. Not the road that says ten. Eight, plus one, minus four. Five. The greedy answer wasn't unlucky — the graph broke the rule Dijkstra's correctness depends on. That's the real first question for any algorithm — not what are the steps, but what must be true of my problem for those steps to be legal? Dijkstra asks for non-negative roads. Bellman-Ford asks only for ordered questions and answers that stay answered.",
+      "new_visual_element": "ROLE PAYOFF · Same graph returns; 10 shatters and S→E→D→A is labeled 8+1−4=5.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B08.mp3",
+      "actual_duration_s": 21.14,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B08.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T21:20:47"
+      }
+    },
+    {
+      "beat_id": "BVDT",
+      "beat_type": "CUT",
+      "render": "remotion",
+      "narration_text": "The verdict. Dijkstra isn't broken — it was unlicensed: one road that pays voided it. Bellman-Ford changes the question: shortest path using at most k hops — six questions, not one. Ordered questions, permanent answers, each layer solved exactly once. That is dynamic programming. And the spare sixth round is the proof, running as a smoke detector.",
+      "tts_normalized_text": "The verdict. Dijkstra isn't broken — it was unlicensed: one road that pays voided it. Bellman-Ford changes the question: shortest path using at most k hops — six questions, not one. Ordered questions, permanent answers, each layer solved exactly once. That is dynamic programming. And the spare sixth round is the proof, running as a smoke detector.",
+      "estimated_duration_s": 20.0,
+      "new_visual_element": "ROLE VERDICT · ClaudeVerdictArtifact recap from the video's own nouns and numbers.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-BVDT.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeVerdictArtifact",
+          "props": {
+            "artifactTitle": "Verdict",
+            "artifactHeading": "Bellman-Ford",
+            "artifactLines": [
+              "Dijkstra's license: every weight ≥ 0 — this graph voided it (edge −4)",
+              "The real question: shortest using ≤ k hops — six questions, not one",
+              "Ordering + permanence: each (v, k) solved exactly once, never re-solved",
+              "S→A = 5 via S→E→D→A — the road marked 10 was never shortest",
+              "Round 6 improving ⇒ a repeated node ⇒ a loop that pays: negative cycle"
+            ]
+          },
+          "rendered": {
+            "out": "media/BVDT.mp4",
+            "at": ""
+          }
+        }
+      },
+      "scene_index": 14,
+      "actual_duration_s": 18.82,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BVDT.mp4",
+        "filled_by": "media",
+        "at": "2026-08-28T21:20:47"
+      }
+    },
+    {
+      "beat_id": "BHTF",
+      "beat_type": "CUT",
+      "render": "remotion",
+      "narration_text": "Your turn. Which of these algorithms use dynamic programming: QuickSort, Floyd-Warshall, Bellman-Ford, Dijkstra's algorithm, or Longest Increasing Subsequence? Leave it unanswered. Then use the full prompt in the description: change one edge weight and predict before you run.",
+      "tts_normalized_text": "Your turn. Which of these algorithms use dynamic programming: Quick Sort, Floyd Warshall, Bellman Ford, Dijkstra's algorithm, or Longest Increasing Subsequence? Leave it unanswered. Then use the full prompt in the description: change one edge weight and predict before you run.",
+      "estimated_duration_s": 14.87,
+      "actual_duration_s": 14.87,
+      "new_visual_element": "ROLE YOUR TURN · ClaudeComposerAsk types the trace-partner prompt; quiz rides runningText; full prompt in the description.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-BHTF.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Your turn.",
+            "topic": "BELLMAN-FORD · HANDOFF",
+            "segment": "DYNAMIC PROGRAMMING",
+            "command": "Act as my trace partner: run Bellman-Ford on my graph, stop before every relaxation, and make me predict.",
+            "runningText": "Quiz: which use dynamic programming — QuickSort · Floyd–Warshall · Bellman–Ford · Dijkstra · LIS?",
+            "output": [
+              "Change one edge weight — predict what breaks before the re-run",
+              "Ask for a visualization of the table evolving on YOUR graph",
+              "Full prompt in the description — paste into Claude or ChatGPT"
+            ],
+            "folderLabel": "@NikBearBrown",
+            "modelLabel": "Opus 4.7",
+            "effortLabel": "High"
+          },
+          "rendered": {
+            "out": "media/BHTF.mp4",
+            "at": ""
+          }
+        }
+      },
+      "scene_index": 15,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BHTF.mp4",
+        "filled_by": "media",
+        "at": "2026-08-28T21:20:47"
+      }
+    },
+    {
+      "beat_id": "BOUT",
+      "beat_type": "CUT",
+      "render": "remotion",
+      "narration_text": "Bellman-Ford solves each hop-budget layer once, and the extra pass detects a negative cycle. Thanks for watching Bellman-Ford: The Road That Pays You.",
+      "tts_normalized_text": "Bellman Ford solves each hop-budget layer once, and the extra pass detects a negative cycle. Thanks for watching Bellman Ford: The Road That Pays You.",
+      "estimated_duration_s": 8.9,
+      "actual_duration_s": 8.9,
+      "new_visual_element": "ROLE OUTRO · ClaudeTitleOutro title re-read.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-BOUT.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeTitleOutro",
+          "props": {
+            "title": "Bellman-Ford: The Road That Pays You",
+            "handle": "@NikBearBrown",
+            "subline": ""
+          },
+          "rendered": {
+            "out": "media/BOUT.mp4",
+            "at": ""
+          }
+        }
+      },
+      "scene_index": 16,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BOUT.mp4",
+        "filled_by": "media",
+        "at": "2026-08-28T21:20:47"
+      }
+    }
+  ]
+}
