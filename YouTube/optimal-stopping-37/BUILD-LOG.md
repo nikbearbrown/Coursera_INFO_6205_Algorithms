@@ -20,5 +20,6 @@
 - Doneness check: `beat_sheet.json` mtime 13:32:47; final clean master mtime 13:37:01; 4K copy mtime 13:37:44. Both video files are newer than the sheet; the sheet was not touched after the final compile.
 - P6 description: `optimal-stopping-37-description.md` includes the module, authored Your Turn exercise, missing-quiz disclosure, source-conflict disclosure, and the full paste-able prompt verbatim.
 - P7 Drive delivery: VERIFIED. `DELIVERY_6205` is a live symlink to `/Users/bear/Library/CloudStorage/GoogleDrive-nikbearbrown@gmail.com/My Drive/Coursera_INFO_6205_Algorithm`. Copied the 4K cut and description to `DELIVERY_6205/optimal-stopping-37/`. Source/destination SHA-256 hashes match: video `7bae7fb295ece721a81f78392d4c0b7ecf86b7d328d33eb25642d467d62b343c`; description `e1787ecd536c689b6b49d1cfaad5b47879539b156c87a3078d254da0a2f777f7`.
+- P7b Git: text artifacts committed as `ae75a61` (`YouTube/optimal-stopping-37: film artifacts`), rebased against `origin/main` with no incoming changes, pushed successfully, and verified on `origin/main`.
 - YouTube: NOT uploaded or published. No paid service used.
 - Open source issue: the module's later `e·n` / `ceil(e·n)` example conflicts with its correct `n/e` rule and was excluded. The module folder also lacks the scout card's quiz file, so the film uses an explicitly authored exercise.
