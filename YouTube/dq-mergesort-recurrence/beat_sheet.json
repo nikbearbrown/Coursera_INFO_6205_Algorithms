@@ -1,0 +1,413 @@
+{
+  "metadata": {
+    "slug": "dq-mergesort-recurrence",
+    "title": "Merge Sort: Where the n log n Work Hides",
+    "series": "INFO 6205 — Algorithms and Data Structures",
+    "chapter_number": 4,
+    "source": "Coursera_INFO_6205_Algorithms/Divide_and_Conquer_Strategies/Divide_and_Conquer_Algorithms.md",
+    "engine": "kokoro",
+    "voice": "am_onyx",
+    "voice_kokoro": "am_onyx",
+    "palette": "eggshell-okabe-ito",
+    "style": "light",
+    "aspect_ratio": "16:9",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "voice_id": "am_onyx",
+    "accent_color": "#009E73",
+    "forbidden_color": "#FFFFFF",
+    "text_font": "EB Garamond",
+    "build": {
+      "at": "2026-08-30T13:11:26",
+      "cut": "master",
+      "filled": 15,
+      "of": 15,
+      "slates": [],
+      "skin_warnings": []
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "B00",
+      "beat_type": "INTRO",
+      "scene_index": 0,
+      "render": "remotion",
+      "narration_text": "",
+      "tts_normalized_text": "",
+      "new_visual_element": "ROLE COLD OPEN · ClaudeComposerAsk types the mystery.",
+      "approval_status": "approved",
+      "actual_duration_s": 12,
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Namaste, Liam",
+            "topic": "MERGE SORT · INFO 6205",
+            "segment": "DIVIDE AND CONQUER",
+            "command": "Explain merge sort — if it keeps halving, why isn't the total work just logarithmic?",
+            "runningText": "reading Divide_and_Conquer_Strategies…",
+            "output": [
+              "Eight values · three split levels",
+              "Every merge level touches the whole array",
+              "Depth × level work reveals n log n"
+            ],
+            "folderLabel": "@NikBearBrown",
+            "modelLabel": "Opus 4.7",
+            "effortLabel": "High"
+          },
+          "rendered": {
+            "out": "media/B00.mp4",
+            "at": ""
+          }
+        }
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B00.mp4",
+        "filled_by": "media",
+        "at": "2026-08-30T13:11:26"
+      }
+    },
+    {
+      "beat_id": "B0H",
+      "beat_type": "INTRO",
+      "scene_index": 1,
+      "render": "remotion",
+      "narration_text": "Halve it, halve it, halve it. That sounds like logarithmic time. So where does the extra n hide?",
+      "tts_normalized_text": "Halve it, halve it, halve it. That sounds like logarithmic time. So where does the extra n hide?",
+      "new_visual_element": "ROLE HOOK · BrutalistHesitantWriter revises the naive rule.",
+      "approval_status": "approved",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "BrutalistHesitantWriter",
+          "props": {
+            "text": "Halving means log time…\nDoesn't it?\nWhere does the extra n hide?",
+            "face": "serif",
+            "fontSize": 78,
+            "lineSpacing": 1.18,
+            "align": "left",
+            "ink": "#000000",
+            "accent": "#D55E00",
+            "bg": "#FAF9F5",
+            "seed": "6205"
+          },
+          "rendered": {
+            "out": "media/B0H.mp4",
+            "at": ""
+          }
+        }
+      },
+      "audio_file": "mp3/beat-B0H.mp3",
+      "actual_duration_s": 5.55,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B0H.mp4",
+        "filled_by": "media",
+        "at": "2026-08-30T13:11:26"
+      }
+    },
+    {
+      "beat_id": "B01",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 2,
+      "render": "manim",
+      "narration_text": "Start with four values: eight, three, six, two. Split until every piece has one value. Then merge three with eight, and two with six. The final merge compares two against three, then six against three, then six against eight: three comparisons.",
+      "tts_normalized_text": "Start with four values: eight, three, six, two. Split until every piece has one value. Then merge three with eight, and two with six. The final merge compares two against three, then six against three, then six against eight: three comparisons.",
+      "new_visual_element": "ROLE INSTANCE 1 · Four-item array splits and merges; comparison counter advances.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B01.mp3",
+      "actual_duration_s": 13.55,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B01.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T13:11:26"
+      }
+    },
+    {
+      "beat_id": "B02",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 3,
+      "render": "manim",
+      "narration_text": "Notice the shape. The lower merge level handles two pairs, together covering all four values. The upper merge handles one pair of lists, again covering all four. Halving created two levels, but each level still carried linear merge work.",
+      "tts_normalized_text": "Notice the shape. The lower merge level handles two pairs, together covering all four values. The upper merge handles one pair of lists, again covering all four. Halving created two levels, but each level still carried linear merge work.",
+      "new_visual_element": "ROLE INSTANCE 1 / TRANSFORM · Per-level coverage bars total four.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B02.mp3",
+      "actual_duration_s": 12.91,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B02.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T13:11:26"
+      }
+    },
+    {
+      "beat_id": "B03",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 4,
+      "render": "manim",
+      "narration_text": "Now double the input: eight, three, six, two, seven, one, five, four. The array becomes two groups of four, four groups of two, then eight singletons. Three levels appear because eight can be halved three times before reaching one.",
+      "tts_normalized_text": "Now double the input: eight, three, six, two, seven, one, five, four. The array becomes two groups of four, four groups of two, then eight singletons. Three levels appear because eight can be halved three times before reaching one.",
+      "new_visual_element": "ROLE INSTANCE 2 · Eight-item recursion tree unfolds through three levels.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B03.mp3",
+      "actual_duration_s": 12.67,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B03.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T13:11:26"
+      }
+    },
+    {
+      "beat_id": "B04",
+      "beat_type": "HOLD",
+      "scene_index": 5,
+      "render": "manim",
+      "narration_text": "Predict before the merges move: across one complete level, how many values can the merge loops inspect? Commit. Every list on that level is disjoint, yet together they contain all eight values. The answer is at most eight inspections, with at most seven key comparisons.",
+      "tts_normalized_text": "Predict before the merges move: across one complete level, how many values can the merge loops inspect? Commit. Every list on that level is disjoint, yet together they contain all eight values. The answer is at most eight inspections, with at most seven key comparisons.",
+      "new_visual_element": "ROLE PREDICT / INSTANCE 2 · Hold, then level counter reaches n items and at most n−1 comparisons.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B04.mp3",
+      "actual_duration_s": 15.06,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B04.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T13:11:26"
+      }
+    },
+    {
+      "beat_id": "B05",
+      "beat_type": "ZOOM",
+      "scene_index": 6,
+      "render": "manim",
+      "narration_text": "Now the structure has earned its license. Merge sort makes independent subproblems of the same type, each strictly smaller until a one-item base case; combining two sorted halves is linear. That motion lands the recurrence T of n equals two T of n over two, plus n.",
+      "tts_normalized_text": "Now the structure has earned its license. Merge sort makes independent subproblems of the same type, each strictly smaller until a one-item base case; combining two sorted halves is linear. That motion lands the recurrence T of n equals two T of n over two, plus n.",
+      "new_visual_element": "ROLE ABSTRACTION · Characteristics named; T(n)=2T(n/2)+n lands and operates.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B05.mp3",
+      "actual_duration_s": 15.4,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B05.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T13:11:26"
+      }
+    },
+    {
+      "beat_id": "B05A",
+      "beat_type": "HOLD",
+      "scene_index": 7,
+      "render": "manim",
+      "narration_text": "The left side is all work for size n. The right side is two half-size sorts plus one full-width merge. The equals sign claims those pieces account for the whole cost.",
+      "tts_normalized_text": "The left side is all work for size n. The right side is two half-size sorts plus one full-width merge. The equals sign claims those pieces account for the whole cost.",
+      "new_visual_element": "ROLE TANGENT · Zone 2: sides as sentences and equality as a claim.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B05A.mp3",
+      "actual_duration_s": 9.58,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B05A.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T13:11:26"
+      }
+    },
+    {
+      "beat_id": "B05B",
+      "beat_type": "HOLD",
+      "scene_index": 8,
+      "render": "manim",
+      "narration_text": "T is the cost function. n is the current input size. Two counts the recursive calls. Dividing by two gives each child's size. The final n is the linear combine work.",
+      "tts_normalized_text": "T is the cost function. n is the current input size. Two counts the recursive calls. Dividing by two gives each child's size. The final n is the linear combine work.",
+      "new_visual_element": "ROLE TANGENT · Zone 3: symbol, role, meaning, domain glossary.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B05B.mp3",
+      "actual_duration_s": 10.24,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B05B.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T13:11:26"
+      }
+    },
+    {
+      "beat_id": "B05C",
+      "beat_type": "HOLD",
+      "scene_index": 9,
+      "render": "manim",
+      "narration_text": "For n equals eight, the top call becomes two size-four sorts plus eight merge units. Each size-four call becomes two size-two sorts plus four units. Across any one depth, those combine terms add back to eight.",
+      "tts_normalized_text": "For n equals eight, the top call becomes two size-four sorts plus eight merge units. Each size-four call becomes two size-two sorts plus four units. Across any one depth, those combine terms add back to eight.",
+      "new_visual_element": "ROLE TANGENT · Zone 4: worked n=8 recurrence tree.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B05C.mp3",
+      "actual_duration_s": 12.22,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B05C.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T13:11:26"
+      }
+    },
+    {
+      "beat_id": "B05D",
+      "beat_type": "HOLD",
+      "scene_index": 10,
+      "render": "manim",
+      "narration_text": "This recurrence commits us to balanced, independent halves and linear merging. Change either fact and the conclusion may change. Here both hold, so return to the tree and count its levels.",
+      "tts_normalized_text": "This recurrence commits us to balanced, independent halves and linear merging. Change either fact and the conclusion may change. Here both hold, so return to the tree and count its levels.",
+      "new_visual_element": "ROLE TANGENT · Zone 5 and re-entry.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B05D.mp3",
+      "actual_duration_s": 10.43,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B05D.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T13:11:26"
+      }
+    },
+    {
+      "beat_id": "B06",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 11,
+      "render": "manim",
+      "narration_text": "The opening guess was half right. Halving gives log base two of n levels. But every level moves through n items while merging. Multiply level work by depth: n times log n. For eight items, that is eight units across three levels: twenty-four units in this accounting model.",
+      "tts_normalized_text": "The opening guess was half right. Halving gives log base two of n levels. But every level moves through n items while merging. Multiply level work by depth: n times log n. For eight items, that is eight units across three levels: twenty-four units in this accounting model.",
+      "new_visual_element": "ROLE PAYOFF · Same tree collapses to n × log n; hook resolved.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B06.mp3",
+      "actual_duration_s": 14.98,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B06.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T13:11:26"
+      }
+    },
+    {
+      "beat_id": "BVDT",
+      "beat_type": "RECAP",
+      "scene_index": 12,
+      "render": "remotion",
+      "narration_text": "Verdict: splitting creates logarithmic depth, merging creates linear work at every depth, and their product is n log n.",
+      "tts_normalized_text": "Verdict: splitting creates logarithmic depth, merging creates linear work at every depth, and their product is n log n.",
+      "new_visual_element": "ROLE VERDICT · ClaudeVerdictArtifact recap.",
+      "approval_status": "approved",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeVerdictArtifact",
+          "props": {
+            "artifactTitle": "Verdict",
+            "artifactHeading": "MERGE SORT IS n log n",
+            "artifactLines": [
+              "Splitting creates log n levels.",
+              "Merging touches n items at every level.",
+              "Same-type independent halves and linear combine license the recurrence."
+            ]
+          },
+          "rendered": {
+            "out": "media/BVDT.mp4",
+            "at": ""
+          }
+        }
+      },
+      "audio_file": "mp3/beat-BVDT.mp3",
+      "actual_duration_s": 6.98,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BVDT.mp4",
+        "filled_by": "media",
+        "at": "2026-08-30T13:11:26"
+      }
+    },
+    {
+      "beat_id": "BHTF",
+      "beat_type": "OUTRO",
+      "scene_index": 13,
+      "render": "remotion",
+      "narration_text": "Your turn: trace six values, count each merge level, and explain why logarithmic depth is not logarithmic total work. The master theorem is deliberately left for the next lesson.",
+      "tts_normalized_text": "Your turn: trace six values, count each merge level, and explain why logarithmic depth is not logarithmic total work. The master theorem is deliberately left for the next lesson.",
+      "new_visual_element": "ROLE BOUNDARY · ClaudeComposerAsk trace-partner prompt and module exercise.",
+      "approval_status": "approved",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Your turn.",
+            "topic": "TRACE THE LEVELS",
+            "segment": "DIVIDE AND CONQUER",
+            "command": "Trace [9,2,8,1,7,3]. Count merge work per level before writing the recurrence.",
+            "runningText": "Why doesn't log depth mean log total work?",
+            "output": [
+              "Draw every split",
+              "Predict every next comparison",
+              "Explain n work × log n levels"
+            ],
+            "folderLabel": "@NikBearBrown",
+            "modelLabel": "Opus 4.7",
+            "effortLabel": "High"
+          },
+          "rendered": {
+            "out": "media/BHTF.mp4",
+            "at": ""
+          }
+        }
+      },
+      "audio_file": "mp3/beat-BHTF.mp3",
+      "actual_duration_s": 10.56,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BHTF.mp4",
+        "filled_by": "media",
+        "at": "2026-08-30T13:11:26"
+      }
+    },
+    {
+      "beat_id": "BOUT",
+      "beat_type": "OUTRO",
+      "scene_index": 14,
+      "render": "remotion",
+      "narration_text": "Merge Sort: Where the n log n Work Hides.",
+      "tts_normalized_text": "Merge Sort: Where the n log n Work Hides.",
+      "new_visual_element": "ROLE OUTRO · ClaudeTitleOutro title re-read.",
+      "approval_status": "approved",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeTitleOutro",
+          "props": {
+            "title": "MERGE SORT",
+            "subtitle": "WHERE THE n log n WORK HIDES",
+            "handle": "@NikBearBrown",
+            "bg": "#FAF9F5",
+            "accent": "#009E73"
+          },
+          "rendered": {
+            "out": "media/BOUT.mp4",
+            "at": ""
+          }
+        }
+      },
+      "audio_file": "mp3/beat-BOUT.mp3",
+      "actual_duration_s": 3.18,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BOUT.mp4",
+        "filled_by": "media",
+        "at": "2026-08-30T13:11:26"
+      }
+    }
+  ]
+}
