@@ -1,0 +1,370 @@
+{
+  "$schema": "../../../../brutalist-art/skills/make/sketch-explainer/templates/beat_sheet.schema.json",
+  "metadata": {
+    "slug": "random-quickselect",
+    "title": "Randomized Quickselect: The Input Cannot Aim at a Coin",
+    "series": "INFO 6205 — Algorithms and Data Structures",
+    "chapter_number": 11,
+    "source": "Coursera_INFO_6205_Algorithms/Randomized_Algorithms; Divide_and_Conquer_Strategies/Divide_and_Conquer_Algorithms.md",
+    "engine": "kokoro",
+    "voice": "am_onyx",
+    "voice_kokoro": "am_onyx",
+    "palette": "eggshell-okabe-ito",
+    "style": "light",
+    "aspect_ratio": "16:9",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "voice_id": "am_onyx",
+    "accent_color": "#009E73",
+    "forbidden_color": "#FFFFFF",
+    "text_font": "EB Garamond",
+    "total_estimated_duration_seconds": 145,
+    "build": {
+      "at": "2026-08-30T14:21:43",
+      "cut": "master",
+      "filled": 12,
+      "of": 12,
+      "slates": [],
+      "skin_warnings": []
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "B00",
+      "beat_type": "INTRO",
+      "scene_index": 0,
+      "render": "remotion",
+      "narration_text": "",
+      "tts_normalized_text": "",
+      "estimated_duration_s": 8,
+      "actual_duration_s": 8,
+      "audio_file": null,
+      "new_visual_element": "ROLE COLD OPEN · ClaudeComposerAsk.",
+      "approval_status": "approved",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Namaste, Liam",
+            "topic": "RANDOMIZED QUICKSELECT · INFO 6205",
+            "segment": "RANDOMIZED ALGORITHMS",
+            "command": "Explain Quickselect — and why a fixed pivot rule can turn sorted input into a trap.",
+            "runningText": "reading Randomized_Algorithms and Divide_and_Conquer…",
+            "output": [
+              "Partition puts one pivot in its final place",
+              "Quickselect keeps only the side containing rank k",
+              "A fresh random pivot denies the input control of pivot rank"
+            ],
+            "folderLabel": "INFO 6205",
+            "modelLabel": "Claude"
+          },
+          "rendered": {
+            "out": "media/B00.mp4",
+            "at": ""
+          }
+        }
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B00.mp4",
+        "filled_by": "media",
+        "at": "2026-08-30T14:21:43"
+      }
+    },
+    {
+      "beat_id": "B0H",
+      "beat_type": "INTRO",
+      "scene_index": 1,
+      "render": "remotion",
+      "narration_text": "A sorted array should be easy. But always choosing the last pivot makes Quickselect crawl. Commit before we trace it: how can perfect order become the adversary?",
+      "tts_normalized_text": "A sorted array should be easy. But always choosing the last pivot makes Quickselect crawl. Commit before we trace it: how can perfect order become the adversary?",
+      "estimated_duration_s": 12,
+      "new_visual_element": "ROLE HOOK · BrutalistHesitantWriter; zero static card.",
+      "approval_status": "approved",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "BrutalistHesitantWriter",
+          "props": {
+            "text": "Sorted input is easy…\nso why does the last pivot\ncrawl?",
+            "face": "serif",
+            "fontSize": 78,
+            "lineSpacing": 1.18,
+            "align": "left",
+            "ink": "#000000",
+            "accent": "#D55E00",
+            "bg": "#FAF9F5",
+            "seed": "6205"
+          },
+          "rendered": {
+            "out": "media/B0H.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 9.24,
+      "audio_file": "mp3/beat-B0H.mp3",
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B0H.mp4",
+        "filled_by": "media",
+        "at": "2026-08-30T14:21:43"
+      }
+    },
+    {
+      "beat_id": "B01",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 2,
+      "render": "manim",
+      "narration_text": "Find the fourth-smallest value. On this sorted array, the last-element rule chooses nine, then eight, seven, six, and five. Each pivot is final, yet each step retains nearly everything before four finally lands.",
+      "tts_normalized_text": "Find the fourth-smallest value. On this sorted array, the last element rule chooses nine, then eight, seven, six, and five. Each pivot is final, yet each step retains nearly everything before four finally lands.",
+      "estimated_duration_s": 14,
+      "new_visual_element": "ROLE INSTANCE 1 · Full bad trace; active prefix and work count transform.",
+      "approval_status": "approved",
+      "actual_duration_s": 12.2,
+      "audio_file": "mp3/beat-B01.mp3",
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B01.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T14:21:43"
+      }
+    },
+    {
+      "beat_id": "B02",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 3,
+      "render": "manim",
+      "narration_text": "Reset the same input. Pivot five lands in position five, so rank four must be left. Pivot two lands second, so rank four is now second within the right remainder. Pivot four lands exactly where we need it.",
+      "tts_normalized_text": "Reset the same input. Pivot five lands in position five, so rank four must be left. Pivot two lands second, so rank four is now second within the right remainder. Pivot four lands exactly where we need it.",
+      "estimated_duration_s": 15,
+      "new_visual_element": "ROLE INSTANCE 2 · Balanced trace runs fully with rank adjustment visible.",
+      "approval_status": "approved",
+      "actual_duration_s": 12.2,
+      "audio_file": "mp3/beat-B02.mp3",
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B02.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T14:21:43"
+      }
+    },
+    {
+      "beat_id": "B03",
+      "beat_type": "HOLD",
+      "scene_index": 4,
+      "render": "manim",
+      "narration_text": "One more run. The first pivot is six, and we still want rank four. Before anything disappears, predict which partition survives and whether k changes.",
+      "tts_normalized_text": "One more run. The first pivot is six, and we still want rank four. Before anything disappears, predict which partition survives and whether k changes.",
+      "estimated_duration_s": 10,
+      "new_visual_element": "ROLE PREDICT · Partition holds under yellow fill-only question wash.",
+      "approval_status": "approved",
+      "actual_duration_s": 8.6,
+      "audio_file": "mp3/beat-B03.mp3",
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B03.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T14:21:43"
+      }
+    },
+    {
+      "beat_id": "B04",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 5,
+      "render": "manim",
+      "narration_text": "Because four is left of pivot rank six, discard six through nine and keep k equal to four. Pivot three then discards one through three, changes the local target to one, and pivot four finishes the trace.",
+      "tts_normalized_text": "Because four is left of pivot rank six, discard six through nine and keep k equal to four. Pivot three then discards one through three, changes the local target to one, and pivot four finishes the trace.",
+      "estimated_duration_s": 14,
+      "new_visual_element": "ROLE INSTANCE 3 / TRANSFORM · Retained side and local k transform twice.",
+      "approval_status": "approved",
+      "actual_duration_s": 12.22,
+      "audio_file": "mp3/beat-B04.mp3",
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B04.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T14:21:43"
+      }
+    },
+    {
+      "beat_id": "B05",
+      "beat_type": "ZOOM",
+      "scene_index": 6,
+      "render": "manim",
+      "narration_text": "Now the license is visible. Partition permanently fixes the pivot's rank. The target rank selects exactly one surviving side. And randomization makes the next pivot rank independent of how an adversary arranged the input.",
+      "tts_normalized_text": "Now the license is visible. Partition permanently fixes the pivot's rank. The target rank selects exactly one surviving side. And randomization makes the next pivot rank independent of how an adversary arranged the input.",
+      "estimated_duration_s": 14,
+      "new_visual_element": "ROLE ABSTRACTION · Three structural characteristics named after two instances.",
+      "approval_status": "approved",
+      "actual_duration_s": 12.99,
+      "audio_file": "mp3/beat-B05.mp3",
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B05.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T14:21:43"
+      }
+    },
+    {
+      "beat_id": "B06",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 7,
+      "render": "manim",
+      "narration_text": "Count inspected cells. The fixed rule touches nine, then eight, seven, six, five, and four: thirty-nine. Our balanced trace touches nine, four, then two: fifteen. Random pivots make that shrinking behavior linear on average, while an unlucky run can still be quadratic.",
+      "tts_normalized_text": "Count inspected cells. The fixed rule touches nine, then eight, seven, six, five, and four: thirty nine. Our balanced trace touches nine, four, then two: fifteen. Random pivots make that shrinking behavior linear on average, while an unlucky run can still be quadratic.",
+      "estimated_duration_s": 16,
+      "new_visual_element": "ROLE COMPLEXITY · Concrete work bars update; no landed recurrence.",
+      "approval_status": "approved",
+      "actual_duration_s": 15.32,
+      "audio_file": "mp3/beat-B06.mp3",
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B06.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T14:21:43"
+      }
+    },
+    {
+      "beat_id": "B07",
+      "beat_type": "ZOOM",
+      "scene_index": 8,
+      "render": "manim",
+      "narration_text": "Back to the sorted trap. A fixed last pivot lets the input aim every partition at an extreme. A fresh random pivot does not guarantee a good cut; it prevents the input from arranging a guaranteed bad one.",
+      "tts_normalized_text": "Back to the sorted trap. A fixed last pivot lets the input aim every partition at an extreme. A fresh random pivot does not guarantee a good cut; it prevents the input from arranging a guaranteed bad one.",
+      "estimated_duration_s": 13,
+      "new_visual_element": "ROLE PAYOFF · Same hook array contrasts adversary-controlled and coin-controlled rank.",
+      "approval_status": "approved",
+      "actual_duration_s": 11.8,
+      "audio_file": "mp3/beat-B07.mp3",
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B07.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T14:21:43"
+      }
+    },
+    {
+      "beat_id": "BVDT",
+      "beat_type": "CUT",
+      "scene_index": 9,
+      "render": "remotion",
+      "narration_text": "The verdict: partition makes the pivot final, rank keeps only one side, and a random pivot hides its rank from the input. Correctness is certain; linear time is expected, not guaranteed.",
+      "tts_normalized_text": "The verdict: partition makes the pivot final, rank keeps only one side, and a random pivot hides its rank from the input. Correctness is certain; linear time is expected, not guaranteed.",
+      "estimated_duration_s": 13,
+      "new_visual_element": "ROLE VERDICT · ClaudeVerdictArtifact.",
+      "approval_status": "approved",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeVerdictArtifact",
+          "props": {
+            "artifactTitle": "Verdict",
+            "artifactHeading": "The input cannot aim at a coin",
+            "artifactLines": [
+              "Partition permanently fixes one pivot rank",
+              "k selects one surviving partition",
+              "Random pivot rank is independent of input order",
+              "Correct always · linear in expectation"
+            ]
+          },
+          "rendered": {
+            "out": "media/BVDT.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 11.05,
+      "audio_file": "mp3/beat-BVDT.mp3",
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BVDT.mp4",
+        "filled_by": "media",
+        "at": "2026-08-30T14:21:43"
+      }
+    },
+    {
+      "beat_id": "BHTF",
+      "beat_type": "CUT",
+      "scene_index": 10,
+      "render": "remotion",
+      "narration_text": "Your turn. Trace the pivot tape seven, two, four; predict the surviving side each time, update the local rank, count inspections, then separate the correctness claim from the runtime claim.",
+      "tts_normalized_text": "Your turn. Trace the pivot tape seven, two, four; predict the surviving side each time, update the local rank, count inspections, then separate the correctness claim from the runtime claim.",
+      "estimated_duration_s": 13,
+      "new_visual_element": "ROLE BOUNDARY / YOUR TURN · ClaudeComposerAsk.",
+      "approval_status": "approved",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "command": "Your turn.",
+            "topic": "Trace randomized Quickselect.",
+            "segment": "INFO 6205 · Randomized Algorithms",
+            "greeting": "Claude, be my trace partner.",
+            "runningText": "Array [9,1,8,2,7,3,6,4,5] · k=4 · pivots 7,2,4",
+            "output": [
+              "Partition and mark the pivot's final rank",
+              "Predict the one side that survives",
+              "Separate correctness from expected runtime"
+            ],
+            "folderLabel": "INFO 6205",
+            "modelLabel": "Claude"
+          },
+          "rendered": {
+            "out": "media/BHTF.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 10.56,
+      "audio_file": "mp3/beat-BHTF.mp3",
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BHTF.mp4",
+        "filled_by": "media",
+        "at": "2026-08-30T14:21:43"
+      }
+    },
+    {
+      "beat_id": "BOUT",
+      "beat_type": "CUT",
+      "scene_index": 11,
+      "render": "remotion",
+      "narration_text": "Randomized Quickselect is not fast because every pivot is good. It is fast because the input cannot choose the pivot. Thanks for watching.",
+      "tts_normalized_text": "Randomized Quickselect is not fast because every pivot is good. It is fast because the input cannot choose the pivot. Thanks for watching.",
+      "estimated_duration_s": 10,
+      "new_visual_element": "ROLE OUTRO · ClaudeTitleOutro.",
+      "approval_status": "approved",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeTitleOutro",
+          "props": {
+            "title": "Randomized Quickselect",
+            "slug": "random-quickselect"
+          },
+          "rendered": {
+            "out": "media/BOUT.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 8.38,
+      "audio_file": "mp3/beat-BOUT.mp3",
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BOUT.mp4",
+        "filled_by": "media",
+        "at": "2026-08-30T14:21:43"
+      }
+    }
+  ]
+}
