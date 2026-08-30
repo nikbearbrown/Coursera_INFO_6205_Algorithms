@@ -1,0 +1,327 @@
+{
+  "$schema": "../../../../brutalist-art/skills/make/sketch-explainer/templates/beat_sheet.schema.json",
+  "metadata": {
+    "slug": "intractability-vertex-cover",
+    "title": "Vertex Cover: Why Twice Optimal Is a Promise",
+    "series": "INFO 6205 — Algorithms and Data Structures",
+    "chapter_number": 11,
+    "source": "Coursera_INFO_6205_Algorithms/Intractability + Approximation_Algorithms",
+    "engine": "kokoro",
+    "voice": "am_onyx",
+    "voice_kokoro": "am_onyx",
+    "palette": "eggshell-okabe-ito",
+    "style": "light",
+    "aspect_ratio": "16:9",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "voice_id": "am_onyx",
+    "accent_color": "#009E73",
+    "forbidden_color": "#FFFFFF",
+    "text_font": "EB Garamond",
+    "total_estimated_duration_seconds": 130,
+    "build": {
+      "at": "2026-08-30T14:05:45",
+      "cut": "master",
+      "filled": 11,
+      "of": 11,
+      "slates": [],
+      "skin_warnings": []
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "B00",
+      "beat_type": "INTRO",
+      "scene_index": 0,
+      "render": "remotion",
+      "narration_text": "",
+      "tts_normalized_text": "",
+      "estimated_duration_s": 12,
+      "actual_duration_s": 12,
+      "new_visual_element": "ROLE HOOK · BrutalistHesitantWriter; silent mystery, zero static card.",
+      "approval_status": "approved",
+      "audio_file": null,
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "BrutalistHesitantWriter",
+          "props": {
+            "text": "This greedy cover wastes a vertex.\nSo how can it still promise\ntwice optimal?",
+            "face": "serif",
+            "fontSize": 82,
+            "lineSpacing": 1.18,
+            "align": "left",
+            "ink": "#000000",
+            "accent": "#D55E00",
+            "bg": "#FAF9F5",
+            "seed": "6205"
+          },
+          "rendered": {
+            "out": "media/B00.mp4",
+            "at": ""
+          }
+        }
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B00.mp4",
+        "filled_by": "media",
+        "at": "2026-08-30T14:05:45"
+      }
+    },
+    {
+      "beat_id": "B01",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 1,
+      "render": "manim",
+      "narration_text": "On this four-leaf star, one center vertex covers every edge. Now choose any edge and take both endpoints. We return two vertices where optimum needs one.",
+      "tts_normalized_text": "On this four leaf star, one center vertex covers every edge. Now choose any edge and take both endpoints. We return two vertices where optimum needs one.",
+      "estimated_duration_s": 12,
+      "new_visual_element": "ROLE INSTANCE 1 · Star trace shows algorithm two versus optimum one.",
+      "approval_status": "approved",
+      "actual_duration_s": 9.13,
+      "audio_file": "mp3/beat-B01.mp3",
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B01.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T14:05:45"
+      }
+    },
+    {
+      "beat_id": "B02",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 2,
+      "render": "manim",
+      "narration_text": "Try a four-vertex path. Choose the middle edge, take both endpoints, and every edge disappears. This time two vertices are also optimal.",
+      "tts_normalized_text": "Try a four vertex path. Choose the middle edge, take both endpoints, and every edge disappears. This time two vertices are also optimal.",
+      "estimated_duration_s": 11,
+      "new_visual_element": "ROLE INSTANCE 2 · Path trace returns an exact cover of two.",
+      "approval_status": "approved",
+      "actual_duration_s": 8.36,
+      "audio_file": "mp3/beat-B02.mp3",
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B02.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T14:05:45"
+      }
+    },
+    {
+      "beat_id": "B03",
+      "beat_type": "HOLD",
+      "scene_index": 3,
+      "render": "manim",
+      "narration_text": "The same rule was exact once and twice optimal once. Before the proof, predict what property the edges chosen by the algorithm must share.",
+      "tts_normalized_text": "The same rule was exact once and twice optimal once. Before the proof, predict what property the edges chosen by the algorithm must share.",
+      "estimated_duration_s": 11,
+      "new_visual_element": "ROLE PREDICT · Two outcomes hold while question writes over yellow fill.",
+      "approval_status": "approved",
+      "actual_duration_s": 8.26,
+      "audio_file": "mp3/beat-B03.mp3",
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B03.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T14:05:45"
+      }
+    },
+    {
+      "beat_id": "B04",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 4,
+      "render": "manim",
+      "narration_text": "Run the star again. After choosing one edge, deleting every incident edge leaves nothing. On a larger graph, every later chosen edge is disjoint from the earlier ones.",
+      "tts_normalized_text": "Run the star again. After choosing one edge, deleting every incident edge leaves nothing. On a larger graph, every later chosen edge is disjoint from the earlier ones.",
+      "estimated_duration_s": 12,
+      "new_visual_element": "ROLE TRACE / TRANSFORM · Incident edges vanish; disjoint chosen edges persist.",
+      "approval_status": "approved",
+      "actual_duration_s": 9.77,
+      "audio_file": "mp3/beat-B04.mp3",
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B04.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T14:05:45"
+      }
+    },
+    {
+      "beat_id": "B05",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 5,
+      "render": "manim",
+      "narration_text": "Each chosen edge forces every possible cover to include at least one of its endpoints. Because chosen edges share no endpoints, those payments cannot be reused.",
+      "tts_normalized_text": "Each chosen edge forces every possible cover to include at least one of its endpoints. Because chosen edges share no endpoints, those payments cannot be reused.",
+      "estimated_duration_s": 12,
+      "new_visual_element": "ROLE INSTANCE / CERTIFICATE · Three disjoint edges drive a one-per-edge lower-bound ledger.",
+      "approval_status": "approved",
+      "actual_duration_s": 9.45,
+      "audio_file": "mp3/beat-B05.mp3",
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B05.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T14:05:45"
+      }
+    },
+    {
+      "beat_id": "B06",
+      "beat_type": "ZOOM",
+      "scene_index": 6,
+      "render": "manim",
+      "narration_text": "That is the license: the chosen edges form a maximal matching, and their disjointness is a lower-bound certificate. The algorithm pays two vertices for every one vertex optimum must pay.",
+      "tts_normalized_text": "That is the license: the chosen edges form a maximal matching, and their disjointness is a lower bound certificate. The algorithm pays two vertices for every one vertex optimum must pay.",
+      "estimated_duration_s": 14,
+      "new_visual_element": "ROLE ABSTRACTION · Characteristics maximal matching and disjoint lower-bound certificate named after instances.",
+      "approval_status": "approved",
+      "actual_duration_s": 11.43,
+      "audio_file": "mp3/beat-B06.mp3",
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B06.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T14:05:45"
+      }
+    },
+    {
+      "beat_id": "B07",
+      "beat_type": "ZOOM",
+      "scene_index": 7,
+      "render": "manim",
+      "narration_text": "Back at the star, the algorithm’s two vertices look wasteful, but the selected edge certifies optimum cannot use zero. Two is therefore the worst permitted multiple, not a guess.",
+      "tts_normalized_text": "Back at the star, the algorithm's two vertices look wasteful, but the selected edge certifies optimum cannot use zero. Two is therefore the worst permitted multiple, not a guess.",
+      "estimated_duration_s": 13,
+      "new_visual_element": "ROLE PAYOFF · Same hook star returns with numeric two-for-one ledger.",
+      "approval_status": "approved",
+      "actual_duration_s": 10.45,
+      "audio_file": "mp3/beat-B07.mp3",
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B07.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T14:05:45"
+      }
+    },
+    {
+      "beat_id": "BVDT",
+      "beat_type": "CUT",
+      "scene_index": 8,
+      "render": "remotion",
+      "narration_text": "The verdict: approximation replaces an unreachable exact promise with a checkable bound. Disjoint chosen edges certify the lower bound; taking both endpoints certifies coverage.",
+      "tts_normalized_text": "The verdict: approximation replaces an unreachable exact promise with a checkable bound. Disjoint chosen edges certify the lower bound; taking both endpoints certifies coverage.",
+      "estimated_duration_s": 12,
+      "new_visual_element": "ROLE VERDICT · ClaudeVerdictArtifact recap.",
+      "approval_status": "approved",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeVerdictArtifact",
+          "props": {
+            "artifactTitle": "Verdict",
+            "artifactHeading": "Two endpoints · one forced payment",
+            "artifactLines": [
+              "Chosen edges are disjoint",
+              "Every cover pays at least one per chosen edge",
+              "The algorithm pays two per chosen edge",
+              "Coverage plus a checkable factor-two bound"
+            ]
+          },
+          "rendered": {
+            "out": "media/BVDT.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 11.33,
+      "audio_file": "mp3/beat-BVDT.mp3",
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BVDT.mp4",
+        "filled_by": "media",
+        "at": "2026-08-30T14:05:45"
+      }
+    },
+    {
+      "beat_id": "BHTF",
+      "beat_type": "CUT",
+      "scene_index": 9,
+      "render": "remotion",
+      "narration_text": "Your turn. Trace the algorithm on a six-vertex graph, mark the chosen matching edges, then use them to prove both coverage and the factor-two guarantee.",
+      "tts_normalized_text": "Your turn. Trace the algorithm on a six vertex graph, mark the chosen matching edges, then use them to prove both coverage and the factor two guarantee.",
+      "estimated_duration_s": 12,
+      "new_visual_element": "ROLE BOUNDARY / YOUR TURN · ClaudeComposerAsk with trace-partner prompt.",
+      "approval_status": "approved",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "command": "Your turn.",
+            "topic": "Certify a vertex cover.",
+            "segment": "INFO 6205 · Intractability",
+            "greeting": "Claude, be my trace partner.",
+            "runningText": "Make me choose uncovered edges, track the matching, and prove the factor-two bound.",
+            "output": [
+              "Track chosen edges and vertices",
+              "Predict whether endpoints can repeat",
+              "Prove coverage and the lower bound"
+            ],
+            "folderLabel": "INFO 6205",
+            "modelLabel": "Claude"
+          },
+          "rendered": {
+            "out": "media/BHTF.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 8.94,
+      "audio_file": "mp3/beat-BHTF.mp3",
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BHTF.mp4",
+        "filled_by": "media",
+        "at": "2026-08-30T14:05:45"
+      }
+    },
+    {
+      "beat_id": "BOUT",
+      "beat_type": "CUT",
+      "scene_index": 10,
+      "render": "remotion",
+      "narration_text": "Vertex cover’s two-approximation is useful because every extra vertex is charged to a disjoint edge. Thanks for watching.",
+      "tts_normalized_text": "Vertex cover's two approximation is useful because every extra vertex is charged to a disjoint edge. Thanks for watching.",
+      "estimated_duration_s": 10,
+      "new_visual_element": "ROLE OUTRO · ClaudeTitleOutro.",
+      "approval_status": "approved",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeTitleOutro",
+          "props": {
+            "title": "Vertex Cover",
+            "subtitle": "Why twice optimal is a promise",
+            "handle": "INFO 6205 · Algorithms and Data Structures"
+          },
+          "rendered": {
+            "out": "media/BOUT.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 7.79,
+      "audio_file": "mp3/beat-BOUT.mp3",
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BOUT.mp4",
+        "filled_by": "media",
+        "at": "2026-08-30T14:05:45"
+      }
+    }
+  ]
+}
