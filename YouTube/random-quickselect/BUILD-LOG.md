@@ -14,5 +14,6 @@
 - Completion-law check: final `beat_sheet.json` mtime is 2026-08-30 14:21:38; final master mtime is 2026-08-30 14:22:01. The master is newer than the sheet, and the sheet was not touched after the final compile.
 - P6 description: wrote `random-quickselect-description.md` with the module, Your Turn question, and the full paste-able prompt verbatim.
 - P7 Drive delivery: PASS. `DELIVERY_6205` resolves to the Google Drive for Desktop course folder. Copied the 4K master and description into `DELIVERY_6205/random-quickselect/`; source and delivered master SHA-256 both equal `4db7e12c26ab15f86970489f730630b193f976a1d6387e624a2375faa0c1a652`.
+- P7b Git delivery: PASS. Added only the five explicit text artifacts under capitalized `YouTube/random-quickselect/`, committed them with the required film-artifacts message, rebased against `origin/main`, pushed, and verified the first push at `28bf1eb`.
 - YouTube: not uploaded or published.
 - Open items: none.
