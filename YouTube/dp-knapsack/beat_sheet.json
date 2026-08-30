@@ -1,0 +1,450 @@
+{
+  "metadata": {
+    "slug": "dp-knapsack",
+    "title": "0/1 Knapsack: When the Best-Looking Item Loses",
+    "series": "INFO 6205 — Algorithms and Data Structures",
+    "chapter_number": 6,
+    "source": "Coursera_INFO_6205_Algorithms/Dynamic_Programming/README.md; Introduction_to_Algorithms_Python_Notebooks/Ch_8_Dynammic_Programming.ipynb; Dynamic_Programming/Quiz_Questions.md",
+    "engine": "kokoro",
+    "voice": "am_onyx",
+    "voice_kokoro": "am_onyx",
+    "palette": "eggshell-okabe-ito",
+    "style": "light",
+    "aspect_ratio": "16:9",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "voice_id": "am_onyx",
+    "accent_color": "#009E73",
+    "forbidden_color": "#FFFFFF",
+    "text_font": "EB Garamond",
+    "total_estimated_duration_seconds": 300,
+    "build": {
+      "at": "2026-08-30T12:49:47",
+      "cut": "master",
+      "filled": 17,
+      "of": 17,
+      "slates": [],
+      "skin_warnings": []
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "B00",
+      "beat_type": "INTRO",
+      "scene_index": 0,
+      "render": "remotion",
+      "narration_text": "",
+      "tts_normalized_text": "",
+      "new_visual_element": "ROLE COLD OPEN · ClaudeComposerAsk types the mystery.",
+      "approval_status": "approved",
+      "actual_duration_s": 12,
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Namaste, Liam",
+            "topic": "0/1 KNAPSACK · INFO 6205",
+            "segment": "DYNAMIC PROGRAMMING",
+            "command": "Explain 0/1 knapsack — and why taking the best value-per-pound item can lose.",
+            "runningText": "reading Dynamic_Programming/README.md…",
+            "output": [
+              "Three indivisible items · capacity 50",
+              "Greedy packs value 160 — another pair reaches 220",
+              "DP asks every take-or-skip question exactly once"
+            ],
+            "folderLabel": "@NikBearBrown",
+            "modelLabel": "Opus 4.7",
+            "effortLabel": "High"
+          },
+          "rendered": {
+            "out": "media/B00.mp4",
+            "at": "2026-08-30T12:45:00"
+          }
+        }
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B00.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-08-30T12:49:47"
+      }
+    },
+    {
+      "beat_id": "B0H",
+      "beat_type": "INTRO",
+      "scene_index": 1,
+      "render": "remotion",
+      "narration_text": "Take the densest item first. That has to be optimal — right?",
+      "tts_normalized_text": "Take the densest item first. That has to be optimal — right?",
+      "new_visual_element": "ROLE HOOK · BrutalistHesitantWriter types and revises the naive rule.",
+      "approval_status": "approved",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "BrutalistHesitantWriter",
+          "props": {
+            "text": "Take the densest item first.\nThat has to be optimal…\nright?",
+            "face": "serif",
+            "fontSize": 82,
+            "lineSpacing": 1.18,
+            "align": "left",
+            "ink": "#000000",
+            "accent": "#D55E00",
+            "bg": "#FAF9F5",
+            "seed": "6205"
+          },
+          "rendered": {
+            "out": "media/B0H.mp4",
+            "at": "2026-08-30T12:45:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-B0H.mp3",
+      "actual_duration_s": 4.01,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B0H.mp4",
+        "filled_by": "remotion:BrutalistHesitantWriter",
+        "at": "2026-08-30T12:49:47"
+      }
+    },
+    {
+      "beat_id": "B01",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 2,
+      "render": "manim",
+      "narration_text": "Capacity fifty. Item A weighs ten and pays sixty. B weighs twenty and pays one hundred. C weighs thirty and pays one hundred twenty. Value per pound says A first, then B. The bag is full at weight thirty with value one hundred sixty, and C no longer fits.",
+      "tts_normalized_text": "Capacity fifty. Item A weighs ten and pays sixty. B weighs twenty and pays one hundred. C weighs thirty and pays one hundred twenty. Value per pound says A first, then B. The bag is full at weight thirty with value one hundred sixty, and C no longer fits.",
+      "new_visual_element": "ROLE INSTANCE 1 · Item cards and bag animate density-greedy A then B; C is rejected by remaining capacity.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B01.mp3",
+      "actual_duration_s": 14.17,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B01.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T12:49:47"
+      }
+    },
+    {
+      "beat_id": "B02",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 3,
+      "render": "manim",
+      "narration_text": "But remove those choices and try B with C. Their weights make exactly fifty, and their values make two hundred twenty. The locally densest item blocked the globally best pair. Greedy was not unlucky; zero-one knapsack has no greedy-choice property because items are indivisible.",
+      "tts_normalized_text": "But remove those choices and try B with C. Their weights make exactly fifty, and their values make two hundred twenty. The locally densest item blocked the globally best pair. Greedy was not unlucky; zero-one knapsack has no greedy-choice property because items are indivisible.",
+      "new_visual_element": "ROLE INSTANCE 1 / TRANSFORM · Same cards morph to B+C=220; greedy license explicitly absent.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B02.mp3",
+      "actual_duration_s": 15.96,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B02.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T12:49:47"
+      }
+    },
+    {
+      "beat_id": "B03",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 4,
+      "render": "manim",
+      "narration_text": "So ask smaller questions in a strict order. With only item A, capacities below ten stay zero; ten through twenty become sixty. Add B: capacity twenty compares keeping sixty with taking B from the empty zero-capacity answer. One hundred wins. Every cell is written once.",
+      "tts_normalized_text": "So ask smaller questions in a strict order. With only item A, capacities below ten stay zero; ten through twenty become sixty. Add B: capacity twenty compares keeping sixty with taking B from the empty zero-capacity answer. One hundred wins. Every cell is written once.",
+      "new_visual_element": "ROLE INSTANCE 2 · Split stage: item cards left, immutable rows for capacities 0–20 right.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B03.mp3",
+      "actual_duration_s": 15.89,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B03.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T12:49:47"
+      }
+    },
+    {
+      "beat_id": "B04",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 5,
+      "render": "manim",
+      "narration_text": "Now extend the same questions through capacity fifty. The B row reaches one hundred sixty at capacity thirty. Nothing in that finished row changes when C arrives; C gets a new row, built only from those smaller, permanent answers.",
+      "tts_normalized_text": "Now extend the same questions through capacity fifty. The B row reaches one hundred sixty at capacity thirty. Nothing in that finished row changes when C arrives; C gets a new row, built only from those smaller, permanent answers.",
+      "new_visual_element": "ROLE INSTANCE 2 · Full layer-indexed grid fills left-to-right; old ink remains untouched.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B04.mp3",
+      "actual_duration_s": 13.25,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B04.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T12:49:47"
+      }
+    },
+    {
+      "beat_id": "B05",
+      "beat_type": "HOLD",
+      "scene_index": 6,
+      "render": "manim",
+      "narration_text": "Here is the decisive cell: item C, capacity fifty. Keep the previous answer, one hundred sixty; or take C's one hundred twenty plus the best answer at remaining capacity twenty. Commit before it moves. That earlier answer is one hundred. Take gives two hundred twenty. It wins.",
+      "tts_normalized_text": "Here is the decisive cell: item C, capacity fifty. Keep the previous answer, one hundred sixty; or take C's one hundred twenty plus the best answer at remaining capacity twenty. Commit before it moves. That earlier answer is one hundred. Take gives two hundred twenty. It wins.",
+      "new_visual_element": "ROLE PREDICT · Held take/skip fork drives both the bag and cell (C,50), then lands 220.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B05.mp3",
+      "actual_duration_s": 15.27,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B05.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T12:49:47"
+      }
+    },
+    {
+      "beat_id": "B06",
+      "beat_type": "ZOOM",
+      "scene_index": 7,
+      "render": "manim",
+      "narration_text": "Now the structure has earned its name. A cell means the best value using only the first i items at capacity w. These subproblems have an ordering: fewer items and smaller capacities come first. They also have permanence: once that exact question is solved, its answer never changes as the problem grows. Each cell is solved exactly once. A rolling row may reuse storage, but it never re-solves an answer.",
+      "tts_normalized_text": "Now the structure has earned its name. A cell means the best value using only the first i items at capacity w. These subproblems have an ordering: fewer items and smaller capacities come first. They also have permanence: once that exact question is solved, its answer never changes as the problem grows. Each cell is solved exactly once. A rolling row may reuse storage, but it never re-solves an answer.",
+      "new_visual_element": "ROLE ABSTRACTION · Names dp[i,w], ORDERING and PERMANENCE; immutable grid collapses into rolling-row storage.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B06.mp3",
+      "actual_duration_s": 21.59,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B06.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T12:49:47"
+      }
+    },
+    {
+      "beat_id": "B07",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 8,
+      "render": "manim",
+      "narration_text": "The motion becomes one recurrence: the new cell is the larger of skipping the item, or taking its value plus the previous row at the remaining capacity.",
+      "tts_normalized_text": "The motion becomes one recurrence: the new cell is the larger of skipping the item, or taking its value plus the previous row at the remaining capacity.",
+      "new_visual_element": "ROLE ABSTRACTION · Knapsack recurrence lands and operates on table and item C.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B07.mp3",
+      "actual_duration_s": 8.92,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B07.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T12:49:47"
+      }
+    },
+    {
+      "beat_id": "B07A",
+      "beat_type": "HOLD",
+      "scene_index": 9,
+      "render": "manim",
+      "narration_text": "The left side is the best value for the first i items at capacity w. The right side compares skip with take. The equals sign claims the larger candidate must be exactly this cell's answer.",
+      "tts_normalized_text": "The left side is the best value for the first i items at capacity w. The right side compares skip with take. The equals sign claims the larger candidate must be exactly this cell's answer.",
+      "new_visual_element": "ROLE TANGENT zone 2 · LHS/RHS sentences and equals-as-claim; equation persists.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B07A.mp3",
+      "actual_duration_s": 11.14,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B07A.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T12:49:47"
+      }
+    },
+    {
+      "beat_id": "B07B",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 10,
+      "render": "manim",
+      "narration_text": "Here i is the item-count index, w is available capacity, v sub i is a fixed item value, w sub i is its fixed weight, and max chooses the larger candidate.",
+      "tts_normalized_text": "Here eye is the item-count index, double-you is available capacity, vee sub eye is a fixed item value, double-you sub eye is its fixed weight, and max chooses the larger candidate.",
+      "new_visual_element": "ROLE TANGENT zone 3 · Symbol, role, meaning, and domain glossary operates beside the table.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B07B.mp3",
+      "actual_duration_s": 10.71,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B07B.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T12:49:47"
+      }
+    },
+    {
+      "beat_id": "B07C",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 11,
+      "render": "manim",
+      "narration_text": "At item C and capacity fifty, skip is one hundred sixty. Take is the capacity-twenty answer, one hundred, plus C's one hundred twenty. Max chooses two hundred twenty, while the bag changes to B plus C.",
+      "tts_normalized_text": "At item C and capacity fifty, skip is one hundred sixty. Take is the capacity-twenty answer, one hundred, plus C's one hundred twenty. Max chooses two hundred twenty, while the bag changes to B plus C.",
+      "new_visual_element": "ROLE TANGENT zone 4 · max(160,100+120)=220 updates table and bag simultaneously.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B07C.mp3",
+      "actual_duration_s": 11.73,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B07C.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T12:49:47"
+      }
+    },
+    {
+      "beat_id": "B07D",
+      "beat_type": "HOLD",
+      "scene_index": 12,
+      "render": "manim",
+      "narration_text": "Every candidate comes from an earlier row, and every finished answer stays finished. That is ordering plus permanence. Now back to the bag.",
+      "tts_normalized_text": "Every candidate comes from an earlier row, and every finished answer stays finished. That is ordering plus permanence. Now back to the bag.",
+      "new_visual_element": "ROLE TANGENT zone 5 + re-entry · Dependencies point backward; completed row locks without changing.",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B07D.mp3",
+      "actual_duration_s": 7.85,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B07D.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T12:49:47"
+      }
+    },
+    {
+      "beat_id": "B08",
+      "beat_type": "ZOOM",
+      "scene_index": 13,
+      "render": "manim",
+      "narration_text": "The original mystery resolves on the same three items. Density-greedy returns A plus B, value one hundred sixty. Dynamic programming returns B plus C, value two hundred twenty. The table has n times W cells and constant work per cell, so this implementation takes order n W time and order n W space.",
+      "tts_normalized_text": "The original mystery resolves on the same three items. Density-greedy returns A plus B, value one hundred sixty. Dynamic programming returns B plus C, value two hundred twenty. The table has n times W cells and constant work per cell, so this implementation takes order n W time and order n W space.",
+      "new_visual_element": "ROLE PAYOFF · Same objects compare 160 versus 220; grid cell count becomes O(nW).",
+      "approval_status": "approved",
+      "audio_file": "mp3/beat-B08.mp3",
+      "actual_duration_s": 18.26,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B08.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T12:49:47"
+      }
+    },
+    {
+      "beat_id": "BVDT",
+      "beat_type": "CUT",
+      "scene_index": 14,
+      "render": "remotion",
+      "narration_text": "The verdict. Density-greedy loses because indivisible items do not offer a greedy-choice property. Knapsack earns dynamic programming through ordered optimal substructure and permanence. Every item-capacity question is solved once. At the decisive cell, skip gives one hundred sixty; take gives two hundred twenty.",
+      "tts_normalized_text": "The verdict. Density-greedy loses because indivisible items do not offer a greedy-choice property. Knapsack earns dynamic programming through ordered optimal substructure and permanence. Every item-capacity question is solved once. At the decisive cell, skip gives one hundred sixty; take gives two hundred twenty.",
+      "new_visual_element": "ROLE VERDICT · ClaudeVerdictArtifact recap.",
+      "approval_status": "approved",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeVerdictArtifact",
+          "props": {
+            "artifactTitle": "Verdict",
+            "artifactHeading": "0/1 Knapsack",
+            "artifactLines": [
+              "Density-greedy: A+B = 160 — locally tempting, globally wrong",
+              "Optimal set: B+C = 220 at capacity 50",
+              "DP license: ordered optimal substructure + permanence",
+              "Each (item count, capacity) cell is solved exactly once",
+              "Decisive fork: max(160, 100+120) = 220"
+            ]
+          },
+          "rendered": {
+            "out": "media/BVDT.mp4",
+            "at": "2026-08-30T12:45:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-BVDT.mp3",
+      "actual_duration_s": 17.47,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BVDT.mp4",
+        "filled_by": "remotion:ClaudeVerdictArtifact",
+        "at": "2026-08-30T12:49:47"
+      }
+    },
+    {
+      "beat_id": "BHTF",
+      "beat_type": "CUT",
+      "scene_index": 15,
+      "render": "remotion",
+      "narration_text": "Your turn. Which characteristics make a problem suitable for dynamic programming: optimal substructure, overlapping subproblems, local optimal choices, divide and conquer, or stored and reused subproblem solutions? Leave it unanswered. Then paste the full prompt from the description and predict every take-or-skip cell.",
+      "tts_normalized_text": "Your turn. Which characteristics make a problem suitable for dynamic programming: optimal substructure, overlapping subproblems, local optimal choices, divide and conquer, or stored and reused subproblem solutions? Leave it unanswered. Then paste the full prompt from the description and predict every take-or-skip cell.",
+      "new_visual_element": "ROLE BOUNDARY / YOUR TURN · Quiz rides Claude composer; full prompt in description.",
+      "approval_status": "approved",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Your turn.",
+            "topic": "0/1 KNAPSACK · HANDOFF",
+            "segment": "DYNAMIC PROGRAMMING",
+            "command": "Act as my trace partner: stop before every take-or-skip cell and make me predict it.",
+            "runningText": "Quiz: which characteristics make a problem suitable for dynamic programming?",
+            "output": [
+              "Use A=(10,60), B=(20,100), C=(30,120), capacity 50",
+              "Keep score without revealing the final set",
+              "Change one value, then test greedy again · full prompt in description"
+            ],
+            "folderLabel": "@NikBearBrown",
+            "modelLabel": "Opus 4.7",
+            "effortLabel": "High"
+          },
+          "rendered": {
+            "out": "media/BHTF.mp4",
+            "at": "2026-08-30T12:45:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-BHTF.mp3",
+      "actual_duration_s": 17.49,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BHTF.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-08-30T12:49:47"
+      }
+    },
+    {
+      "beat_id": "BOUT",
+      "beat_type": "CUT",
+      "scene_index": 16,
+      "render": "remotion",
+      "narration_text": "Zero-one knapsack: when the best-looking item loses. Thanks for watching.",
+      "tts_normalized_text": "Zero-one knapsack: when the best-looking item loses. Thanks for watching.",
+      "new_visual_element": "ROLE OUTRO · ClaudeTitleOutro title re-read.",
+      "approval_status": "approved",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeTitleOutro",
+          "props": {
+            "title": "0/1 Knapsack: When the Best-Looking Item Loses",
+            "handle": "@NikBearBrown",
+            "subline": ""
+          },
+          "rendered": {
+            "out": "media/BOUT.mp4",
+            "at": "2026-08-30T12:45:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-BOUT.mp3",
+      "actual_duration_s": 4.71,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BOUT.mp4",
+        "filled_by": "remotion:ClaudeTitleOutro",
+        "at": "2026-08-30T12:49:47"
+      }
+    }
+  ]
+}
