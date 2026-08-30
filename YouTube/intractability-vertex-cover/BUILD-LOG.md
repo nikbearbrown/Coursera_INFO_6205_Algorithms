@@ -15,5 +15,6 @@
 - Completion-law check: final `beat_sheet.json` mtime is 2026-08-30 14:05:43; final master mtime is 2026-08-30 14:06:04. The cut is newer than the sheet, and the sheet was not touched after final compile.
 - P6 description: wrote `intractability-vertex-cover-description.md` with the module, Your Turn question, and full paste-able prompt verbatim.
 - P7 Drive delivery: PASS. `DELIVERY_6205` is a live symlink to the Google Drive for Desktop course folder. Copied the 4K master and description into `DELIVERY_6205/intractability-vertex-cover/`; source and delivered SHA-256 both equal `c3d0d38c8bf9417c372161dae98a9b3f9109e01d9607b99b9e06cd96f7f4935f`.
+- P7b Git delivery: PASS. Explicit text paths only were committed and pushed to `origin/main`; film-artifact commit `7f45c35` is present on the remote. Rendered media, audio, frames, and transcript-corpus paths were not staged.
 - YouTube: not uploaded or published.
 - Open items: none.
