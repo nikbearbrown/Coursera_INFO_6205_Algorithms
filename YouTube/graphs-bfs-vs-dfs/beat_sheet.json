@@ -1,0 +1,344 @@
+{
+  "$schema": "../../../../brutalist-art/skills/make/sketch-explainer/templates/beat_sheet.schema.json",
+  "metadata": {
+    "slug": "graphs-bfs-vs-dfs",
+    "title": "BFS vs DFS: The Frontier Is the Algorithm",
+    "series": "INFO 6205 — Algorithms and Data Structures",
+    "chapter_number": 4,
+    "source": "Coursera_INFO_6205_Algorithms/Graphs_and_Graph_Search_Algorithms/Graph_Algorithms.md",
+    "engine": "kokoro",
+    "voice": "am_onyx",
+    "voice_kokoro": "am_onyx",
+    "palette": "eggshell-okabe-ito",
+    "style": "light",
+    "aspect_ratio": "16:9",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "voice_id": "am_onyx",
+    "accent_color": "#009E73",
+    "forbidden_color": "#FFFFFF",
+    "text_font": "EB Garamond",
+    "total_estimated_duration_seconds": 150,
+    "build": {
+      "at": "2026-08-30T13:51:36",
+      "cut": "master",
+      "filled": 12,
+      "of": 12,
+      "slates": [],
+      "skin_warnings": []
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "B00",
+      "beat_type": "INTRO",
+      "scene_index": 0,
+      "render": "remotion",
+      "narration_text": "",
+      "tts_normalized_text": "",
+      "estimated_duration_s": 8,
+      "actual_duration_s": 8,
+      "new_visual_element": "ROLE HOOK · BrutalistHesitantWriter; silent mystery question, zero static card.",
+      "approval_status": "approved",
+      "audio_file": null,
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "BrutalistHesitantWriter",
+          "props": {
+            "text": "Search is search?\nSame graph, same start…\nwhy does the frontier change the answer?",
+            "face": "serif",
+            "fontSize": 76,
+            "lineSpacing": 1.18,
+            "align": "left",
+            "ink": "#000000",
+            "accent": "#D55E00",
+            "bg": "#FAF9F5",
+            "seed": "6205"
+          },
+          "rendered": {
+            "out": "media/B00.mp4",
+            "at": ""
+          }
+        }
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B00.mp4",
+        "filled_by": "media",
+        "at": "2026-08-30T13:51:36"
+      }
+    },
+    {
+      "beat_id": "B01",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 1,
+      "render": "manim",
+      "narration_text": "Start at S. Breadth first removes the oldest frontier node, A, then B. The target T waits only two edges away, so it is reached before either deep branch.",
+      "tts_normalized_text": "Start at S. Breadth first removes the oldest frontier node, A, then B. The target T waits only two edges away, so it is reached before either deep branch.",
+      "estimated_duration_s": 12,
+      "new_visual_element": "ROLE INSTANCE 1 · Complete BFS trace; graph left, FIFO queue and visited order right.",
+      "approval_status": "approved",
+      "actual_duration_s": 9.05,
+      "audio_file": "mp3/beat-B01.mp3",
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B01.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T13:51:36"
+      }
+    },
+    {
+      "beat_id": "B02",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 2,
+      "render": "manim",
+      "narration_text": "Reset the same graph. Depth first removes the newest node, A, then C, then E, then F. It commits to one branch while the nearby target still waits.",
+      "tts_normalized_text": "Reset the same graph. Depth first removes the newest node, A, then C, then E, then F. It commits to one branch while the nearby target still waits.",
+      "estimated_duration_s": 13,
+      "new_visual_element": "ROLE INSTANCE 2 · Complete DFS trace; same graph, LIFO stack and visited order right.",
+      "approval_status": "approved",
+      "actual_duration_s": 8.45,
+      "audio_file": "mp3/beat-B02.mp3",
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B02.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T13:51:36"
+      }
+    },
+    {
+      "beat_id": "B03",
+      "beat_type": "HOLD",
+      "scene_index": 3,
+      "render": "manim",
+      "narration_text": "Freeze here: the frontier holds B and C. A queue removes B; a stack removes C. Which node reaches the target sooner? Commit before the containers move.",
+      "tts_normalized_text": "Freeze here: the frontier holds B and C. A queue removes B; a stack removes C. Which node reaches the target sooner? Commit before the containers move.",
+      "estimated_duration_s": 12,
+      "new_visual_element": "ROLE PREDICT · Held graph plus hai-simple write-on question over yellow fill-only wash.",
+      "approval_status": "approved",
+      "actual_duration_s": 9.32,
+      "audio_file": "mp3/beat-B03.mp3",
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B03.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T13:51:36"
+      }
+    },
+    {
+      "beat_id": "B04",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 4,
+      "render": "manim",
+      "narration_text": "Change only the container. FIFO pulls from the old end and visits B, then T. LIFO pulls from the new end and follows C, E, F before returning.",
+      "tts_normalized_text": "Change only the container. FIFO pulls from the old end and visits B, then T. LIFO pulls from the new end and follows C, E, F before returning.",
+      "estimated_duration_s": 13,
+      "new_visual_element": "ROLE TRANSFORM / TRACE · Queue morphs to stack while graph stays fixed; removal arrows move.",
+      "approval_status": "approved",
+      "actual_duration_s": 8.7,
+      "audio_file": "mp3/beat-B04.mp3",
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B04.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T13:51:36"
+      }
+    },
+    {
+      "beat_id": "B05",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 5,
+      "render": "manim",
+      "narration_text": "Try a wider graph. Breadth first empties every distance-one node before any distance-two node. Depth first still follows whichever branch was pushed last.",
+      "tts_normalized_text": "Try a wider graph. Breadth first empties every distance one node before any distance two node. Depth first still follows whichever branch was pushed last.",
+      "estimated_duration_s": 11,
+      "new_visual_element": "ROLE INSTANCE 3 · Parametrized wider graph runs with explicit distance and branch labels.",
+      "approval_status": "approved",
+      "actual_duration_s": 8.98,
+      "audio_file": "mp3/beat-B05.mp3",
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B05.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T13:51:36"
+      }
+    },
+    {
+      "beat_id": "B06",
+      "beat_type": "ZOOM",
+      "scene_index": 6,
+      "render": "manim",
+      "narration_text": "Now the licensing characteristic is visible: unweighted edges make each step equal, and FIFO keeps the frontier in just two adjacent distance layers, d and d plus one.",
+      "tts_normalized_text": "Now the licensing characteristic is visible: unweighted edges make each step equal, and first in first out keeps the frontier in just two adjacent distance layers, d and d plus one.",
+      "estimated_duration_s": 13,
+      "new_visual_element": "ROLE ABSTRACTION · Names unweighted equal-cost edges and FIFO two-layer frontier after three instances.",
+      "approval_status": "approved",
+      "actual_duration_s": 10.33,
+      "audio_file": "mp3/beat-B06.mp3",
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B06.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T13:51:36"
+      }
+    },
+    {
+      "beat_id": "B07",
+      "beat_type": "ACCUMULATE",
+      "scene_index": 7,
+      "render": "manim",
+      "narration_text": "Why can no shorter route appear later? Every node entering layer d plus one came from layer d, and the queue finishes layer d before removing anything deeper.",
+      "tts_normalized_text": "Why can no shorter route appear later? Every node entering layer d plus one came from layer d, and the queue finishes layer d before removing anything deeper.",
+      "estimated_duration_s": 12,
+      "new_visual_element": "ROLE INVARIANT / PROOF · Nodes flow from layer d to d plus one while FIFO drains the earlier layer.",
+      "approval_status": "approved",
+      "actual_duration_s": 9.34,
+      "audio_file": "mp3/beat-B07.mp3",
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B07.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T13:51:36"
+      }
+    },
+    {
+      "beat_id": "B08",
+      "beat_type": "ZOOM",
+      "scene_index": 8,
+      "render": "manim",
+      "narration_text": "Return to the opening graph. BFS reaches T after S, A, B; DFS reaches it after S, A, C, E, F, B. Same graph, different frontier, different promise.",
+      "tts_normalized_text": "Return to the opening graph. B F S reaches T after S, A, B; D F S reaches it after S, A, C, E, F, B. Same graph, different frontier, different promise.",
+      "estimated_duration_s": 13,
+      "new_visual_element": "ROLE PAYOFF · Hook graph returns with both explicit visit sequences and target positions.",
+      "approval_status": "approved",
+      "actual_duration_s": 9.75,
+      "audio_file": "mp3/beat-B08.mp3",
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B08.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-30T13:51:36"
+      }
+    },
+    {
+      "beat_id": "BVDT",
+      "beat_type": "CUT",
+      "scene_index": 9,
+      "render": "remotion",
+      "narration_text": "The verdict: queue means breadth and shortest unweighted distance. Stack means depth and a current path. Both traverse; only FIFO protects layers.",
+      "tts_normalized_text": "The verdict: queue means breadth and shortest unweighted distance. Stack means depth and a current path. Both traverse; only first in first out protects layers.",
+      "estimated_duration_s": 11,
+      "new_visual_element": "ROLE VERDICT · ClaudeVerdictArtifact recap from the film's graph and containers.",
+      "approval_status": "approved",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeVerdictArtifact",
+          "props": {
+            "artifactTitle": "BFS vs DFS",
+            "artifactHeading": "THE FRONTIER IS THE ALGORITHM",
+            "artifactLines": [
+              "QUEUE  →  breadth  →  shortest unweighted distance",
+              "STACK  →  depth  →  current path",
+              "Both traverse. Only FIFO protects layers."
+            ]
+          },
+          "rendered": {
+            "out": "media/BVDT.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 8.81,
+      "audio_file": "mp3/beat-BVDT.mp3",
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BVDT.mp4",
+        "filled_by": "media",
+        "at": "2026-08-30T13:51:36"
+      }
+    },
+    {
+      "beat_id": "BHTF",
+      "beat_type": "CUT",
+      "scene_index": 10,
+      "render": "remotion",
+      "narration_text": "Your turn. Trace both searches from S with alphabetical neighbors. Predict every removal and record the frontier after each step. The full trace-partner prompt is in the description.",
+      "tts_normalized_text": "Your turn. Trace both searches from S with alphabetical neighbors. Predict every removal and record the frontier after each step. The full trace partner prompt is in the description.",
+      "estimated_duration_s": 13,
+      "new_visual_element": "ROLE BOUNDARY / YOUR TURN · ClaudeComposerAsk; unanswered trace exercise, zero static card.",
+      "approval_status": "approved",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "command": "Your turn.",
+            "topic": "Trace BFS and DFS",
+            "segment": "PREDICT EACH REMOVAL",
+            "greeting": "Use the opening graph.",
+            "runningText": "Start at S. What leaves next?",
+            "output": [
+              "FIFO, then LIFO",
+              "Show each frontier"
+            ],
+            "folderLabel": "INFO 6205",
+            "modelLabel": "Claude"
+          },
+          "rendered": {
+            "out": "media/BHTF.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 10.22,
+      "audio_file": "mp3/beat-BHTF.mp3",
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BHTF.mp4",
+        "filled_by": "media",
+        "at": "2026-08-30T13:51:36"
+      }
+    },
+    {
+      "beat_id": "BOUT",
+      "beat_type": "CUT",
+      "scene_index": 11,
+      "render": "remotion",
+      "narration_text": "The frontier is the algorithm. Thanks for watching BFS versus DFS.",
+      "tts_normalized_text": "The frontier is the algorithm. Thanks for watching B F S versus D F S.",
+      "estimated_duration_s": 7,
+      "new_visual_element": "ROLE OUTRO · ClaudeTitleOutro title reread and locked handle.",
+      "approval_status": "approved",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeTitleOutro",
+          "props": {
+            "title": "BFS vs DFS",
+            "slug": "graphs-bfs-vs-dfs",
+            "mascotAnimation": "wave"
+          },
+          "rendered": {
+            "out": "media/BOUT.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 4.97,
+      "audio_file": "mp3/beat-BOUT.mp3",
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BOUT.mp4",
+        "filled_by": "media",
+        "at": "2026-08-30T13:51:36"
+      }
+    }
+  ]
+}
