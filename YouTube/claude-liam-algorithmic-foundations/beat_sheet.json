@@ -1,0 +1,1063 @@
+{
+  "metadata": {
+    "slug": "claude-liam-algorithmic-foundations",
+    "title": "Algorithmic Foundations",
+    "topic": "ALGORITHMIC FOUNDATIONS — WHY ALGORITHMS STILL MATTER WHEN HARDWARE IS FAST",
+    "purpose": "Course-intro film for INFO 6205 Module 1 ('The Importance of Algorithms'), not one of the 11 ai-algorithms roster deepers. Spine question: your laptop is a million times faster than Dijkstra's 1959 machine, so why does shortest-path still need a course, and why did five researchers beat Dijkstra's algorithm last year? Five acts: what an algorithm actually is (the book's own finite/definite/effective definition + the quadratic paradox), the receipts (Grotschel/PCAST with its own caveat, Sherry-Thompson's uneven-progress data), what this course is NOT (Leiserson's 60,000x table is mostly engineering, not algorithms), the queue is the algorithm (book's sequence/selection/iteration + a light BFS touch, Facebook's estimated-not-computed 4.57 hops), and still open (AlphaDev/AlphaEvolve, Dijkstra dethroned in theory in 2025 but still winning in practice benchmarks).",
+    "register": "Teardown",
+    "channel": "claude-liam",
+    "skill": "deep-explainer (course-intro variant, no pantry/vox quota)",
+    "book": "Coursera_INFO_6205_Algorithms",
+    "series": "INFO 6205 — Algorithms",
+    "course_credit": "Nik Bear Brown · Northeastern University",
+    "voice_default": "am_onyx",
+    "engine_default": "kokoro",
+    "sources": [
+      "SOURCES.md"
+    ],
+    "factcheck": "FACTCHECK.md",
+    "description_blurb": "Your laptop is roughly a million times faster than the machine Edsger Dijkstra used in 1959. So why does the shortest-path problem still need a whole course, and why did five researchers prove Dijkstra's algorithm is not optimal last year, only to lose to it on the benchmark? This film is the Module 1 case for INFO 6205, Algorithms: what an algorithm actually is, why faster hardware can make a bad algorithm run slower, an honest look at when algorithmic progress happens and when it stalls, and why most eye-popping speedups you'll read about are engineering, not a new algorithm. Includes the frontier of research happening right now.",
+    "hashtags": [
+      "#Algorithms",
+      "#ComputerScience",
+      "#INFO6205",
+      "#Dijkstra",
+      "#NortheasternUniversity",
+      "#NikBearBrown"
+    ],
+    "chapters": [],
+    "build": {
+      "at": "2026-09-09T13:38:44",
+      "cut": "master",
+      "filled": 24,
+      "of": 24,
+      "slates": [],
+      "skin_warnings": []
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "B00",
+      "act": "cold open",
+      "lane": "BOOKEND",
+      "estimated_duration_s": 20,
+      "narration_text": "Sawubona — this is Liam, in for Bear. Welcome to INFO 6205, Algorithms, with Professor Nik Bear Brown at Northeastern University. Your laptop is roughly a million times faster than the machine Edsger Dijkstra used in 1959. So why does the shortest path problem still need a whole course — and why did five researchers beat Dijkstra's algorithm just last year?",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B00.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "drawon",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "composer: greeting, the ask types, answer lines land"
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Sawubona, Liam.",
+            "topic": "ALGORITHMIC FOUNDATIONS",
+            "segment": "INFO 6205 — Algorithms · Nik Bear Brown · Northeastern University",
+            "command": "Explain why a course on algorithms still matters when hardware keeps getting faster.",
+            "runningText": "a million times faster, and still not enough…",
+            "folderLabel": "@NikBearBrown",
+            "modelLabel": "Fable 5",
+            "effortLabel": "High",
+            "answerLines": [
+              "Speed doesn't replace thinking",
+              "Half of all algorithm families barely improve — some transform everything",
+              "Dijkstra's algorithm was beaten. It still wins in practice."
+            ]
+          },
+          "rendered": {
+            "out": "media/B00.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 21.29,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B00.mp4",
+        "filled_by": "media",
+        "at": "2026-09-09T13:38:44"
+      }
+    },
+    {
+      "beat_id": "B01",
+      "act": "title",
+      "lane": "CARD",
+      "estimated_duration_s": 6,
+      "narration_text": "Algorithmic Foundations — Module One, INFO 6205.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B01.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "drawon",
+        "show": [
+          {
+            "at": 0.1,
+            "event": "course-branded title card"
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeSegmentCard",
+          "props": {
+            "actLabel": "INFO 6205 — Algorithms",
+            "title": "Algorithmic Foundations"
+          },
+          "rendered": {
+            "out": "media/B01.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 5.01,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B01.mp4",
+        "filled_by": "media",
+        "at": "2026-09-09T13:38:44"
+      }
+    },
+    {
+      "beat_id": "B02",
+      "act": "overview",
+      "lane": "BOOKEND",
+      "estimated_duration_s": 16,
+      "narration_text": "Three questions this module. Does raw speed replace the need to think? What does this course actually study, once you strip away the hype? And is the single most famous algorithm in computer science... still the best one?",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B02.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "drawon",
+        "show": [
+          {
+            "at": 0.1,
+            "event": "hesitant writer types the three-question plan"
+          }
+        ],
+        "remotion": {
+          "pattern": "BrutalistHesitantWriter",
+          "props": {
+            "text": "Does speed replace thinking?\nWhat does this course study?\nIs the most famous algorithm\nstill the best one?",
+            "face": "serif",
+            "fontSize": 76,
+            "lineSpacing": 1.18,
+            "align": "left",
+            "ink": "#3D3929",
+            "accent": "#A64A24",
+            "bg": "#FAF9F5",
+            "seed": "algorithmic-foundations"
+          },
+          "rendered": {
+            "out": "media/B02.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 11.48,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B02.mp4",
+        "filled_by": "media",
+        "at": "2026-09-09T13:38:44"
+      }
+    },
+    {
+      "beat_id": "B03",
+      "act": "ACT ONE — WHAT AN ALGORITHM ACTUALLY IS",
+      "lane": "CARD",
+      "estimated_duration_s": 5,
+      "narration_text": "Act one. What an algorithm actually is.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B03.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "drawon",
+        "show": [
+          {
+            "at": 0.1,
+            "event": "segment card: ACT ONE"
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeSegmentCard",
+          "props": {
+            "actLabel": "Act One",
+            "title": "What an Algorithm Actually Is"
+          },
+          "rendered": {
+            "out": "media/B03.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 2.9,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B03.mp4",
+        "filled_by": "media",
+        "at": "2026-09-09T13:38:44"
+      }
+    },
+    {
+      "beat_id": "B04",
+      "act": "ACT ONE — WHAT AN ALGORITHM ACTUALLY IS",
+      "lane": "MANIM",
+      "estimated_duration_s": 18,
+      "narration_text": "The course textbook is precise about this. An algorithm is a finite sequence of well-defined steps: it takes an input, produces an output, and every step must be definite — unambiguous — and effective — simple enough to execute exactly. Skip any one of those, and you don't have an algorithm. You have a suggestion.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B04.mp3",
+      "graphic": {
+        "manim": "B04_FiveProperties",
+        "scene_class": "B04_FiveProperties",
+        "engine": "manim"
+      },
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "graphic": {
+          "manim": "B04_FiveProperties",
+          "scene_class": "B04_FiveProperties",
+          "engine": "manim",
+          "production_viz": {
+            "label": "cream canvas",
+            "mechanic": "Cream canvas. LEFT: an INPUT chip flows into a boxed pipeline of five labeled slots (INPUT, OUTPUT, FINITE, DEFINITE, EFFECTIVE) that light up one at a time as each is named; a SUGGESTION chip appears struck-through beside the pipeline once all five are lit. RIGHT: a ledger listing each property with a one-word gloss (finite: stops; definite: unambiguous; effective: executable by hand), rows landing in sync with the left lights. Footer serif: 'skip one, and it is not an algorithm'."
+          }
+        },
+        "show": [
+          {
+            "at": 0.2,
+            "event": "five property slots light in sequence; ledger rows land; suggestion chip strikes"
+          }
+        ]
+      },
+      "actual_duration_s": 16.9,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B04.mp4",
+        "filled_by": "manim",
+        "at": "2026-09-09T13:38:44"
+      }
+    },
+    {
+      "beat_id": "B05",
+      "act": "ACT ONE — WHAT AN ALGORITHM ACTUALLY IS",
+      "lane": "MANIM",
+      "estimated_duration_s": 17,
+      "narration_text": "Here's why that precision matters. Five growth rates, side by side: constant, logarithmic, linear, linearithmic, quadratic. On paper they all look like lines near the origin. Let the input grow, and they tear apart — quadratic doesn't just lose, it loses by a factor that gets worse forever.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B05.mp3",
+      "graphic": {
+        "manim": "B05_GrowthCurves",
+        "scene_class": "B05_GrowthCurves",
+        "engine": "manim"
+      },
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "graphic": {
+          "manim": "B05_GrowthCurves",
+          "scene_class": "B05_GrowthCurves",
+          "engine": "manim",
+          "production_viz": {
+            "label": "cream canvas",
+            "mechanic": "Cream canvas. LEFT: five curves drawn on one set of axes (constant flat, log shallow, linear diagonal, n-log-n slightly bowed, quadratic steep) all bunched near the origin, then the x-axis extends and the quadratic curve visibly tears away from the rest, exiting the frame top. RIGHT: a ledger listing the five names in growth order with their Big-O labels, the QUADRATIC row highlighted in deep terracotta as its curve exits. Footer serif: 'near the origin, they all look the same'."
+          }
+        },
+        "show": [
+          {
+            "at": 0.2,
+            "event": "five curves draw bunched; axis extends; quadratic tears away and exits top"
+          }
+        ]
+      },
+      "actual_duration_s": 16.53,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B05.mp4",
+        "filled_by": "manim",
+        "at": "2026-09-09T13:38:44"
+      }
+    },
+    {
+      "beat_id": "B06",
+      "act": "ACT ONE — WHAT AN ALGORITHM ACTUALLY IS",
+      "lane": "REMOTION",
+      "estimated_duration_s": 19,
+      "narration_text": "Computer scientist Robert Sedgewick calls this the quadratic paradox. Buy hardware ten times faster, and memory grows too — so you feed it ten times more data. Run an O of N squared algorithm on that bigger dataset, and the new machine finishes ten times SLOWER than the old one did on the smaller job. Speed didn't save you. It raised the stakes.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B06.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "drawon",
+        "show": [
+          {
+            "at": 0.1,
+            "event": "two panels: the naive upgrade vs the quadratic reality"
+          }
+        ],
+        "remotion": {
+          "pattern": "DeckPattern",
+          "props": {
+            "pattern": "divergence",
+            "title": "The quadratic paradox",
+            "left": {
+              "label": "10x hardware",
+              "note": "Ten times faster — so ten times more data fits."
+            },
+            "right": {
+              "label": "O(N²) algorithm",
+              "note": "Ten times the data, O(N²) cost — 10x SLOWER."
+            },
+            "sparkLine": "speed didn't save you — Sedgewick, 2011"
+          },
+          "rendered": {
+            "out": "media/B06.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 18.69,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B06.mp4",
+        "filled_by": "media",
+        "at": "2026-09-09T13:38:44"
+      }
+    },
+    {
+      "beat_id": "B07",
+      "act": "ACT TWO — THE RECEIPTS",
+      "lane": "CARD",
+      "estimated_duration_s": 5,
+      "narration_text": "Act two. The receipts — and the honest version.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B07.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "drawon",
+        "show": [
+          {
+            "at": 0.1,
+            "event": "segment card: ACT TWO"
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeSegmentCard",
+          "props": {
+            "actLabel": "Act Two",
+            "title": "The Receipts"
+          },
+          "rendered": {
+            "out": "media/B07.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 3.01,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B07.mp4",
+        "filled_by": "media",
+        "at": "2026-09-09T13:38:44"
+      }
+    },
+    {
+      "beat_id": "B08",
+      "act": "ACT TWO — THE RECEIPTS",
+      "lane": "MANIM",
+      "estimated_duration_s": 26,
+      "narration_text": "A 2010 White House science advisory report tracked a production-planning problem solved by linear programming from 1988 to 2003: about eighty-two years of computing collapsed into roughly one minute. Hardware accounted for around a thousand-fold of that. Algorithms accounted for the other forty-three thousand-fold. One caveat, stated here because a student will find it in one search: the solver company's own accounting of the same era gives different numbers. The order of magnitude holds. The precise figure is one estimate, not a measurement.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B08.mp3",
+      "graphic": {
+        "manim": "B08_Receipts",
+        "scene_class": "B08_Receipts",
+        "engine": "manim"
+      },
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "graphic": {
+          "manim": "B08_Receipts",
+          "scene_class": "B08_Receipts",
+          "engine": "manim",
+          "production_viz": {
+            "label": "cream canvas",
+            "mechanic": "Cream canvas. LEFT: two stacked horizontal bars grow from a shared origin — HARDWARE bar reaching a short length labeled '~1,000x', ALGORITHMS bar reaching far longer labeled '~43,000x'; a bracket spans both summing to '82 years -> ~1 minute'. RIGHT: a small ledger note in mono, muted: 'PCAST 2010, p.71' then a second row fading in below: 'solver vendor's own figures differ — order of magnitude, not a measurement' in deep terracotta. Footer serif: 'the honest version, stated on screen'."
+          }
+        },
+        "show": [
+          {
+            "at": 0.2,
+            "event": "two bars grow with the bracket; caveat row fades in"
+          }
+        ]
+      },
+      "actual_duration_s": 31.08,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B08.mp4",
+        "filled_by": "manim",
+        "at": "2026-09-09T13:38:44"
+      }
+    },
+    {
+      "beat_id": "B09",
+      "act": "ACT TWO — THE RECEIPTS",
+      "lane": "MANIM",
+      "estimated_duration_s": 20,
+      "narration_text": "The most honest data on this comes from a 2021 study spanning fifty-seven textbooks and over eleven hundred papers, across a hundred and thirteen algorithm families. About half of them barely improved, ever. Thirteen percent transformed their field completely. And for problems at real scale, thirty to forty-five percent improved as fast as computer chips did. Algorithms matter — just not evenly, and not on schedule.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B09.mp3",
+      "graphic": {
+        "manim": "B09_UnevenProgress",
+        "scene_class": "B09_UnevenProgress",
+        "engine": "manim"
+      },
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "graphic": {
+          "manim": "B09_UnevenProgress",
+          "scene_class": "B09_UnevenProgress",
+          "engine": "manim",
+          "production_viz": {
+            "label": "cream canvas",
+            "mechanic": "Cream canvas. LEFT: a row of 113 small dots (algorithm families) sorted into three shaded bands as they fade in — a wide 'barely improved' band (~half, ~56 dots), a thin 'transformative' band in deep terracotta (~13%, ~15 dots), a mid band 'matched Moore's Law' (~35%, ~42 dots). RIGHT: ledger with the three percentages printed as they light (about half, 13%, 30-45%) plus source line '113 families, 57 textbooks, 1,137+ papers'. Footer serif: 'not evenly, and not on schedule'."
+          }
+        },
+        "show": [
+          {
+            "at": 0.2,
+            "event": "113 dots sort into three shaded bands; ledger percentages land"
+          }
+        ]
+      },
+      "actual_duration_s": 21.93,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B09.mp4",
+        "filled_by": "manim",
+        "at": "2026-09-09T13:38:44"
+      }
+    },
+    {
+      "beat_id": "B10",
+      "act": "ACT THREE — WHAT THIS COURSE IS NOT",
+      "lane": "CARD",
+      "estimated_duration_s": 5,
+      "narration_text": "Act three. What this course is not.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B10.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "drawon",
+        "show": [
+          {
+            "at": 0.1,
+            "event": "segment card: ACT THREE"
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeSegmentCard",
+          "props": {
+            "actLabel": "Act Three",
+            "title": "What This Course Is Not"
+          },
+          "rendered": {
+            "out": "media/B10.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 2.52,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B10.mp4",
+        "filled_by": "media",
+        "at": "2026-09-09T13:38:44"
+      }
+    },
+    {
+      "beat_id": "B11",
+      "act": "ACT THREE — WHAT THIS COURSE IS NOT",
+      "lane": "MANIM",
+      "estimated_duration_s": 23,
+      "narration_text": "One more number, and then a line I want you to remember. Multiplying two large matrices in raw Python: about seven hours. Switch to Java: eleven times faster. To C: forty-seven times faster than the Python you started with. Now tailor the code to the actual hardware — parallel cores, memory layout, vector instructions — and it finishes in well under a second. More than sixty thousand times faster than where it started.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B11.mp3",
+      "graphic": {
+        "manim": "B11_MatMulWaterfall",
+        "scene_class": "B11_MatMulWaterfall",
+        "engine": "manim"
+      },
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "graphic": {
+          "manim": "B11_MatMulWaterfall",
+          "scene_class": "B11_MatMulWaterfall",
+          "engine": "manim",
+          "production_viz": {
+            "label": "cream canvas",
+            "mechanic": "Cream canvas. LEFT: a descending waterfall of four bars shrinking left to right — PYTHON (full height, '~7 hrs'), JAVA (shorter, '11x'), C ('47x vs Python'), HARDWARE-TAILORED (a sliver, '<1 sec'); each bar lands with its label as narration reaches it. RIGHT: a running multiplier ledger climbing 1x -> 11x -> 47x -> '60,000x+', the final row landing in deep terracotta. Footer serif: 'more than sixty thousand times faster'."
+          }
+        },
+        "show": [
+          {
+            "at": 0.2,
+            "event": "four bars shrink in sequence; multiplier ledger climbs to 60,000x+"
+          }
+        ]
+      },
+      "actual_duration_s": 21.97,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B11.mp4",
+        "filled_by": "manim",
+        "at": "2026-09-09T13:38:44"
+      }
+    },
+    {
+      "beat_id": "B12",
+      "act": "ACT THREE — WHAT THIS COURSE IS NOT",
+      "lane": "REMOTION",
+      "estimated_duration_s": 20,
+      "narration_text": "Almost none of that sixty-thousand-fold gain came from a better algorithm. It came from better engineering of the SAME algorithm. That distinction is the whole spine of this course: a constant factor is how fast you did one thing. A complexity class is whether you can still do it at all once the input gets big. This course is mostly not about the first one.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B12.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "drawon",
+        "show": [
+          {
+            "at": 0.1,
+            "event": "two panels: constant factor vs complexity class"
+          }
+        ],
+        "remotion": {
+          "pattern": "DeckPattern",
+          "props": {
+            "pattern": "divergence",
+            "title": "The line this course draws",
+            "left": {
+              "label": "Constant factor",
+              "note": "How fast you did ONE thing. Language, hardware, engineering."
+            },
+            "right": {
+              "label": "Complexity class",
+              "note": "Whether you can still do it at scale."
+            },
+            "sparkLine": "this course is mostly the second one"
+          },
+          "rendered": {
+            "out": "media/B12.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 18.86,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B12.mp4",
+        "filled_by": "media",
+        "at": "2026-09-09T13:38:44"
+      }
+    },
+    {
+      "beat_id": "B13",
+      "act": "ACT FOUR — THE QUEUE IS THE ALGORITHM",
+      "lane": "CARD",
+      "estimated_duration_s": 5,
+      "narration_text": "Act four. The queue is the algorithm.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B13.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "drawon",
+        "show": [
+          {
+            "at": 0.1,
+            "event": "segment card: ACT FOUR"
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeSegmentCard",
+          "props": {
+            "actLabel": "Act Four",
+            "title": "The Queue Is the Algorithm"
+          },
+          "rendered": {
+            "out": "media/B13.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 2.71,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B13.mp4",
+        "filled_by": "media",
+        "at": "2026-09-09T13:38:44"
+      }
+    },
+    {
+      "beat_id": "B14",
+      "act": "ACT FOUR — THE QUEUE IS THE ALGORITHM",
+      "lane": "MANIM",
+      "estimated_duration_s": 18,
+      "narration_text": "Every algorithm you'll write this term is built from three moves, straight from the text. A sequence of steps in order. A selection that branches on a condition. And an iteration that repeats until something is true. Summing an array, finding a maximum, computing a factorial — three toy problems, the same three moves underneath.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B14.mp3",
+      "graphic": {
+        "manim": "B14_ThreeMoves",
+        "scene_class": "B14_ThreeMoves",
+        "engine": "manim"
+      },
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "graphic": {
+          "manim": "B14_ThreeMoves",
+          "scene_class": "B14_ThreeMoves",
+          "engine": "manim",
+          "production_viz": {
+            "label": "cream canvas",
+            "mechanic": "Cream canvas. Three small mono code fragments arranged left-to-right, each with a one-line label above: SEQUENCE ('sum an array'), SELECTION ('max of two'), ITERATION ('factorial'); each fragment's active line highlights in sequence as its label is spoken, a tiny arrow icon (straight, fork, loop) drawn above each. RIGHT ledger stays empty — the three fragments ARE the content. Footer serif: 'three moves, every algorithm'."
+          }
+        },
+        "show": [
+          {
+            "at": 0.2,
+            "event": "three code fragments draw in sequence with their arrow icons"
+          }
+        ]
+      },
+      "actual_duration_s": 16.98,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B14.mp4",
+        "filled_by": "manim",
+        "at": "2026-09-09T13:38:44"
+      }
+    },
+    {
+      "beat_id": "B15",
+      "act": "ACT FOUR — THE QUEUE IS THE ALGORITHM",
+      "lane": "MANIM",
+      "estimated_duration_s": 19,
+      "narration_text": "Put those moves on a grid, and you get your first real assignment: breadth-first search. A queue, not a stack, expands the map one full ring of distance at a time — like a ripple, never a tunnel. Why that guarantees the shortest route, move by move, is its own film. Here, just watch the shape: it never skips a layer.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B15.mp3",
+      "graphic": {
+        "manim": "B15_FrontierRipple",
+        "scene_class": "B15_FrontierRipple",
+        "engine": "manim"
+      },
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "graphic": {
+          "manim": "B15_FrontierRipple",
+          "scene_class": "B15_FrontierRipple",
+          "engine": "manim",
+          "production_viz": {
+            "label": "cream canvas",
+            "mechanic": "Cream canvas. LEFT: a small grid of cells; a source cell fills ink, then successive rings of adjacent cells fill one full ring at a time (ripple, never skipping a ring), a QUEUE label with FIFO arrows beside it. RIGHT: a small note card, deep terracotta underline: 'full proof: the BFS vs DFS film' — a cross-reference, not a repeat. Footer serif: 'never skips a layer'."
+          }
+        },
+        "show": [
+          {
+            "at": 0.2,
+            "event": "grid rings fill one full ring at a time; cross-reference note fades in"
+          }
+        ]
+      },
+      "actual_duration_s": 16.19,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B15.mp4",
+        "filled_by": "manim",
+        "at": "2026-09-09T13:38:44"
+      }
+    },
+    {
+      "beat_id": "B16",
+      "act": "ACT FOUR — THE QUEUE IS THE ALGORITHM",
+      "lane": "REMOTION",
+      "estimated_duration_s": 21,
+      "narration_text": "Now scale that idea past what any exact search can afford. In 2016, Facebook measured the average distance between one point six billion accounts at four point five seven hops. They did not run that search from every account — nobody could. They estimated it. Knowing when the exact algorithm is unaffordable, and reaching for an approximate one instead, is itself an algorithmic decision.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B16.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "drawon",
+        "show": [
+          {
+            "at": 0.1,
+            "event": "two panels: exact BFS vs estimated at scale"
+          }
+        ],
+        "remotion": {
+          "pattern": "DeckPattern",
+          "props": {
+            "pattern": "divergence",
+            "title": "When exact is unaffordable",
+            "left": {
+              "label": "Exact BFS",
+              "note": "Correct — but 1.6 billion accounts is unaffordable."
+            },
+            "right": {
+              "label": "Estimated",
+              "note": "4.57 average hops, computed without running that search once."
+            },
+            "sparkLine": "an algorithmic decision, not a shortcut — Facebook, 2016"
+          },
+          "rendered": {
+            "out": "media/B16.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 21.33,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B16.mp4",
+        "filled_by": "media",
+        "at": "2026-09-09T13:38:44"
+      }
+    },
+    {
+      "beat_id": "B17",
+      "act": "ACT FIVE — STILL OPEN",
+      "lane": "CARD",
+      "estimated_duration_s": 5,
+      "narration_text": "Act five. Still open.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B17.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "drawon",
+        "show": [
+          {
+            "at": 0.1,
+            "event": "segment card: ACT FIVE"
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeSegmentCard",
+          "props": {
+            "actLabel": "Act Five",
+            "title": "Still Open"
+          },
+          "rendered": {
+            "out": "media/B17.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 2.13,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B17.mp4",
+        "filled_by": "media",
+        "at": "2026-09-09T13:38:44"
+      }
+    },
+    {
+      "beat_id": "B18",
+      "act": "ACT FIVE — STILL OPEN",
+      "lane": "REMOTION",
+      "estimated_duration_s": 24,
+      "narration_text": "This isn't finished, historical material. In 2023, a reinforcement-learning system found a faster sorting routine for short sequences — up to seventy percent faster there, about one point seven percent faster once you average across everything — and it shipped inside a major C-plus-plus library. In 2025, a similar system shaved one multiplication off a matrix trick that had stood since 1969, and a scheduling tweak it found now saves Google roughly zero point seven percent of its entire fleet's compute.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B18.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "drawon",
+        "show": [
+          {
+            "at": 0.1,
+            "event": "two panels: AlphaDev and AlphaEvolve, quick real numbers"
+          }
+        ],
+        "remotion": {
+          "pattern": "DeckPattern",
+          "props": {
+            "pattern": "divergence",
+            "title": "The field is still moving",
+            "left": {
+              "label": "AlphaDev, 2023",
+              "note": "Faster short sorts — shipped in libc++; ~1.7% faster end-to-end."
+            },
+            "right": {
+              "label": "AlphaEvolve, 2025",
+              "note": "One fewer multiplication since 1969; ~0.7% of Google's fleet compute saved."
+            },
+            "sparkLine": "not settled history — last year and this year"
+          },
+          "rendered": {
+            "out": "media/B18.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 30.57,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B18.mp4",
+        "filled_by": "media",
+        "at": "2026-09-09T13:38:44"
+      }
+    },
+    {
+      "beat_id": "B19",
+      "act": "ACT FIVE — STILL OPEN",
+      "lane": "MANIM",
+      "estimated_duration_s": 18,
+      "narration_text": "And the algorithm you'll meet by name most often this term: in 1959, Edsger Dijkstra published the classic shortest-path method. In 2025, five researchers proved it is not optimal — a new algorithm provably beats its bound on sparse graphs. First time that bound had moved in over sixty years.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B19.mp3",
+      "graphic": {
+        "manim": "B19_DijkstraTimeline",
+        "scene_class": "B19_DijkstraTimeline",
+        "engine": "manim"
+      },
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "graphic": {
+          "manim": "B19_DijkstraTimeline",
+          "scene_class": "B19_DijkstraTimeline",
+          "engine": "manim",
+          "production_viz": {
+            "label": "cream canvas",
+            "mechanic": "Cream canvas. A horizontal timeline from 1959 to 2025; a chip lands at 1959 labeled 'DIJKSTRA' with its bound 'O(m + n log n)'; the line stays flat and unmarked for decades (a faint dashed run); a second chip lands at 2025 labeled 'DUAN ET AL' with a NEW bound in deep terracotta, a small 'STOC BEST PAPER' tag beneath it. Footer serif: 'first time this bound moved in 60+ years'."
+          }
+        },
+        "show": [
+          {
+            "at": 0.2,
+            "event": "1959 chip lands; timeline holds flat; 2025 chip lands with the new bound"
+          }
+        ]
+      },
+      "actual_duration_s": 17.77,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B19.mp4",
+        "filled_by": "manim",
+        "at": "2026-09-09T13:38:44"
+      }
+    },
+    {
+      "beat_id": "B20",
+      "act": "ACT FIVE — STILL OPEN",
+      "lane": "MANIM",
+      "estimated_duration_s": 21,
+      "narration_text": "Here's the twist, and it's the whole course in one sentence. An independent team built that faster algorithm and raced it against a well-tuned Dijkstra. Dijkstra won. The proof is real. The victory, so far, is only on paper. Which of those two results should an engineer actually care about? You don't have to answer that today. You have to be able to ask it.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B20.mp3",
+      "graphic": {
+        "manim": "B20_ProofVsPractice",
+        "scene_class": "B20_ProofVsPractice",
+        "engine": "manim"
+      },
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "graphic": {
+          "manim": "B20_ProofVsPractice",
+          "scene_class": "B20_ProofVsPractice",
+          "engine": "manim",
+          "production_viz": {
+            "label": "cream canvas",
+            "mechanic": "Cream canvas. LEFT: a small trophy-like checkmark over 'THE PROOF' with the new bound restated. RIGHT: a two-runner race track — a DIJKSTRA chip and a NEW-ALGORITHM chip race across a benchmark bar; DIJKSTRA crosses first, its chip landing on a WINS marker in deep terracotta while the new-algorithm chip trails. Footer serif: 'real proof. real benchmark. two different answers.'"
+          }
+        },
+        "show": [
+          {
+            "at": 0.2,
+            "event": "the proof checkmark lands; the benchmark race runs; Dijkstra crosses first"
+          }
+        ]
+      },
+      "actual_duration_s": 18.28,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B20.mp4",
+        "filled_by": "manim",
+        "at": "2026-09-09T13:38:44"
+      }
+    },
+    {
+      "beat_id": "BVDT",
+      "act": "closing",
+      "lane": "BOOKEND",
+      "estimated_duration_s": 24,
+      "narration_text": "The verdict. An algorithm is finite, definite, effective — or it's a suggestion, not a method. Speed doesn't erase complexity: the quadratic paradox makes faster hardware backfire on the wrong algorithm. Algorithmic gains are real but uneven — half of all families barely move. Most jaw-dropping speedups you'll read about are engineering, not a new algorithm — know the difference. And even Dijkstra's algorithm was dethroned in 2025 — and still wins the practical race.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-BVDT.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "drawon",
+        "show": [
+          {
+            "at": 0.1,
+            "event": "verdict lines land with the narration"
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeVerdictArtifact",
+          "props": {
+            "artifactTitle": "Algorithmic Foundations",
+            "artifactHeading": "What this module actually established",
+            "artifactLines": [
+              "An algorithm is finite, definite, effective — or it's a suggestion, not a method.",
+              "Speed doesn't erase complexity — the quadratic paradox makes faster hardware backfire.",
+              "Algorithmic gains are real but uneven — half of all families barely move.",
+              "Most jaw-dropping speedups are engineering, not a new algorithm — know the difference.",
+              "Even Dijkstra's algorithm was dethroned in 2025 — and still wins the practical race."
+            ]
+          },
+          "rendered": {
+            "out": "media/BVDT.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 25.51,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BVDT.mp4",
+        "filled_by": "media",
+        "at": "2026-09-09T13:38:44"
+      }
+    },
+    {
+      "beat_id": "BHTF",
+      "act": "closing",
+      "lane": "BOOKEND",
+      "estimated_duration_s": 22,
+      "narration_text": "Your turn. Open a Claude session and paste this: pick a computational problem you actually use — routing, search, a recommendation feed — and ask Claude to help you find its input, its required output, and one assumption that would break if the problem got a thousand times bigger. Then ask what changes if you can only afford an approximate answer.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-BHTF.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "drawon",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "Your turn composer; the prompt types as Liam reads it"
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Your turn.",
+            "topic": "YOUR TURN — STRESS-TEST A REAL PROBLEM",
+            "segment": "Algorithmic Foundations",
+            "command": "Pick a real computational problem I use. Identify its input, its output, one assumption that breaks at 1000x scale, and what changes if only an approximate answer is affordable.",
+            "runningText": "paste this into Claude…",
+            "folderLabel": "@NikBearBrown",
+            "modelLabel": "Fable 5",
+            "effortLabel": "Low"
+          },
+          "rendered": {
+            "out": "media/BHTF.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 18.24,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BHTF.mp4",
+        "filled_by": "media",
+        "at": "2026-09-09T13:38:44"
+      }
+    },
+    {
+      "beat_id": "BOUT",
+      "act": "closing",
+      "lane": "BOOKEND",
+      "estimated_duration_s": 10,
+      "narration_text": "Algorithmic Foundations. INFO 6205, Algorithms, with Professor Nik Bear Brown at Northeastern University. Liam, in for Bear.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-BOUT.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "drawon",
+        "show": [
+          {
+            "at": 0.1,
+            "event": "title outro"
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeTitleOutro",
+          "props": {
+            "title": "Algorithmic Foundations",
+            "slug": "claude-liam-algorithmic-foundations",
+            "handle": "@NikBearBrown",
+            "subline": ""
+          },
+          "rendered": {
+            "out": "media/BOUT.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 9.49,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BOUT.mp4",
+        "filled_by": "media",
+        "at": "2026-09-09T13:38:44"
+      }
+    }
+  ]
+}
